@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class TipologiaEsame {
 	
-	private Long codice;
+	private Long id;
 	private String nome;
 	private String descr;
 	private Map<String,String> prerequisti;
@@ -12,11 +12,11 @@ public class TipologiaEsame {
 	
 	
 	
-	public Long getCodice() {
-		return codice;
+	public Long getId() {
+		return id;
 	}
-	public void setCodice(Long codice) {
-		this.codice = codice;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getNome() {
 		return nome;
