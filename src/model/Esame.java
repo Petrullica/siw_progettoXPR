@@ -2,7 +2,6 @@ package model;
 
 import java.util.Date;
 
-
 public class Esame {
 	private TipologiaEsame tipologia;
 	private Long id;
@@ -10,16 +9,13 @@ public class Esame {
 	private Medico medico;
 	private Date dataPrenotazione;
 	private Date dataEsame;
-	
+
 	public Esame(){}
-	
+
 	public Esame(TipologiaEsame tipologia){
 		this.tipologia = tipologia;
 	}
-	
-	
-	
-	
+
 	public Long getId() {
 		return id;
 	}

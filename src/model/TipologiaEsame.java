@@ -10,8 +10,6 @@ public class TipologiaEsame {
 	private Map<String,String> prerequisti;
 	private Map<String,String> indicatoriRequisiti;
 	
-	
-	
 	public Long getId() {
 		return id;
 	}
@@ -42,7 +40,4 @@ public class TipologiaEsame {
 	public void setIndicatoriRequisiti(Map<String, String> indicatoriRequisiti) {
 		this.indicatoriRequisiti = indicatoriRequisiti;
 	}
-	
-	
-
 }

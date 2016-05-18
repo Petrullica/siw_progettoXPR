@@ -8,7 +8,7 @@ public class Medico {
 	private String nome;
 	private String cognome;
 	private List<Esame> esami;
-//daffhvhwg
+
 	public Medico(){
 	}
 
@@ -40,7 +40,6 @@ public class Medico {
 		this.esami = esami;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Medico [nome=" + nome + ", cognome=" + cognome + "]";
@@ -53,6 +52,4 @@ public class Medico {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
 }

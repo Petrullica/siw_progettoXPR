@@ -1,11 +1,11 @@
 package model;
 
-public class Paziente {
+public class Amministratore {
 
 	private String nome, cognome;
 	private Long id;
-
-	public Paziente(String nome, String cognome) {
+	
+	public Amministratore(String nome, String cognome) {
 		this.nome = nome;
 		this.cognome = cognome;
 	}
