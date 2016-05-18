@@ -2,7 +2,6 @@ package model;
 
 import java.util.Date;
 
-import temporanea_siw.TipologiaEsame;
 
 public class Esame {
 	private TipologiaEsame tipologia;
