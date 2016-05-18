@@ -7,5 +7,6 @@ public class Paziente {
 	public Paziente(String nome, String cognome) {
 		this.nome = nome;
 		this.cognome = cognome;
+		//dvsdbsd
 	}
 }
