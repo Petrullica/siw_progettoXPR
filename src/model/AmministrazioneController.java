@@ -37,6 +37,7 @@ public class AmministrazioneController {
 	
 	public void inserisciRisultatiEsame(){
 		//TODO
+<<<<<<< HEAD
 	}
 	
 	public void creaNuovoEsame(Long codice, Medico medico, Date dataPrenotazione) {
@@ -57,3 +58,9 @@ public class AmministrazioneController {
 		this.clinica.getEsamiDaSvolgere().put(this.esameCorrente.getCodice(), this.esameCorrente);
 	}
 }
+=======
+	}
+	
+
+}
+>>>>>>> refs/remotes/origin/master

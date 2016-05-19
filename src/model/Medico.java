@@ -7,7 +7,7 @@ public class Medico {
 	private Long id;
 	private String nome;
 	private String cognome;
-	private List<Esame> esami;
+	private LinkedList<Esame> esami;
 
 	public Medico(){
 	}
@@ -16,7 +16,7 @@ public class Medico {
 
 		this.nome = nome;
 		this.cognome = cognome;
-		this.setEsami(new LinkedList<>());
+		this.esami = new LinkedList<>();
 	}
 
 	public String getNome() {
@@ -32,12 +32,12 @@ public class Medico {
 		this.cognome = cognome;
 	}
 
-	public List<Esame> getEsami() {
+	public LinkedList<Esame> getEsami() {
 		return esami;
 	}
 
-	public void setEsami(List<Esame> esami) {
-		this.esami = esami;
+	public void setEsami(LinkedList<Esame> linkedList) {
+		this.esami = linkedList;
 	}
 
 	@Override

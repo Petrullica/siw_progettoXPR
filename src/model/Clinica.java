@@ -51,6 +51,7 @@ public class Clinica {
 		this.esamiDaSvolgere.remove(esame.getId());
 	}
 
+<<<<<<< HEAD
 	public Map<Long, Esame> getEsamiDaSvolgere() {
 		return esamiDaSvolgere;
 	}
@@ -66,4 +67,7 @@ public class Clinica {
 	public Map<Long, Medico> getMedici() {
 		return medici;
 	}
+=======
+
+>>>>>>> refs/remotes/origin/master
 }
