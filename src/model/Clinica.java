@@ -14,7 +14,7 @@ public class Clinica {
 	private Map<Long, Esame> esamiSvolti;
 	private Map<String, TipologiaEsame> tipologieEsami;
 	private Map<Long,Paziente> pazienti;
-	private Map<String, Medico> medici; // la key è nome.concat(cognome)
+	private Map<Long, Medico> medici; // la key è nome.concat(cognome)
 
 	public Clinica() {
 		this.esamiDaSvolgere = new HashMap<>();
@@ -51,34 +51,4 @@ public class Clinica {
 		this.esamiDaSvolgere.remove(esame.getId());
 	}
 
-	public Map<Long, Esame> getEsamiDaSvolgere() {
-		return esamiDaSvolgere;
-	}
-	public void setEsamiDaSvolgere(Map<Long, Esame> esamiDaSvolgere) {
-		this.esamiDaSvolgere = esamiDaSvolgere;
-	}
-	public Map<Long, Esame> getEsamiSvolti() {
-		return esamiSvolti;
-	}
-	public void setEsamiSvolti(Map<Long, Esame> esamiSvolti) {
-		this.esamiSvolti = esamiSvolti;
-	}
-	public Map<String, TipologiaEsame> getTipologieEsami() {
-		return tipologieEsami;
-	}
-	public void setTipologieEsami(Map<String, TipologiaEsame> tipologieEsami) {
-		this.tipologieEsami = tipologieEsami;
-	}
-	public Map<Long, Paziente> getPazienti() {
-		return pazienti;
-	}
-	public void setPazienti(Map<Long, Paziente> pazienti) {
-		this.pazienti = pazienti;
-	}
-	public Map<String, Medico> getMedici() {
-		return medici;
-	}
-	public void setMedici(Map<String, Medico> medici) {
-		this.medici = medici;
-	}
 }
