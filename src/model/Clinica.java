@@ -6,12 +6,15 @@ import java.util.List;
 import java.util.Map;
 
 public class Clinica {
+	/*Ho cancellato i get e i set, poi li riaggiungiamo se servono
+	 * ho inserito: mostraEsamiDaSvolgere; trovaEsameDaSvolgere;
+	 * */
 
 	private Map<Long, Esame> esamiDaSvolgere;
 	private Map<Long, Esame> esamiSvolti;
-	private Map<Long, TipologiaEsame> tipologieEsami;
+	private Map<String, TipologiaEsame> tipologieEsami;
 	private Map<Long,Paziente> pazienti;
-	private Map<Long, Medico> medici;
+	private Map<String, Medico> medici; // la key è nome.concat(cognome)
 
 	public Clinica() {
 		this.esamiDaSvolgere = new HashMap<>();
@@ -21,12 +24,18 @@ public class Clinica {
 		this.medici = new HashMap<>();
 	}
 
+	public List<Esame> mostraEsamiDaSvolgere(){
+		return new LinkedList<>(esamiDaSvolgere.values());
+	}
+	public Esame trovaEsameDaSvolgere(Long key){
+		return esamiDaSvolgere.get(key);
+	}
 	public List<TipologiaEsame> mostraTipologie(){
 		return new LinkedList<>(tipologieEsami.values());
 	}
 
-	public TipologiaEsame trovaTipologia(Long key){
-		return tipologieEsami.get(key);
+	public TipologiaEsame trovaTipologia(String nomeTipologia){
+		return tipologieEsami.get(nomeTipologia);
 	}
 
 	public Paziente trovaPaziente(Long key){
@@ -34,7 +43,7 @@ public class Clinica {
 	}
 
 	public void aggiungiTipologia(TipologiaEsame tipologiaEsame){
-		this.tipologieEsami.put(tipologiaEsame.getId(), tipologiaEsame);
+		this.tipologieEsami.put(tipologiaEsame.getNome(), tipologiaEsame);
 	}
 
 	public void SpostaEsame(Esame esame){
@@ -54,10 +63,10 @@ public class Clinica {
 	public void setEsamiSvolti(Map<Long, Esame> esamiSvolti) {
 		this.esamiSvolti = esamiSvolti;
 	}
-	public Map<Long, TipologiaEsame> getTipologieEsami() {
+	public Map<String, TipologiaEsame> getTipologieEsami() {
 		return tipologieEsami;
 	}
-	public void setTipologieEsami(Map<Long, TipologiaEsame> tipologieEsami) {
+	public void setTipologieEsami(Map<String, TipologiaEsame> tipologieEsami) {
 		this.tipologieEsami = tipologieEsami;
 	}
 	public Map<Long, Paziente> getPazienti() {
@@ -66,10 +75,10 @@ public class Clinica {
 	public void setPazienti(Map<Long, Paziente> pazienti) {
 		this.pazienti = pazienti;
 	}
-	public Map<Long, Medico> getMedici() {
+	public Map<String, Medico> getMedici() {
 		return medici;
 	}
-	public void setMedici(Map<Long, Medico> medici) {
+	public void setMedici(Map<String, Medico> medici) {
 		this.medici = medici;
 	}
 }

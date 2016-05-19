@@ -1,14 +1,16 @@
 package model;
 
 import java.util.Date;
+import java.util.Map;
 
 public class Esame {
 	private TipologiaEsame tipologia;
-	private Long id;
+	private Long id, codice;
 	private Paziente paziente;
 	private Medico medico;
 	private Date dataPrenotazione;
 	private Date dataEsame;
+	private Map<String,String> risultati;
 
 	public Esame(){}
 
