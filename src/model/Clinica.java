@@ -14,7 +14,7 @@ public class Clinica {
 	private Map<Long, Esame> esamiSvolti;
 	private Map<String, TipologiaEsame> tipologieEsami;
 	private Map<Long,Paziente> pazienti;
-	private Map<Long, Medico> medici; // la key è nome.concat(cognome)
+	private Map<Long, Medico> medici;
 
 	public Clinica() {
 		this.esamiDaSvolgere = new HashMap<>();
@@ -50,5 +50,6 @@ public class Clinica {
 		this.esamiSvolti.put(esame.getId(), esame);
 		this.esamiDaSvolgere.remove(esame.getId());
 	}
+
 
 }
