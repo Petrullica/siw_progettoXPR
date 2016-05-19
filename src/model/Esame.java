@@ -1,29 +1,37 @@
 package model;
 
 import java.util.Date;
+import java.util.Map;
 
 public class Esame {
 	private TipologiaEsame tipologia;
-	private Long id;
+	private Long id, codice;
 	private Paziente paziente;
 	private Medico medico;
 	private Date dataPrenotazione;
 	private Date dataEsame;
+	private Map<String,String> risultati;
 
 	public Esame(){}
-
-	public Esame(TipologiaEsame tipologia){
-		this.tipologia = tipologia;
+	
+	public Esame(Long codice, Medico medico, Date dataPrenotazione) {
+		this.codice = codice;
+		this.medico = medico;
+		this.dataPrenotazione = dataPrenotazione;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Long getCodice() {
+		return codice;
 	}
-
+	
+	public void setCodice(Long codice) {
+		this.codice = codice;
+	}
+	
 	public TipologiaEsame getTipologia() {
 		return tipologia;
 	}
