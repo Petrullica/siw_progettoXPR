@@ -2,7 +2,7 @@ package model;
 
 public class Amministratore {
 
-	private String nome, cognome;
+	private String nome, cognome, password, codice;
 	private Long id;
 	
 	public Amministratore(String nome, String cognome) {

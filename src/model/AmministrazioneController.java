@@ -5,41 +5,24 @@ import java.util.LinkedList;
 
 public class AmministrazioneController {
 	
-	private Amministratore amministratoreCorrente;
 	private Clinica clinica;
 	private Esame esameCorrente;
 	
-	//UC4 Inserimento Nuova Tipologia Esame
-	public void creaNuovaTipologiaEsame(String nome, String descr, double price)
-	{
-		TipologiaEsame nuovaTipologia = new TipologiaEsame(nome,descr,price);
-		//TODO
-		//DAO salvataggio in dbms
-		this.clinica.aggiungiTipologia(nuovaTipologia);
+	public AmministrazioneController() {
+		this.clinica = new Clinica();
 	}
 	
-	
-	//UC5 Esami effettuati da un Medico
-	public LinkedList<Esame> mostraDatiMedico(String nome, String cognome) {
-		String keyMedico = nome.concat(cognome);
-		//TODO
-		//DAO retrieve dal dbms
-		return clinica.getMedici().get(keyMedico).getEsami();
+	public Clinica getClinica() {
+		return clinica;
 	}
-	
-	//UC6 Inserimento risultati esame
-	
-	public Esame getEsameDaCompletare(Long codiceEsame){
-		//TODO
-		//DAO retrieve dal dbms
-		Esame esameCorrente = this.clinica.getEsamiDaSvolgere().get(codiceEsame);
+	public Esame getEsameCorrente() {
 		return esameCorrente;
 	}
-	
-	public void inserisciRisultatiEsame(){
-		//TODO
+	public void setEsameCorrente(Esame esameCorrente) {
+		this.esameCorrente = esameCorrente;
 	}
-	
+
+	//UC2
 	public void creaNuovoEsame(Long codice, Medico medico, Date dataPrenotazione) {
 		this.esameCorrente = new Esame(codice, medico, dataPrenotazione);
 	}
@@ -56,5 +39,33 @@ public class AmministrazioneController {
 	
 	public void confermaInserimentoEsame() {
 		this.clinica.getEsamiDaSvolgere().put(this.esameCorrente.getCodice(), this.esameCorrente);
+	}
+	
+	//UC4 Inserimento Nuova Tipologia Esame
+	public void creaNuovaTipologiaEsame(String nome, String descr, double price) {
+		TipologiaEsame nuovaTipologia = new TipologiaEsame(nome,descr,price);
+		//TODO
+		//DAO salvataggio in dbms
+		this.clinica.aggiungiTipologia(nuovaTipologia);
+	}
+	
+	//UC5 Esami effettuati da un Medico
+	public LinkedList<Esame> mostraEsamiMedico(String nome, String cognome) {
+		String keyMedico = nome.concat(cognome);
+		//TODO
+		//DAO retrieve dal dbms
+		return clinica.getMedici().get(keyMedico).getEsami();
+	}
+	
+	//UC6 Inserimento risultati esame
+	public Esame getEsameDaCompletare(Long codiceEsame){
+		//TODO
+		//DAO retrieve dal dbms
+		Esame esameCorrente = this.clinica.getEsamiDaSvolgere().get(codiceEsame);
+		return esameCorrente;
+	}
+	
+	public void inserisciRisultatiEsame(){
+		//TODO
 	}
 }

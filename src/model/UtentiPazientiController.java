@@ -3,16 +3,17 @@ package model;
 import java.util.List;
 
 public class UtentiPazientiController {
-	/* Ho inserito i metodi: consultaTipologiaEsame; mostraDettagliTipologiaEsame;
-	 * MostraElencoEsami;  MostraDettaglioEsame; 
-	 *  
-	 
-	 */
 
 	private Paziente pazienteCorrente;
 	private Esame esame;
 	private Clinica clinica;
-
+	
+	public UtentiPazientiController(Paziente pazienteCorrente, Esame esame, Clinica clinica) {
+		this.pazienteCorrente = pazienteCorrente;
+		this.esame = esame;
+		this.clinica = clinica;
+	}
+	
 	public Paziente getPazienteCorrente() {
 		return pazienteCorrente;
 	}
@@ -32,7 +33,7 @@ public class UtentiPazientiController {
 		this.clinica = clinica;
 	}
 
-	public List<TipologiaEsame> consultaTipologiaEsame(){
+	public List<TipologiaEsame> consultaTipologieEsame(){
 		return this.clinica.mostraTipologie();
 	}
 	
@@ -43,7 +44,6 @@ public class UtentiPazientiController {
 		return this.clinica.mostraEsamiDaSvolgere();
 	}
     public Esame mostraDettaglioEsame(Long codiceEsame){
-       return this.mostraDettaglioEsame(codiceEsame);
-    	
+       return this.mostraDettaglioEsame(codiceEsame);   	
     }
 }
