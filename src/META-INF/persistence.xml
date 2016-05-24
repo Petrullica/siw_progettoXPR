@@ -6,9 +6,10 @@
 		transaction-type="RESOURCE_LOCAL">
 		<class>model.TipologiaEsame</class>
 		<properties>
+			<!-- PostgreSQL properties -->
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 			<property name="javax.persistence.jdbc.user" value="postgres" />
-			<property name="javax.persistence.jdbc.password" value="postgres" />
+			<property name="javax.persistence.jdbc.password" value="erf1991orf" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/clinica" />
 			<!-- Hibernate properties -->
 			<property name="hibernate.show_sql" value="true" />
