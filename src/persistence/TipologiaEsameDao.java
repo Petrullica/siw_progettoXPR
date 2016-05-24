@@ -10,13 +10,12 @@ import model.TipologiaEsame;
 
 public class TipologiaEsameDao extends Dao<TipologiaEsame>{
 	
-	public TipologiaEsameDao(EntityManagerFactory emf) {
-		super(emf);
+	public TipologiaEsameDao(EntityManager em) {
+		super(em);
 	}
 	
 	@Override
 	public TipologiaEsame findById(long id) {
-		EntityManager em = this.emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		TipologiaEsame a = em.find(TipologiaEsame.class, id);

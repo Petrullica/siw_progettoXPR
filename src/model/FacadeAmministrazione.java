@@ -1,5 +1,6 @@
 package model;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -12,21 +13,22 @@ import persistence.TipologiaEsameDao;
 public class FacadeAmministrazione {
 	
 	private EntityManagerFactory emf;
+	private EntityManager em;
 	
-	public FacadeAmministrazione()
-	{
+	public FacadeAmministrazione() {
+//		this.emf = Persistence.createEntityManagerFactory("clinica-unit");
 		this.emf = Persistence.createEntityManagerFactory("clinica-unit");
+		this.em = emf.createEntityManager();
 	}
 	
-	public void inserisciTipologiaEsame(TipologiaEsame tipologia)
-	{
-		TipologiaEsameDao tipologiaDao = new TipologiaEsameDao(emf);
+	public void inserisciTipologiaEsame(TipologiaEsame tipologia) {
+		TipologiaEsameDao tipologiaDao = new TipologiaEsameDao(em);
 		tipologiaDao.save(tipologia);
 		
 		//TODO
 		//Da rivedere quando chiudere la entityManager, l'ho messa qua perchè volevo
 		//solo vedere se mi salvava in database la tipologia
+		tipologiaDao.close();
 		this.emf.close();
 	}
-
 }
