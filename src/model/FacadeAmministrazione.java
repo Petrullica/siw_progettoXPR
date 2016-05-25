@@ -1,5 +1,6 @@
 package model;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -12,15 +13,15 @@ import persistence.TipologiaEsameDao;
 public class FacadeAmministrazione {
 	
 	private EntityManagerFactory emf;
+	private EntityManager em;
 	
-	public FacadeAmministrazione()
-	{
-		this.emf = Persistence.createEntityManagerFactory("clinica-unit");
+	public FacadeAmministrazione() {
+		emf = Persistence.createEntityManagerFactory("clinica-unit");
+		em = emf.createEntityManager();
 	}
 	
-	public void inserisciTipologiaEsame(TipologiaEsame tipologia)
-	{
-		TipologiaEsameDao tipologiaDao = new TipologiaEsameDao(emf);
+	public void inserisciTipologiaEsame(TipologiaEsame tipologia) {
+		TipologiaEsameDao tipologiaDao = new TipologiaEsameDao(em);
 		tipologiaDao.save(tipologia);
 		
 		//TODO
@@ -28,5 +29,4 @@ public class FacadeAmministrazione {
 		//solo vedere se mi salvava in database la tipologia
 		this.emf.close();
 	}
-
 }
