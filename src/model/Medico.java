@@ -3,23 +3,38 @@ package model;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
 @Entity
 public class Medico {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
 	private String nome;
+	
 	private String cognome;
+	
+	@Column(nullable = false)
+	private String codiceFiscale;
+	
+	private String specializzaione;
+	
+	@OneToMany(mappedBy = "medico")
 	private LinkedList<Esame> esami;
 
 	public Medico(){
 	}
 
 	public Medico(String nome, String cognome) {
-
 		this.nome = nome;
 		this.cognome = cognome;
 		this.esami = new LinkedList<>();
@@ -38,27 +53,32 @@ public class Medico {
 		this.cognome = cognome;
 	}
 
-	@OneToMany
-	@JoinColumn(name = "medico_id")
-	@OrderBy("creationtime asc")
 	public LinkedList<Esame> getEsami() {
 		return esami;
-	}
-
-	public void setEsami(LinkedList<Esame> linkedList) {
-		this.esami = linkedList;
-	}
-
-	@Override
-	public String toString() {
-		return "Medico [nome=" + nome + ", cognome=" + cognome + "]";
 	}
 
 	public Long getId() {
 		return id;
 	}
+	
+	public String getCodiceFiscale() {
+		return codiceFiscale;
+	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCodiceFiscale(String codiceFiscale) {
+		this.codiceFiscale = codiceFiscale;
+	}
+
+	public String getSpecializzaione() {
+		return specializzaione;
+	}
+
+	public void setSpecializzaione(String specializzaione) {
+		this.specializzaione = specializzaione;
+	}
+
+	@Override
+	public String toString() {
+		return "Medico [nome=" + nome + ", cognome=" + cognome + "]";
 	}
 }

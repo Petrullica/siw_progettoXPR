@@ -1,7 +1,7 @@
 package model;
 
 import java.util.Date;
-import java.util.Map;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 @Entity
 public class Esame {
 	
@@ -19,9 +21,16 @@ public class Esame {
 	@Column(nullable = false)
 	private String codice;
 	
+	private String nome;
+	
+	@Column(nullable = false)
+	private Date dataPrenotazioneEsame;
+	
+	private Date dataSvolgimentoEsame;
+
 	@ManyToOne
 	@Column(nullable = false)
-	private TipologiaEsame tipologia;
+	private TipologiaEsame tipologiaEsame;
 	
 	@ManyToOne 
 	@Column(nullable = false)
@@ -31,13 +40,8 @@ public class Esame {
 	@Column(nullable = false)
 	private Medico medico;
 	
-	@Column(nullable = false)
-	private Date dataPrenotazione;
-	
-	private Date dataEsame;
-	
-	private Map<String,String> risultati;
-
+	@OneToMany
+	private List<Risultato> risultati;
 	
 	public Esame(){}
 	
@@ -48,8 +52,6 @@ public class Esame {
 		this.paziente= paziente;
 		this.creaCodice();
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -64,11 +66,11 @@ public class Esame {
 	}
 	
 	public TipologiaEsame getTipologia() {
-		return tipologia;
+		return tipologiaEsame;
 	}
 
-	public void setTipologia(TipologiaEsame tipologia) {
-		this.tipologia = tipologia;
+	public void setTipologia(TipologiaEsame tipologiaEsame) {
+		this.tipologiaEsame = tipologiaEsame;
 	}
 
 	public Paziente getPaziente() {
@@ -87,33 +89,40 @@ public class Esame {
 		this.medico = medico;
 	}
 
-	public Date getDataPrenotazione() {
-		return dataPrenotazione;
+	public Date getDataPrenotazioneEsame() {
+		return dataPrenotazioneEsame;
 	}
 
-	public void setDataPrenotazione(Date dataPrenotazione) {
-		this.dataPrenotazione = dataPrenotazione;
+	public void setDataPrenotazioneEsame(Date dataPrenotazione) {
+		this.dataPrenotazioneEsame = dataPrenotazione;
 	}
 
-	public Date getDataEsame() {
-		return dataEsame;
+	public Date getDataSvolgimentoEsame() {
+		return dataSvolgimentoEsame;
 	}
 
-	public void setDataEsame(Date dataEsame) {
-		this.dataEsame = dataEsame;
+	public void setDataSvolgimentoEsame(Date dataEsame) {
+		this.dataSvolgimentoEsame = dataEsame;
 	}
 	
-
-	private void creaCodice() {
-		String cfPaziente= this.paziente.getCodiceFiscale();
-		String dataPrenotazione= this.getDataPrenotazione().toString();
-		this.setCodice(cfPaziente + dataPrenotazione);
-		
+	public String getNome() {
+		return nome;
 	}
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public List<Risultato> getRisultati() {
+		return risultati;
+	}
+	private void creaCodice() {
+		String cfPaziente= this.paziente.getCodiceFiscale();
+		String dataPrenotazione= this.getDataPrenotazioneEsame().toString();
+		this.setCodice(cfPaziente + dataPrenotazione);	
+	}
 	private void creaDataPrenotazione() {
 		Date dataPrenotazione= new Date();
-		this.setDataPrenotazione(dataPrenotazione);;
-		
+		this.setDataPrenotazioneEsame(dataPrenotazione);	
 	}
 }

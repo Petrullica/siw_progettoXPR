@@ -14,50 +14,37 @@ import javax.persistence.OrderBy;
 @Entity
 public class TipologiaEsame {
 	
-	//TODO 
-	//il nome � meglio "price" o "prezzo"? in jsp ho messo prezzo ma qua ci sta price, Xu
-	
-	private String nome;
-	private String descr;
-	private double price;
-	
-	//Commentato altrimenti non mi creava la tabella in postgres
-	//Hibernate crea una colonna per ogni attributo e ovviamente un'entit� non poteva essere una coppia
-	//in pratica veniva fuori che una tupla conteneva due tuple, Xu
-//	private Map<String,String> prerequisti;
-//	private Map<String,String> indicatoriRequisiti;
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	private String codice;
+	
+	private String nome;
+	
+	private String descrizione;
+	
+	private double costo;
+	
 	@OneToMany
-	@JoinColumn(name = "tipologiaEsame_id")
-	@OrderBy("creationtime asc")
-	private List<Esame> esami;
+	private List<Prerequisito> prerequisiti;
+	
+	@OneToMany
+	private List<IndicatoreRisultato> indicatoriRisultato;
 	
 	public TipologiaEsame(){}
 	
-	public TipologiaEsame(String nome, String descr, double price) {
+	public TipologiaEsame(String nome, String descrizione, double costo) {
 		this.nome = nome;
-		this.descr = descr;
-		this.price = price;
+		this.descrizione = descrizione;
+		this.costo = costo;
 	}
-	
-//	public TipologiaEsame(String nome, String descr, double price, Map<String, String> prerequisti,
-//			Map<String, String> indicatoriRequisiti) {
-//		this.nome = nome;
-//		this.descr = descr;
-//		this.price = price;
-//		this.prerequisti = prerequisti;
-//		this.indicatoriRequisiti = indicatoriRequisiti;
-//	}
 
-	public double getPrice() {
-		return price;
+	public double getCosto() {
+		return costo;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public void setCosto(double costo) {
+		this.costo = costo;
 	}
 	public Long getId() {
 		return id;
@@ -68,16 +55,26 @@ public class TipologiaEsame {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getDescr() {
-		return descr;
+	public String getDescrizione() {
+		return descrizione;
 	}
-	public void setDescr(String descr) {
-		this.descr = descr;
+	public void setDescrizione(String descr) {
+		this.descrizione = descr;
 	}
-//	public Map<String, String> getPrerequisti() {
-//		return prerequisti;
-//	}
-//	public Map<String, String> getIndicatoriRequisiti() {
-//		return indicatoriRequisiti;
-//	}
+
+	public String getCodice() {
+		return codice;
+	}
+
+	public void setCodice(String codice) {
+		this.codice = codice;
+	}
+
+	public List<Prerequisito> getPrerequisiti() {
+		return prerequisiti;
+	}
+
+	public List<IndicatoreRisultato> getIndicatoriRisultato() {
+		return indicatoriRisultato;
+	}
 }

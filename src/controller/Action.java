@@ -3,20 +3,20 @@ package controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import model.FacadeAmministrazione;
+import model.Facade;
 import model.TipologiaEsame;;
 
 public class Action {
 	
 	public String execute(HttpServletRequest request) {
 		TipologiaEsame tipologia = new TipologiaEsame();
-		FacadeAmministrazione facade = new FacadeAmministrazione();
+		Facade facade = new Facade();
 		HttpSession session = request.getSession();
 		
 		tipologia.setNome(request.getParameter("nome"));
-		tipologia.setDescr(request.getParameter("descrizione"));
-		tipologia.setPrice(Double.parseDouble(request.getParameter("prezzo")));
-		facade.inserisciTipologiaEsame(tipologia);
+		tipologia.setDescrizione(request.getParameter("descrizione"));
+		tipologia.setCosto(Double.parseDouble(request.getParameter("prezzo")));
+		facade.creaNuovaTipologiaEsame(tipologia);
 		
 		
 		session.setAttribute("tipologiaEsame", tipologia);
