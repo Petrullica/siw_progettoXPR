@@ -10,8 +10,8 @@ public class Clinica {
 	 * ho inserito: mostraEsamiDaSvolgere; trovaEsameDaSvolgere;
 	 * */
 
-	private Map<Long, Esame> esamiDaSvolgere;
-	private Map<Long, Esame> esamiSvolti;
+	private Map<String, Esame> esamiDaSvolgere;
+	private Map<String, Esame> esamiSvolti;
 	private Map<String, TipologiaEsame> tipologieEsami;
 	private Map<Long,Paziente> pazienti;
 	private Map<Long, Medico> medici;
@@ -47,14 +47,14 @@ public class Clinica {
 	}
 
 	public void SpostaEsame(Esame esame){
-		this.esamiSvolti.put(esame.getId(), esame);
+		this.esamiSvolti.put(esame.getCodice(), esame);
 		this.esamiDaSvolgere.remove(esame.getId());
 	}
 
-	public Map<Long, Esame> getEsamiDaSvolgere() {
+	public Map<String, Esame> getEsamiDaSvolgere() {
 		return esamiDaSvolgere;
 	}
-	public Map<Long, Esame> getEsamiSvolti() {
+	public Map<String, Esame> getEsamiSvolti() {
 		return esamiSvolti;
 	}
 	public Map<String, TipologiaEsame> getTipologieEsami() {

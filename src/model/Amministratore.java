@@ -1,9 +1,31 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
+
 public class Amministratore {
 
-	private String nome, cognome, password, codice;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
+	
+	private String nome;
+	
+	
+	private String cognome;
+	
+	@Column(nullable = false)
+	private String password;
+	
+	@Column(nullable = false)
+	private String username;
+	
 	
 	public Amministratore(String nome, String cognome) {
 		this.nome = nome;

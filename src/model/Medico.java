@@ -3,6 +3,12 @@ package model;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+
+@Entity
 public class Medico {
 	private Long id;
 	private String nome;
@@ -32,6 +38,9 @@ public class Medico {
 		this.cognome = cognome;
 	}
 
+	@OneToMany
+	@JoinColumn(name = "medico_id")
+	@OrderBy("creationtime asc")
 	public LinkedList<Esame> getEsami() {
 		return esami;
 	}

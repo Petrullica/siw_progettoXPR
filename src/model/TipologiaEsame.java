@@ -1,24 +1,28 @@
 package model;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 @Entity
 public class TipologiaEsame {
 	
 	//TODO 
-	//il nome è meglio "price" o "prezzo"? in jsp ho messo prezzo ma qua ci sta price, Xu
+	//il nome ï¿½ meglio "price" o "prezzo"? in jsp ho messo prezzo ma qua ci sta price, Xu
 	
 	private String nome;
 	private String descr;
 	private double price;
 	
 	//Commentato altrimenti non mi creava la tabella in postgres
-	//Hibernate crea una colonna per ogni attributo e ovviamente un'entità non poteva essere una coppia
+	//Hibernate crea una colonna per ogni attributo e ovviamente un'entitï¿½ non poteva essere una coppia
 	//in pratica veniva fuori che una tupla conteneva due tuple, Xu
 //	private Map<String,String> prerequisti;
 //	private Map<String,String> indicatoriRequisiti;
@@ -26,6 +30,11 @@ public class TipologiaEsame {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
+	@OneToMany
+	@JoinColumn(name = "tipologiaEsame_id")
+	@OrderBy("creationtime asc")
+	private List<Esame> esami;
 	
 	public TipologiaEsame(){}
 	

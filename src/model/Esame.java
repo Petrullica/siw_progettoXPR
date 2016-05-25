@@ -3,32 +3,63 @@ package model;
 import java.util.Date;
 import java.util.Map;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+@Entity
 public class Esame {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
+	
+	@Column(nullable = false)
+	private String codice;
+	
+	@ManyToOne
+	@Column(nullable = false)
 	private TipologiaEsame tipologia;
-	private Long id, codice;
+	
+	@ManyToOne 
+	@Column(nullable = false)
 	private Paziente paziente;
+	
+	@ManyToOne 
+	@Column(nullable = false)
 	private Medico medico;
+	
+	@Column(nullable = false)
 	private Date dataPrenotazione;
+	
 	private Date dataEsame;
+	
 	private Map<String,String> risultati;
 
+	
 	public Esame(){}
 	
-	public Esame(Long codice, Medico medico, Date dataPrenotazione) {
+	public Esame(String codice, Medico medico, Paziente paziente) {
 		this.codice = codice;
 		this.medico = medico;
-		this.dataPrenotazione = dataPrenotazione;
+		this.creaDataPrenotazione();
+		this.paziente= paziente;
+		this.creaCodice();
 	}
+
+
 
 	public Long getId() {
 		return id;
 	}
 
-	public Long getCodice() {
+	public String getCodice() {
 		return codice;
 	}
 	
-	public void setCodice(Long codice) {
+	public void setCodice(String codice) {
 		this.codice = codice;
 	}
 	
@@ -70,5 +101,19 @@ public class Esame {
 
 	public void setDataEsame(Date dataEsame) {
 		this.dataEsame = dataEsame;
+	}
+	
+
+	private void creaCodice() {
+		String cfPaziente= this.paziente.getCodiceFiscale();
+		String dataPrenotazione= this.getDataPrenotazione().toString();
+		this.setCodice(cfPaziente + dataPrenotazione);
+		
+	}
+
+	private void creaDataPrenotazione() {
+		Date dataPrenotazione= new Date();
+		this.setDataPrenotazione(dataPrenotazione);;
+		
 	}
 }

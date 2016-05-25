@@ -23,8 +23,8 @@ public class AmministrazioneController {
 	}
 
 	//UC2
-	public void creaNuovoEsame(Long codice, Medico medico, Date dataPrenotazione) {
-		this.esameCorrente = new Esame(codice, medico, dataPrenotazione);
+	public void creaNuovoEsame(String codice, Medico medico, Paziente paziente) {
+		this.esameCorrente = new Esame(codice, medico, paziente);
 	}
 	
 	public void impostaTipologiaEsame(String nome) {
@@ -38,7 +38,8 @@ public class AmministrazioneController {
 	}
 	
 	public void confermaInserimentoEsame() {
-		this.clinica.getEsamiDaSvolgere().put(this.esameCorrente.getCodice(), this.esameCorrente);
+		Esame esameDaInserire=this.esameCorrente;
+		this.clinica.getEsamiDaSvolgere().put(esameDaInserire.getCodice(),esameDaInserire);
 	}
 	
 	//UC4 Inserimento Nuova Tipologia Esame
