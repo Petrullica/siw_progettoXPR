@@ -16,8 +16,8 @@ public class FacadeAmministrazione {
 	private EntityManager em;
 	
 	public FacadeAmministrazione() {
-		this.emf = Persistence.createEntityManagerFactory("clinica-unit");
-		this.em = emf.createEntityManager();
+		emf = Persistence.createEntityManagerFactory("clinica-unit");
+		em = emf.createEntityManager();
 	}
 	
 	public void inserisciTipologiaEsame(TipologiaEsame tipologia) {
@@ -27,7 +27,6 @@ public class FacadeAmministrazione {
 		//TODO
 		//Da rivedere quando chiudere la entityManager, l'ho messa qua perchè volevo
 		//solo vedere se mi salvava in database la tipologia
-		tipologiaDao.close();
 		this.emf.close();
 	}
 }

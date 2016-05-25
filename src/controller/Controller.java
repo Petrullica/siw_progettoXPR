@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	public Controller() {}
+	
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -27,10 +29,10 @@ public class Controller extends HttpServlet {
 		HelperTipologiaEsame helper = new HelperTipologiaEsame();
 		Action action = new Action();
 		String nextPage = "/inserisciNuovaTipologiaEsame.jsp";
-		HttpSession session = request.getSession();
+//		HttpSession session = request.getSession();
 		
 		if(helper.validate(request)) {
-			nextPage = action.execute(request, session);
+			nextPage = action.execute(request);
 		}
 		
 		nextPage = response.encodeURL(nextPage);
