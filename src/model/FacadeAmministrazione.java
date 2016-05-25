@@ -16,7 +16,6 @@ public class FacadeAmministrazione {
 	private EntityManager em;
 	
 	public FacadeAmministrazione() {
-//		this.emf = Persistence.createEntityManagerFactory("clinica-unit");
 		this.emf = Persistence.createEntityManagerFactory("clinica-unit");
 		this.em = emf.createEntityManager();
 	}
