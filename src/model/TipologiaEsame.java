@@ -3,6 +3,7 @@ package model;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,10 +19,13 @@ public class TipologiaEsame {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	@Column(unique=true, nullable = false)
 	private String codice;
 	
+	@Column(unique=true, nullable = false)
 	private String nome;
 	
+	@Column(unique=true, nullable = false)
 	private String descrizione;
 	
 	private double costo;

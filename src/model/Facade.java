@@ -77,7 +77,8 @@ public class Facade {
 		//TODO
 		//Da rivedere quando chiudere la entityManager, l'ho messa qua perchè volevo
 		//solo vedere se mi salvava in database la tipologia
-		this.emf.close();
+		em.close();
+		emf.close();
 	}
 	
 	

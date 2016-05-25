@@ -1,5 +1,6 @@
 package model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,8 +13,10 @@ public class Prerequisito {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long Id;
 	
+	@Column(unique=true, nullable = false)
 	private String nome;
 	
+	@Column(unique=true, nullable = false)
 	private String valore;
 	
 	public Prerequisito() {

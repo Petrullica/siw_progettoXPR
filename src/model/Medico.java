@@ -23,7 +23,7 @@ public class Medico {
 	
 	private String cognome;
 	
-	@Column(nullable = false)
+	@Column(unique=true, nullable = false)
 	private String codiceFiscale;
 	
 	private String specializzaione;

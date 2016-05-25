@@ -14,20 +14,19 @@ public class TipologiaEsameDao extends Dao<TipologiaEsame>{
 		super(em);
 	}
 	
-	@Override
-	public TipologiaEsame findById(long id) {
+	public TipologiaEsame findByNome(String nome) {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		TipologiaEsame a = em.find(TipologiaEsame.class, id);
+		TipologiaEsame tipologiaEsame = em.find(TipologiaEsame.class, nome);
 		tx.commit();
 		em.close();
-		return a;
+		return tipologiaEsame;
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<TipologiaEsame> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<TipologiaEsame> tipologieEsame = em.createNamedQuery("TipologiaEsame.findAll").getResultList();
+		return tipologieEsame;
 	}
 }
-

@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Esame {
@@ -18,14 +20,16 @@ public class Esame {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Column(nullable = false)
+	@Column(unique=true, nullable = false)
 	private String codice;
 	
 	private String nome;
 	
 	@Column(nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataPrenotazioneEsame;
 	
+	@Temporal(TemporalType.DATE)
 	private Date dataSvolgimentoEsame;
 
 	@ManyToOne
