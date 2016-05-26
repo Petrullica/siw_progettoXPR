@@ -8,6 +8,7 @@ import javax.persistence.EntityTransaction;
 
 import model.TipologiaEsame;
 
+//dubbio quando va chiuso l'em??
 public abstract class Dao<T> {
 	public EntityManager em;
 
@@ -25,6 +26,7 @@ public abstract class Dao<T> {
 
 	//Retrieve
 	public abstract List<T> findAll();
+	public abstract T findByPrimaryId(long id);
 	
 	//Update
 	public void update(T entity) {
