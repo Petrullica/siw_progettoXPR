@@ -23,6 +23,7 @@ public class IndicatoreRisultatoDao extends Dao<IndicatoreRisultato> {
 		return indicatoreRisultato;
 	}
 	
+	
 	public IndicatoreRisultato findByNome(String nome) {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();

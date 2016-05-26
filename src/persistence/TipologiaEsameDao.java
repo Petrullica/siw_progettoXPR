@@ -25,6 +25,7 @@ public class TipologiaEsameDao extends Dao<TipologiaEsame>{
 		em.close();
 		return tipologiaEsame;
 	}
+	 
 
 	@Override
 	@SuppressWarnings("unchecked")

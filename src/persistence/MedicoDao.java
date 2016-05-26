@@ -16,7 +16,7 @@ public class MedicoDao extends Dao<Medico> {
 	public MedicoDao(EntityManager em) {
 		super(em);
 	}
-
+ 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Medico> findAll() {

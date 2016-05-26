@@ -15,7 +15,7 @@ public class PazienteDao extends Dao<Paziente> {
 	public PazienteDao(EntityManager em) {
 		super(em);
 	}
-
+ 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Paziente> findAll() {

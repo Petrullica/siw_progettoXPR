@@ -15,7 +15,7 @@ public class AmministratoreDao extends Dao<Amministratore> {
 	public AmministratoreDao(EntityManager em) {
 		super(em);
 	}
-
+ 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Amministratore> findAll() {

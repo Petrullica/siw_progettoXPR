@@ -21,9 +21,9 @@ public class RisultatoDao extends Dao<Risultato> {
 	public List<Risultato> findAll() {
 		List<Risultato> risultato = em.createNamedQuery("Risultato.findAll").getResultList();
 		return risultato;
-	}
+	} 
 	
-
+ 
 
 	@Override
 	public Risultato findByPrimaryId(long id) {

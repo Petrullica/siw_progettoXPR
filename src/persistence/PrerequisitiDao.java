@@ -26,7 +26,7 @@ public class PrerequisitiDao extends Dao<Prerequisito> {
 		return prerequisito;
 	}
 
-
+ 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Prerequisito> findAll() {

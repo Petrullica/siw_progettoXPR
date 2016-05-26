@@ -14,7 +14,7 @@ public class EsameDao extends Dao<Esame> {
 
 	public EsameDao(EntityManager em) {
 		super(em);
-	}
+	} 
 
 	@SuppressWarnings("unchecked")
 	@Override
