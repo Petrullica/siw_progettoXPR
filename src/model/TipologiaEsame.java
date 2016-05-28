@@ -1,5 +1,6 @@
 package model;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -36,12 +37,17 @@ public class TipologiaEsame {
 	@OneToMany
 	private List<IndicatoreRisultato> indicatoriRisultato;
 	
-	public TipologiaEsame(){}
+	public TipologiaEsame(){
+		this.prerequisiti= new LinkedList<Prerequisito>();
+		this.indicatoriRisultato= new LinkedList<IndicatoreRisultato>();
+	}
 	
 	public TipologiaEsame(String nome, String descrizione, double costo) {
 		this.nome = nome;
 		this.descrizione = descrizione;
 		this.costo = costo;
+		this.prerequisiti= new LinkedList<Prerequisito>();
+		this.indicatoriRisultato= new LinkedList<IndicatoreRisultato>();
 	}
 
 	public double getCosto() {

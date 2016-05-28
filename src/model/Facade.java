@@ -11,7 +11,7 @@ import persistence.TipologiaEsameDao;
 
 
 
-//da fare una Facade abstract e da farla estendere da questa classe più
+//da fare una Facade abstract e da farla estendere da questa classe piï¿½
 //Facade Utente/Paziente ; Xu
 
 public class Facade {
@@ -75,7 +75,7 @@ public class Facade {
 		tipologiaDao.save(tipologia);
 		this.clinica.aggiungiTipologia(tipologia);
 		//TODO
-		//Da rivedere quando chiudere la entityManager, l'ho messa qua perchè volevo
+		//Da rivedere quando chiudere la entityManager, l'ho messa qua perchï¿½ volevo
 		//solo vedere se mi salvava in database la tipologia
 		em.close();
 		emf.close();
@@ -83,7 +83,7 @@ public class Facade {
 	
 	
 	//UC5 Amministratore consulta esami effettuati da un medico
-	public LinkedList<Esame> mostraEsamiMedico(String nome, String cognome) {
+	public List<Esame> mostraEsamiMedico(String nome, String cognome) {
 		String keyMedico = nome.concat(cognome);
 		//TODO
 		//DAO retrieve dal dbms

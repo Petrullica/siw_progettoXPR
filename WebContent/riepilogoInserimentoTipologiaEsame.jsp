@@ -12,8 +12,8 @@
 	<h1>Dati inseriti nella form</h1>
 	<ul>
 		<li>Nome: <b>${tipologiaEsame.nome}</b></li>
-		<li>Descrizione: <b>${tipologiaEsame.descr}</b></li>
-		<li>Prezzo:<b>${tipologiaEsame.price}</b></li>
+		<li>Descrizione: <b>${tipologiaEsame.descrizione}</b></li>
+		<li>Costo:<b>${tipologiaEsame.costo}</b></li>
 	</ul>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ public class Esame {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Column(unique=true, nullable = false)
+	@Column(unique=true)
 	private String codice;
 	
 	private String nome;
@@ -47,7 +48,9 @@ public class Esame {
 	@OneToMany
 	private List<Risultato> risultati;
 	
-	public Esame(){}
+	public Esame(){
+		this.risultati= new LinkedList<Risultato>();
+	}
 	
 	public Esame(String codice, Medico medico, Paziente paziente) {
 		this.codice = codice;
@@ -55,6 +58,7 @@ public class Esame {
 		this.creaDataPrenotazione();
 		this.paziente= paziente;
 		this.creaCodice();
+		this.risultati= new LinkedList<Risultato>();
 	}
 
 	public Long getId() {

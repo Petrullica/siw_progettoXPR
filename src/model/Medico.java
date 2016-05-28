@@ -23,21 +23,22 @@ public class Medico {
 	
 	private String cognome;
 	
-	@Column(unique=true, nullable = false)
+	@Column(unique=true)
 	private String codiceFiscale;
 	
 	private String specializzaione;
 	
 	@OneToMany(mappedBy = "medico")
-	private LinkedList<Esame> esami;
+	private List<Esame> esami;
 
 	public Medico(){
+		this.esami= new LinkedList<Esame>();
 	}
 
 	public Medico(String nome, String cognome) {
 		this.nome = nome;
 		this.cognome = cognome;
-		this.esami = new LinkedList<>();
+		this.esami = new LinkedList<Esame>();
 	}
 
 	public String getNome() {
@@ -53,7 +54,7 @@ public class Medico {
 		this.cognome = cognome;
 	}
 
-	public LinkedList<Esame> getEsami() {
+	public List<Esame> getEsami() {
 		return esami;
 	}
 

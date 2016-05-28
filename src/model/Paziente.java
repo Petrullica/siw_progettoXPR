@@ -1,5 +1,6 @@
 package model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -28,11 +29,13 @@ public class Paziente {
 	private List<Esame> esami;
 	
 	public Paziente() {
+		this.esami= new LinkedList<Esame>();
 	}
 
 	public Paziente(String nome, String cognome) {
 		this.nome = nome;
 		this.cognome = cognome;
+		this.esami= new LinkedList<Esame>();
 	}
 
 	public String getNome() {
