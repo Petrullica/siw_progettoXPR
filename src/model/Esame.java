@@ -34,15 +34,12 @@ public class Esame {
 	private Date dataSvolgimentoEsame;
 
 	@ManyToOne
-	@Column(nullable = false)
 	private TipologiaEsame tipologiaEsame;
 	
 	@ManyToOne 
-	@Column(nullable = false)
 	private Paziente paziente;
 	
 	@ManyToOne 
-	@Column(nullable = false)
 	private Medico medico;
 	
 	@OneToMany

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,7 @@
 </head>
 <body>
 	<div class="container">
-		<form action="Controller" method="post">
+		<form action="<c:url value="/controller/tipologiaEsame.crea" />" method="post">
 			<p>${nomError}</p>
 			<label>Nome</label> <input type="text" placeholder="Nome" name="nome"
 				value="${nome}">

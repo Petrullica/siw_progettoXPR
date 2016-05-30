@@ -20,7 +20,7 @@ public class TipologiaEsame {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Column(unique=true, nullable = false)
+	@Column(unique=true)
 	private String codice;
 	
 	@Column(unique=true, nullable = false)
