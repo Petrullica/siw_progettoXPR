@@ -14,7 +14,7 @@
 <div style="background:skyblue" class="jumbotron">
 	<h1>Clinica XPR</h1>
 	<p>Occhio alle truffe</p>
-	<img class="img-responsive" src="http://www.coreonline.it/web/wp-content/uploads/2015/05/nuova-ingegneria.png" alt="Chania" width="100%" height="345"> 
+	<img class="img-responsive" src="http://www.coreonline.it/web/wp-content/uploads/2015/05/nuova-ingegneria.png" alt="Chania" width="100%" height="100%"> 
 </div>
 
 <div class="container">
