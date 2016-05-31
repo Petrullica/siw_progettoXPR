@@ -35,6 +35,8 @@ public class Paziente {
 	public Paziente(String nome, String cognome) {
 		this.nome = nome;
 		this.cognome = cognome;
+		//Ho aggiunto questo codice fiscale calcolato a caso proprio
+		this.codiceFiscale = nome.concat(cognome)+nome.hashCode();
 		this.esami= new LinkedList<Esame>();
 	}
 

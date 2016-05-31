@@ -32,7 +32,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
 				<li><a href="inserisciNuovaTipologiaEsame.jsp">CreaNuovaTipologiaEsame</a></li>
-				<li><a href="#">Page 2</a></li>
+				<li><a href="inserisciNuovoPaziente.jsp">InserisciNuovoPaziente</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"

@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import persistence.PazienteDao;
 import persistence.TipologiaEsameDao;
 
 
@@ -77,8 +78,11 @@ public class Facade {
 		//TODO
 		//Da rivedere quando chiudere la entityManager, l'ho messa qua perch� volevo
 		//solo vedere se mi salvava in database la tipologia
-		em.close();
-		emf.close();
+	}
+	
+	public void creaNuovoPaziente(Paziente paziente){
+		PazienteDao pazienteDao = new PazienteDao(em);
+		pazienteDao.save(paziente);
 	}
 	
 	
@@ -102,6 +106,7 @@ public class Facade {
 	public void inserisciRisultatiEsame(){
 		//TODO
 	}
+	
 	
 	
 	// Getters&Setters
