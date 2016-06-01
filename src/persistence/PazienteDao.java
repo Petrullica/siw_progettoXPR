@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
+import model.Amministratore;
 import model.Paziente;
 import model.Risultato;
 import model.TipologiaEsame;
@@ -20,6 +21,20 @@ public class PazienteDao extends Dao<Paziente> {
 	@Override
 	public List<Paziente> findAll() {
 		List<Paziente> paziente = em.createNamedQuery("Paziente.findAll").getResultList();
+		return paziente;
+	}
+	
+	public Paziente findByUsername(String username) {
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		//Query queryString=em.createNativeQuery("select * from paziente where username ='"+username+"'");
+		
+		//Da risolvere
+//		Paziente paziente= (Paziente)queryString.getSingleResult();
+		
+		Paziente paziente = em.find(Paziente.class, (long)2);
+		tx.commit();
+		em.close();
 		return paziente;
 	}
 	

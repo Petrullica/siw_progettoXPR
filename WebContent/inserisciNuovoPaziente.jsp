@@ -16,6 +16,12 @@
 			<p>${cognomeError}</p>
 			<label>Cognome</label> <input type="text" placeholder="Cognome"
 				name="cognome" value="${cognome}">
+					<p>${usernameError}</p>
+			<label>Username</label> <input type="text" placeholder="Username"
+				name="username" value="${username}">
+					<p>${passwordError}</p>
+			<label>Password</label> <input type="text" placeholder="Password"
+				name="password" value="${password}">
 			<input type="submit" name="sumbit" value="invia" />
 		</form>
 	</div>

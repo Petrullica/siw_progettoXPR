@@ -16,11 +16,17 @@ public class Paziente {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Long id;	
 	
 	private String nome;
 	
 	private String cognome;
+	
+	@Column(unique=true)
+	private String username;
+	
+	@Column(unique=true)
+	private String password;
 	
 	@Column(unique=true, nullable = false)
 	private String codiceFiscale;
@@ -38,6 +44,26 @@ public class Paziente {
 		//Ho aggiunto questo codice fiscale calcolato a caso proprio
 		this.codiceFiscale = nome.concat(cognome)+nome.hashCode();
 		this.esami= new LinkedList<Esame>();
+	}
+	
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getNome() {

@@ -30,6 +30,17 @@ public class Facade {
 	}
 	
 	
+	public Paziente loginPaziente(String username, String password){
+		PazienteDao pazientedao = new PazienteDao(em);
+		Paziente paziente = pazientedao.findByUsername(username);
+		if(password.equals(paziente.getPassword())){
+		return paziente;
+		}
+		else {
+			return null;
+		}
+	}
+	
 	//UC1 Utente consulta offerta
 	public List<TipologiaEsame> consultaTipologieEsame(){
 		return this.clinica.mostraTipologie();
