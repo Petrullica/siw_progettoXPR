@@ -14,13 +14,13 @@ import javax.persistence.OrderBy;
 @Entity
 public class Paziente {
 
+	@Id
+	private String username;
 	
 	private String nome;
 	
 	private String cognome;
 	
-	@Id
-	private String username;
 	
 	@Column(unique=true)
 	private String password;

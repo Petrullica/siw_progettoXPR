@@ -27,12 +27,7 @@ public class PazienteDao extends Dao<Paziente> {
 	public Paziente findByUsername(String username) {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		//Query queryString=em.createNativeQuery("select * from paziente where username ='"+username+"'");
-		
-		//Da risolvere
-//		Paziente paziente= (Paziente)queryString.getSingleResult();
-		
-		Paziente paziente = em.find(Paziente.class, (long)2);
+		Paziente paziente = em.find(Paziente.class, username);
 		tx.commit();
 		em.close();
 		return paziente;

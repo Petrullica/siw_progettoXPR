@@ -16,12 +16,15 @@ public class CreaPaziente implements Action {
 			
 			String nome = request.getParameter("nome") ;
 			String cognome = request.getParameter("cognome");
-			
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
 			Paziente paziente = new Paziente(nome, cognome);
+			paziente.setUsername(username);
+			paziente.setPassword(password);
 			facade.creaNuovoPaziente(paziente);
 
 			request.setAttribute("paziente", paziente);
-			return "/riepilogoInserimentoPaziente.jsp";
+			return "/autenticatoPaziente.jsp";
 		}
 		else {
 			return "/inserisciNuovoPaziente.jsp";
