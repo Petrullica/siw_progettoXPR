@@ -14,15 +14,12 @@ import javax.persistence.OrderBy;
 @Entity
 public class Paziente {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;	
 	
 	private String nome;
 	
 	private String cognome;
 	
-	@Column(unique=true)
+	@Id
 	private String username;
 	
 	@Column(unique=true)
@@ -82,9 +79,6 @@ public class Paziente {
 		this.cognome = cognome;
 	}
 
-	public Long getId() {
-		return id;
-	}
 
 	public List<Esame> getEsami() {
 		return esami;
