@@ -35,7 +35,7 @@ public class EsameDao extends Dao<Esame> {
 
 	
 	@Override
-	public Esame findByPrimaryId(long id) {
+	public Esame findByPrimaryKey(long id) {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		Esame esame = em.find(Esame.class, id);
@@ -44,4 +44,25 @@ public class EsameDao extends Dao<Esame> {
 		return esame;
 	}
 
+	public List<Esame> finByPaziente(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Esame> finByMedico(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Esame> findByEsameSvolto() {
+		// TODO Auto-generated method stub 
+		// xu consiglia un "Check if dataSvolgimentoEsame != null
+		return null;
+	}
+	
+	public List<Esame> findByEsameDaSvolgere() {
+		// TODO Auto-generated method stub 
+		// xu consiglia un "Check if dataSvolgimentoEsame == null
+		return null;
+	}
 }

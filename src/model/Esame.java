@@ -42,7 +42,7 @@ public class Esame {
 	@ManyToOne 
 	private Medico medico;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "esame")
 	private List<Risultato> risultati;
 	
 	public Esame(){

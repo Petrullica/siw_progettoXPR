@@ -7,9 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import persistence.PazienteDao;
-import persistence.TipologiaEsameDao;
-
+import persistence.*;
 
 
 //da fare una Facade abstract e da farla estendere da questa classe pi�
@@ -19,65 +17,73 @@ public class Facade {
 	
 	private EntityManagerFactory emf;
 	private EntityManager em;
-	private Clinica clinica;
-	private Esame esameCorrente;
-	private Paziente pazienteCorrente;
 	
 	public Facade() {
 		emf = Persistence.createEntityManagerFactory("clinica-unit");
 		em = emf.createEntityManager();
-		this.clinica = new Clinica();
 	}
 	
-	
+	//UC0a Paziente effettua login
 	public Paziente loginPaziente(String username, String password){
 		PazienteDao pazientedao = new PazienteDao(em);
 		Paziente paziente = pazientedao.findByUsername(username);
-		if(password.equals(paziente.getPassword())){
-		return paziente;
-		}
-		else {
-			return null;
-		}
+		if(password.equals(paziente.getPassword()))	return paziente;
+		else return null;
+	}
+	
+	//UC0b Amministratore effettua login
+	public Amministratore loginAmministratore(String username, String password){
+		AmministratoreDao amministratoreDao = new AmministratoreDao(em);
+		Amministratore amministratore = amministratoreDao.findByUsername(username);
+		if(password.equals(amministratore.getPassword())) return amministratore;
+		else return null;
 	}
 	
 	//UC1 Utente consulta offerta
 	public List<TipologiaEsame> consultaTipologieEsame(){
-		return this.clinica.mostraTipologie();
+		TipologiaEsameDao tipologiaDao = new TipologiaEsameDao(em);
+		return tipologiaDao.findAll();
 	}
-	
-	public TipologiaEsame mostraDettagliTipologiaEsame(String nomeTipologiaEsame){
-		return this.clinica.trovaTipologia(nomeTipologiaEsame);
+
+	public TipologiaEsame mostraDettaglioTipologiaEsame(long idTipologiaEsame){
+		TipologiaEsameDao tipologiaDao = new TipologiaEsameDao(em);
+		return tipologiaDao.findByPrimaryKey(idTipologiaEsame);
 	}
 	
 	
 	//UC2 Amministratore crea esame
-	public void creaNuovoEsame(String codice, Medico medico, Paziente paziente) {
-		this.esameCorrente = new Esame(codice, medico, paziente);
+	public void creaNuovoEsame(Esame esame) {
+		EsameDao esameDao = new EsameDao(em);
+		esameDao.save(esame);
 	}
 	
-	public void impostaTipologiaEsame(String nome) {
-		TipologiaEsame tipologia =  this.clinica.getTipologieEsami().get(nome);
-		this.esameCorrente.setTipologia(tipologia);
-	}
 	
-	public void associaPazienteAdEsame(Long codice) {
-		Paziente paziente = this.clinica.getPazienti().get(codice);
-		this.esameCorrente.setPaziente(paziente);
-	}
-	
-	public void confermaInserimentoEsame() {
-		Esame esameDaInserire=this.esameCorrente;
-		this.clinica.getEsamiDaSvolgere().put(esameDaInserire.getCodice(),esameDaInserire);
-	}
+	/*
+	 * tutti questi metodi secondo me sono inutili
+	 * queste azioni vengono fatte direttamente nella pagina jsp
+	 * durante la creazione del nuovo esame
+	 * author: petrullica
+	public void impostaTipologiaEsame(String nome) {}
+	public void associaPazienteAdEsame(Long codice) {}
+	public void confermaInserimentoEsame() {}
+	*/
 	
 	
 	//UC3 Paziente consulta risultati proprio esame
-	public List<Esame> mostraElencoEsami(){
-		return this.clinica.mostraEsamiDaSvolgere();
+	
+	/*
+	 * da fare il metodo findByPaziente
+	 * author: petrullica
+	 */
+	public List<Esame> mostraElencoEsami(Long idPaziente){
+		EsameDao esameDao = new EsameDao(em);
+		return esameDao.finByPaziente(idPaziente);
 	}
-    public Esame mostraDettaglioEsame(Long codiceEsame){
-       return this.mostraDettaglioEsame(codiceEsame);   	
+	
+	// valido anche per UC6
+    public Esame mostraDettaglioEsame(Long idEsame){
+    	EsameDao esameDao = new EsameDao(em);
+    	return esameDao.findByPrimaryKey(idEsame);
     }
 	
     
@@ -85,10 +91,6 @@ public class Facade {
 	public void creaNuovaTipologiaEsame(TipologiaEsame tipologia) {
 		TipologiaEsameDao tipologiaDao = new TipologiaEsameDao(em);
 		tipologiaDao.save(tipologia);
-		this.clinica.aggiungiTipologia(tipologia);
-		//TODO
-		//Da rivedere quando chiudere la entityManager, l'ho messa qua perch� volevo
-		//solo vedere se mi salvava in database la tipologia
 	}
 	
 	public void creaNuovoPaziente(Paziente paziente){
@@ -98,42 +100,50 @@ public class Facade {
 	
 	
 	//UC5 Amministratore consulta esami effettuati da un medico
-	public List<Esame> mostraEsamiMedico(String nome, String cognome) {
-		String keyMedico = nome.concat(cognome);
-		//TODO
-		//DAO retrieve dal dbms
-		return clinica.getMedici().get(keyMedico).getEsami();
+	
+	/*
+	 * da fare il metodo findByMedico
+	 * author: petrullica
+	 */
+	public List<Esame> mostraEsamiMedico(long idMedico) {
+		EsameDao esameDao = new EsameDao(em);
+		return esameDao.finByMedico(idMedico);
 	}
 	
 	
 	//UC6 Amministratore inserisce risultati esame
-	public Esame getEsameDaCompletare(Long codiceEsame){
-		//TODO
-		//DAO retrieve dal dbms
-		Esame esameCorrente = this.clinica.getEsamiDaSvolgere().get(codiceEsame);
-		return esameCorrente;
+	
+	/*
+	 * da fare il metodo findByEsameDaSvolgere\Svolto
+	 * author: petrullica
+	 */
+	public List<Esame> mostraEsamiDaSvolgere() {
+		EsameDao esameDao = new EsameDao(em);
+		return esameDao.findByEsameDaSvolgere();
 	}
 	
-	public void inserisciRisultatiEsame(){
-		//TODO
+	//  gia scritto sopra public Esame mostraDettaglioEsame(Long idEsame){
+	
+	/*
+	 * da fare il metodo findByEsame
+	 * author: petrullica
+	 */
+	public List<Risultato> mostraElencoRisultati(Long idEsame) {
+		RisultatoDao risultatoDao = new RisultatoDao(em);
+		return risultatoDao.findByEsame(idEsame);
 	}
 	
+	public Risultato mostraDettaglioRisultato(Long idRisultato) {
+		RisultatoDao risultatoDao = new RisultatoDao(em);
+		return risultatoDao.findByPrimaryKey(idRisultato);
+	}
 	
-	
-	// Getters&Setters
-	public Clinica getClinica() {
-		return clinica;
-	}
-	public Paziente getPazienteCorrente() {
-		return pazienteCorrente;
-	}
-	public void setPazienteCorrente(Paziente pazienteCorrente) {
-		this.pazienteCorrente = pazienteCorrente;
-	}
-	public Esame getEsameCorrente() {
-		return esameCorrente;
-	}
-	public void setEsameCorrente(Esame esameCorrente) {
-		this.esameCorrente = esameCorrente;
+	/*
+	 * i dettagli dell'esame vengono inseriti direttamente nella pagina jsp
+	 * author: petrullica
+	 */
+	public void aggiornaRisultatoEsame(Risultato risultato){
+		RisultatoDao risultatoDao = new RisultatoDao(em);
+		risultatoDao.update(risultato);
 	}
 }

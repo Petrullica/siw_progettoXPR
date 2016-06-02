@@ -26,7 +26,7 @@ public abstract class Dao<T> {
 
 	//Retrieve
 	public abstract List<T> findAll();
-	public abstract T findByPrimaryId(long id);
+	public abstract T findByPrimaryKey(long id);
 	
 	//Update
 	public void update(T entity) {

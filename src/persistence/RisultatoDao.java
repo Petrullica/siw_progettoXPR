@@ -26,7 +26,7 @@ public class RisultatoDao extends Dao<Risultato> {
  
 
 	@Override
-	public Risultato findByPrimaryId(long id) {
+	public Risultato findByPrimaryKey(long id) {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		Risultato risultato = em.find(Risultato.class, id);
@@ -35,4 +35,8 @@ public class RisultatoDao extends Dao<Risultato> {
 		return risultato;
 	}
 
+	public List<Risultato> findByEsame(Long idEsame) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -35,7 +35,7 @@ public class MedicoDao extends Dao<Medico> {
 	}
 
 	@Override
-	public Medico findByPrimaryId(long id) {
+	public Medico findByPrimaryKey(long id) {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		Medico medico = em.find(Medico.class, id);

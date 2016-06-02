@@ -5,9 +5,9 @@ import javax.servlet.http.*;
 import model.Facade;
 import model.Paziente;
 
-public class LoginAction {
+public class LoginPazienteAction {
 
-	public LoginAction(){}
+	public LoginPazienteAction(){}
 
 	public String esegui(HttpServletRequest request)
 	  throws ServletException  {

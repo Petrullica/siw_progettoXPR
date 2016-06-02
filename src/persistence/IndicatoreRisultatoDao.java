@@ -36,7 +36,7 @@ public class IndicatoreRisultatoDao extends Dao<IndicatoreRisultato> {
 
 
 	@Override
-	public IndicatoreRisultato findByPrimaryId(long id) {
+	public IndicatoreRisultato findByPrimaryKey(long id) {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		IndicatoreRisultato indicatoreRisultato = em.find(IndicatoreRisultato.class, id);

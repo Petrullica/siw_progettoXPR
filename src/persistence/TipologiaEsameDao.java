@@ -35,7 +35,7 @@ public class TipologiaEsameDao extends Dao<TipologiaEsame>{
 	}
 
 	@Override
-	public TipologiaEsame findByPrimaryId(long id) {
+	public TipologiaEsame findByPrimaryKey(long id) {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		TipologiaEsame tipologiaEsame = em.find(TipologiaEsame.class, id);

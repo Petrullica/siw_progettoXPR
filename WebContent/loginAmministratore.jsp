@@ -4,12 +4,12 @@
 <html>
   <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Login Paziente</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <title>Login Amministratore</title>
+  	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
   </head>
   <body>
-    <h1>Login Paziente</h1>
-	 <form action="autenticaPaziente" method="POST">
+    <h1>Login Amministratore</h1>
+	 <form action="autenticaAmministratore" method="POST">
 		<p>Username: <input type="text" name="username"/></p>
 		<p>Password: <input type="password" name="password"/></p>
 		<p><input type="reset" value="Reimposta"/></p>

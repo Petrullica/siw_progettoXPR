@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page import="model.Paziente"%>
+<%@page import="model.Amministratore"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +18,7 @@
 
 	<h1>Autenticato Come</h1>
 	<ul>
-		<li>Username: <b>${paziente.username}</b></li>
+		<li>Username: <b>${amministratore.username}</b></li>
 		<li><a href="inserisciNuovaTipologiaEsame.jsp">inserisciNuovaTipologia</a></li>
 	</ul>
 </body>

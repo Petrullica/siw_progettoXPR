@@ -35,7 +35,7 @@ public class PrerequisitiDao extends Dao<Prerequisito> {
 	}
 
 	@Override
-	public Prerequisito findByPrimaryId(long id) {
+	public Prerequisito findByPrimaryKey(long id) {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		Prerequisito prerequisito = em.find(Prerequisito.class, id);

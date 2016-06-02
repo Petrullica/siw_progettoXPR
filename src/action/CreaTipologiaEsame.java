@@ -2,7 +2,7 @@ package action;
 
 
 import javax.servlet.http.HttpServletRequest;
-import controller.HelperTipologiaEsame;
+import helper.HelperTipologiaEsame;
 import model.Facade;
 import model.TipologiaEsame;
 

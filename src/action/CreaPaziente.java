@@ -2,7 +2,7 @@ package action;
 
 
 import javax.servlet.http.HttpServletRequest;
-import controller.HelperPaziente;
+import helper.HelperPaziente;
 import model.Facade;
 import model.Paziente;
 

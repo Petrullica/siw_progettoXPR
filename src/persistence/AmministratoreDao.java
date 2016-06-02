@@ -35,7 +35,7 @@ public class AmministratoreDao extends Dao<Amministratore> {
 
 
 	@Override
-	public Amministratore findByPrimaryId(long id) {
+	public Amministratore findByPrimaryKey(long id) {
 			
 			EntityTransaction tx = em.getTransaction();
 			tx.begin();
