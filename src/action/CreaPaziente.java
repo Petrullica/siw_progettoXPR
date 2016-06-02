@@ -18,9 +18,7 @@ public class CreaPaziente implements Action {
 			String cognome = request.getParameter("cognome");
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
-			Paziente paziente = new Paziente(nome, cognome);
-			paziente.setUsername(username);
-			paziente.setPassword(password);
+			Paziente paziente = new Paziente(nome, cognome, username, password);
 			facade.creaNuovoPaziente(paziente);
 
 			request.setAttribute("paziente", paziente);

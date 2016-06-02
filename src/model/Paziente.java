@@ -5,11 +5,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
 
 @Entity
 public class Paziente {
@@ -35,9 +32,11 @@ public class Paziente {
 		this.esami= new LinkedList<Esame>();
 	}
 
-	public Paziente(String nome, String cognome) {
+	public Paziente(String nome, String cognome, String username,String password) {
 		this.nome = nome;
 		this.cognome = cognome;
+		this.username = username;
+		this.password =password;
 		//Ho aggiunto questo codice fiscale calcolato a caso proprio
 		this.codiceFiscale = nome.concat(cognome)+nome.hashCode();
 		this.esami= new LinkedList<Esame>();
