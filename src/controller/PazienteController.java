@@ -6,15 +6,15 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import facade.PazienteFacade;
 import model.Paziente;
 
-@SessionScoped
 @ManagedBean
 public class PazienteController {
 	
-	@ManagedProperty(value="#{param.id}")
+	@ManagedProperty(value="#{param.username}")
 	private String username;
 	private String nome;
 	private String password;
@@ -29,6 +29,7 @@ public class PazienteController {
 		Paziente paziente = pazienteFacade.getPaziente(username);
 		if(paziente!=null && paziente.getPassword().equals(password)){
 				this.paziente = paziente;
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("paziente", paziente);
 				return "autenticatoPaziente";
 		}
 		else return "fallimento";

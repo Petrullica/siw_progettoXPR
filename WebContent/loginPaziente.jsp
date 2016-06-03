@@ -1,12 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
-<%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
+	<%@ page import="model.Paziente" %>
+
+
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Loggati</title>
+<title>Inserisci Una Nuova Tipologia Esame</title>
 </head>
 <body>
 <f:view>
@@ -14,12 +19,12 @@
     <div>Username: <h:inputText value="#{pazienteController.username}" 
                      required="true"
                      requiredMessage="Nome is mandatory"
-                     id="nome"/> <h:message for="nome" />
+                     id="username"/> <h:message for="username" />
 	</div>
     <div>Password: <h:inputText value="#{pazienteController.password}" 
                      required="true"
                      requiredMessage="Descrizione is mandatory"
-                     id="descrizione"/> <h:message for="descrizione" />
+                     id="password"/> <h:message for="password" />
 	</div>
 	<div>
 		<h:commandButton value="Submit"  action="#{pazienteController.loginPaziente}"/>
