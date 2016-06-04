@@ -17,7 +17,7 @@ import model.TipologiaEsame;
 @SessionScoped
 @ManagedBean
 public class EsameController {
-	
+	//
 	@ManagedProperty(value="#{param.id}")
 	private String codice;
 	private String nome;
