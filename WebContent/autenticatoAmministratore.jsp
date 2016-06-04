@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
 <%@page import="model.Amministratore"%>
 <!DOCTYPE html>
 <html>
@@ -16,10 +17,12 @@
 
 	
 
-	<h1>Autenticato Come</h1>
-	<ul>
-		<li>Username: <b>${amministratore.username}</b></li>
-		<li><a href="inserisciNuovaTipologiaEsame.jsp">inserisciNuovaTipologia</a></li>
-	</ul>
+<f:view>
+<h1>${amministratoreController.amministratore.username}</h1>
+<h2>Logged!</h2>
+	<li><a href="inserisciNuovaTipologiaEsame.jsp">inserisciNuovaTipologia</a></li>
+
+</f:view>
+	
 </body>
 </html>

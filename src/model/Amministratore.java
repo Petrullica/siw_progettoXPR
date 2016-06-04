@@ -10,8 +10,7 @@ import javax.persistence.Id;
 public class Amministratore {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private String username;
 	
 	private String nome;
 	
@@ -20,8 +19,6 @@ public class Amministratore {
 	@Column(nullable = false)
 	private String password;
 	
-	@Column(unique=true, nullable = false)
-	private String username;
 	
 	public Amministratore() {
 	}
@@ -29,6 +26,15 @@ public class Amministratore {
 	public Amministratore(String nome, String cognome) {
 		this.nome = nome;
 		this.cognome = cognome;
+	}
+	
+	
+
+	public Amministratore(String username, String nome, String cognome, String password) {
+		this.username = username;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.password = password;
 	}
 
 	public String getNome() {
@@ -47,9 +53,6 @@ public class Amministratore {
 		this.cognome = cognome;
 	}
 
-	public Long getId() {
-		return id;
-	}
 
 	public String getPassword() {
 		return password;

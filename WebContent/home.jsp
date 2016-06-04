@@ -44,7 +44,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					data-toggle="dropdown" data-hover="dropdown">Login<span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Area Amministratori</a></li>
+						<li><a href="loginAmministratore.jsp">Area Amministratori</a></li>
 						<li><a href="loginPaziente.jsp">Area Pazienti</a></li>
 					</ul></li>
 			</ul>
