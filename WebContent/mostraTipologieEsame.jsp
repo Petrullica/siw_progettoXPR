@@ -1,19 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="model.TipologiaEsame"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=US-ASCII"
+	pageEncoding="US-ASCII"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mostra Tipologie Esame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Mostra</title>
 </head>
 <body>
-	<ul>
-		<c:forEach var="tipologieEsame" items="${tipologieEsame}">
-			<li>${tipologieEsame.nome}</li>
-		</c:forEach>
-	</ul>
+	<f:view>
+		<h1>Mostra</h1>
+		<h:form>
+					<h:commandLink action="#{tipologiaEsameController.mostraTipologieEsame}"
+						value="Mostra Tipologie Esame" />
+				</h:form>
+	</f:view>
 </body>
 </html>

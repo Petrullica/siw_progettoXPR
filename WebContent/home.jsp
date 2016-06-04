@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +26,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 </head>
 <body>
+<f:view>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
@@ -33,7 +37,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<li class="active"><a href="#">Home</a></li>
 				<li><a href="inserisciNuovaTipologiaEsame.jsp">CreaNuovaTipologiaEsame</a></li>
 				<li><a href="inserisciNuovoPaziente.jsp">InserisciNuovoPaziente</a></li>
-				<li><a href="<c:url value="/controller/tipologiaEsame.mostra"/>" method="post">MostraTipologieEsame</a></li>
+				<li><a href="mostraTipologieEsame.jsp">MostraTipologieEsame</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -133,6 +137,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	</div>
 
 	<div class="container" id="googleMap" style="height: 450px;" /></div>
-
+</f:view>
 </body>
 </html>
