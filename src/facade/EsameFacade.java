@@ -1,17 +1,17 @@
 package facade;
 
-import java.util.Date;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaQuery;
 
 import model.Esame;
-import model.Paziente;
-import model.TipologiaEsame;
 
 
-//DA IMPLEMENTARE, ho vari dubbi su Esame, ad esempio siamo sicuri sia giusto il costruttore?
+//Il costruttore tocca passargli solo codice e nome se
+//La creazione della data è stata fatta bene...
 
 @Stateless
 public class EsameFacade {
@@ -20,22 +20,36 @@ public class EsameFacade {
     private EntityManager em;
  
 	
-	public Esame creaEsame(String codice, String nome, Date dataPrenotazioneEsame, Date dataSvolgimentoEsame) {
-		//Esame esame = new Esame(codice, nome, dataPrenotazioneEsame, dataSvolgimentoEsame);
-		//em.persist(esame);
-		return null;
+	public Esame creaEsame(String codice, String nome) {
+		Esame esame = new Esame(codice, nome);
+		em.persist(esame);
+		return esame;
+	}
+	
+	public Esame getEsame(Long id) {
+		Esame esame = em.find(Esame.class, id);
+		return esame;
+	}
+	
+	public List<Esame> getAllEsami() {
+        CriteriaQuery<Esame> cq = em.getCriteriaBuilder().createQuery(Esame.class);
+        cq.select(cq.from(Esame.class));
+        List<Esame> esami = em.createQuery(cq).getResultList();
+		return esami;
 	}
 
-	public Esame getAllEsami() {
-		// TODO Auto-generated method stub
-		return null;
+	public void updateEsame(Esame esame) {
+        em.merge(esame);
 	}
+	
+    private void deleteEsame(Esame esame) {
+        em.remove(esame);
+    }
 
-	public Esame getPaziente(String codice) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteEsame(Long id) {
+		Esame esame = em.find(Esame.class, id);
+        deleteEsame(esame);
 	}
-
 }
 
 

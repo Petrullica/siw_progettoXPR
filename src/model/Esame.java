@@ -49,6 +49,16 @@ public class Esame {
 		this.risultati= new LinkedList<Risultato>();
 	}
 	
+	
+	
+	public Esame(String codice, String nome) {
+		this.codice = codice;
+		this.nome = nome;
+		this.creaDataPrenotazione();
+	}
+
+
+
 	public Esame(String codice, Medico medico, Paziente paziente) {
 		this.codice = codice;
 		this.medico = medico;

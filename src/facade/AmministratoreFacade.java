@@ -16,9 +16,9 @@ public class AmministratoreFacade {
 	    private EntityManager em;
 	 
 		public Amministratore creaAmministratore(String nome, String cognome, String username, String password) {
-			Amministratore paziente = new Amministratore(nome, cognome, username, password);
-			em.persist(paziente);
-			return paziente;
+			Amministratore amministratore = new Amministratore(nome, cognome, username, password);
+			em.persist(amministratore);
+			return amministratore;
 		}
 		
 		public Amministratore getAmministratore(String username) {

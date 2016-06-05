@@ -1,47 +1,44 @@
 package controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
 
 import facade.EsameFacade;
 import model.Esame;
-import model.TipologiaEsame;
 
 
-//DA SISTEMARE LA RISPETTIVA FACADE
-
-@SessionScoped
 @ManagedBean
 public class EsameController {
-	//
+	
 	@ManagedProperty(value="#{param.id}")
+	private Long id;
 	private String codice;
 	private String nome;
 	private Esame esame;
 	private Date dataPrenotazioneEsame;
 	private Date dataSvolgimentoEsame;
+	private List<Esame> esami;
 	
 	@EJB
-	
 	private EsameFacade esameFacade;
 	
 	public String creaEsame(){
-    	this.esame= esameFacade.creaEsame(codice, nome, dataPrenotazioneEsame,dataSvolgimentoEsame);
+    	this.esame= esameFacade.creaEsame(codice, nome);
 		return "esame";
     	
     }
 	
 	public String mostraEsami(){
-		this.esame= esameFacade.getAllEsami();
-		return "esame";
+		this.esami= esameFacade.getAllEsami();
+		return "esami";
 	}
 	
 	public String findEsame() {
-		this.esame = esameFacade.getPaziente(this.codice);
+		this.esame = esameFacade.getEsame(id);
 		return "esame";
 	}
 	
