@@ -18,7 +18,7 @@
                      requiredMessage="Nome is mandatory"
                      id="username"/> <h:message for="username" />
 	</div>
-    <div>Password: <h:inputText value="#{amministratoreController.password}" 
+    <div>Password: <h:inputSecret value="#{amministratoreController.password}" 
                      required="true"
                      requiredMessage="Descrizione is mandatory"
                      id="password"/> <h:message for="password" />
