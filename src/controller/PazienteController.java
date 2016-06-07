@@ -5,7 +5,6 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import facade.PazienteFacade;
@@ -37,7 +36,7 @@ public class PazienteController {
 	
 	public String creaPaziente() {
 		this.paziente = pazienteFacade.creaPaziente(nome, cognome, username, password);
-		return "riepilogoInserimentoPaziente"; 
+		return "paziente"; 
 	}
 	
 	public String mostraPazienti() {

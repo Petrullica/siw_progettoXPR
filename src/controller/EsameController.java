@@ -11,6 +11,8 @@ import facade.EsameFacade;
 import model.Esame;
 
 
+//DA SISTEMARE LA RISPETTIVA FACADE
+
 @ManagedBean
 public class EsameController {
 	
@@ -81,5 +83,23 @@ public class EsameController {
 	public void setEsameFacade(EsameFacade esameFacade) {
 		this.esameFacade = esameFacade;
 	}
+
+	public Date getDataSvolgimentoEsame() {
+		return dataSvolgimentoEsame;
+	}
+
+	public void setDataSvolgimentoEsame(Date dataSvolgimentoEsame) {
+		this.dataSvolgimentoEsame = dataSvolgimentoEsame;
+	}
+
+	public List<Esame> getEsami() {
+		return esami;
+	}
+
+	public void setEsami(List<Esame> esami) {
+		this.esami = esami;
+	}
+	
+	
 
 }

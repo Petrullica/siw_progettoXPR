@@ -41,7 +41,7 @@ public class TipologiaEsameController {
 		
 		public String findTipologiaEsame(Long id) {
 			this.tipologiaEsame = tipologiaEsameFacade.getTipologiaEsame(id);
-			return "product";
+			return "tipologiaEsame";
 		}
 
 		public Long getId() {

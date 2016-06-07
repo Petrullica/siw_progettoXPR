@@ -54,5 +54,55 @@ public class AmministratoreController {
 		return "amministratore";
 
 	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getCognome() {
+		return cognome;
+	}
+
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+
+	public Amministratore getAmministratore() {
+		return amministratore;
+	}
+
+	public void setAmministratore(Amministratore amministratore) {
+		this.amministratore = amministratore;
+	}
+
+	public List<Amministratore> getAmministratori() {
+		return amministratori;
+	}
+
+	public void setAmministratori(List<Amministratore> amministratori) {
+		this.amministratori = amministratori;
+	}
+	
+	
 }
 
