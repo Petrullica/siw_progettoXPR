@@ -18,7 +18,7 @@
 					<th>Costo</th>
 				</tr>
 				<c:forEach var="tipologiaEsame"
-					items="#{tipoogiaEsameController.tipologieEsame}">
+					items="#{tipologiaEsameController.tipologieEsame}">
 					<tr>
 						<td><h:commandLink
 								action="#{tipologiaEsameController.findTipologiaEsame}"

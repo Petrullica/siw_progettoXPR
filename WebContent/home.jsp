@@ -27,7 +27,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </head>
 <body>
 <f:view>
-
+<h:form>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -37,7 +37,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<li class="active"><a href="#">Home</a></li>
 				<li><a href="inserisciNuovaTipologiaEsame.jsp">CreaNuovaTipologiaEsame</a></li>
 				<li><a href="inserisciNuovoPaziente.jsp">InserisciNuovoPaziente</a></li>
-				<li><a href="mostraTipologieEsame.jsp">MostraTipologieEsame</a></li>
+				<li><h:commandLink action="#{tipologiaEsameController.mostraTipologieEsame}"
+						value="Mostra Tipologie Esame" /></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -137,6 +138,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	</div>
 
 	<div class="container" id="googleMap" style="height: 450px;" /></div>
+	</h:form>
 </f:view>
 </body>
 </html>
