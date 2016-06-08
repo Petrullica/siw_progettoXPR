@@ -3,12 +3,12 @@
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
-	<%@ page import="model.Paziente" %>
+	<%@ page import="model.Amministratore" %>
 
 
-<% Paziente paziente = (Paziente)session.getAttribute("paziente");
+<% Amministratore amministratore = (Amministratore)session.getAttribute("amministratore");
    boolean autorizzato = true;
-   if (paziente!=null)
+   if (amministratore!=null)
 	   autorizzato &= true;
    else 
    	   autorizzato = false;

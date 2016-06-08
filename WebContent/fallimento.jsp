@@ -21,8 +21,8 @@
 			<strong>Attenzione!</strong> Per accedere a questa zona bisogna prima autenticarsi.
 		</div>
 	</div>
-	<a class="container" href="loginPaziente.jsp">
-  <button type="button" class="btn btn-primary">Loggin</button>
+	<a class="container" href="loginAmministratore.jsp">
+  <button type="button" class="btn btn-primary">Accedi Come Amministratore</button>
 	</a>
 </body>
 </html>
