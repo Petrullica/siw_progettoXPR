@@ -5,13 +5,14 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
 import model.Esame;
 
 
 //Il costruttore tocca passargli solo codice e nome se
-//La creazione della data è stata fatta bene...
+//La creazione della data ï¿½ stata fatta bene...
 
 @Stateless
 public class EsameFacade {
@@ -38,6 +39,17 @@ public class EsameFacade {
 //	        List<Esame> esami = em.createQuery(cq).getResultList();
 //			return esami;
 //	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Esame> getEsamiByPazienteUsername(String username){
+
+		Query q = em.createNativeQuery("select * from Esame where"
+				+ " paziente_username = ?", Esame.class);
+		q.setParameter(1, username);
+		List<Esame> esami= q.getResultList();
+		
+		return esami;
+	}
 	
 	public List<Esame> getAllEsami() {
         CriteriaQuery<Esame> cq = em.getCriteriaBuilder().createQuery(Esame.class);

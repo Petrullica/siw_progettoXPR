@@ -6,10 +6,12 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
 
 import facade.EsameFacade;
 import model.Esame;
 import model.Medico;
+import model.Paziente;
 import model.Risultato;
 import model.TipologiaEsame;
 
@@ -20,6 +22,7 @@ public class EsameController {
 	private Long id;
 	private String codice;
 	private Medico medico;
+	private Paziente paziente;
 	private TipologiaEsame tipologiaEsame;
 	private List<Risultato> risultati;
 	private Date dataPrenotazioneEsame;
@@ -39,6 +42,14 @@ public class EsameController {
 	public String mostraEsami(){
 		this.esami= esameFacade.getAllEsami();
 		return "esami";
+	}
+	
+	public String mostraEsamiPaziente(){
+		this.paziente= (Paziente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");
+
+		this.esami= esameFacade.getEsamiByPazienteUsername(paziente.getUsername());
+		return "esami";
+		
 	}
 	
 	public String findEsame() {
