@@ -12,8 +12,7 @@ import model.IndicatoreRisultato;
 @ManagedBean
 public class IndicatoreRisultatoController {
 
-	@ManagedProperty(value="#{param.id}")
-	private Long id;
+	@ManagedProperty(value="#{param.nome}")
 	private String nome;
 	private IndicatoreRisultato indicatoreRisultato;
 	private List<IndicatoreRisultato> indicatoriRisultato;
