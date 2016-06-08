@@ -5,8 +5,10 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
+import model.Esame;
 import model.Medico;
 
 
@@ -32,6 +34,17 @@ public class MedicoFacade {
         cq.select(cq.from(Medico.class));
         List<Medico> medici = em.createQuery(cq).getResultList();
 		return medici;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Esame> getEsamiMedicoByNomeCognome(String nome,String cognome){
+		Query q = em.createNativeQuery("select esame.id, esame.codice, esame.dataprenotazioneesame, esame.datasvolgimentoesame"
+				+ " from Medico left join esame on"
+				+ " nome = ?"+" and cognome = ?", Esame.class);
+		q.setParameter(1, nome);
+		q.setParameter(2, cognome);
+		List<Esame> esami= q.getResultList();
+		return esami;
 	}
 
 	public void updateMedico(Medico medico) {

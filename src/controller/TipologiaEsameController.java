@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.TipologiaEsame;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -23,6 +24,11 @@ public class TipologiaEsameController {
 		
 		@EJB
 		private TipologiaEsameFacade tipologiaEsameFacade;
+		
+		@PostConstruct
+		public void init(){
+			this.tipologieEsame = tipologiaEsameFacade.getAllTipologieEsami();
+		}
 		
 		public String creaTipologiaEsame() {
 			this.tipologiaEsame = tipologiaEsameFacade.creaTipologiaEsame(nome, descrizione, prezzo);
@@ -91,6 +97,8 @@ public class TipologiaEsameController {
 		public void setTipologieEsame(List<TipologiaEsame> tipologieEsame) {
 			this.tipologieEsame = tipologieEsame;
 		}
+		
+		
 		
 		
 }

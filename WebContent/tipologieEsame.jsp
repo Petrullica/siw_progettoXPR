@@ -15,7 +15,7 @@
 				<tr>
 					<th>Nome</th>
 					<th>Descrizione</th>
-					<th>Costo</th>
+					<th>Prezzo</th>
 				</tr>
 				<c:forEach var="tipologiaEsame"
 					items="#{tipologiaEsameController.tipologieEsame}">
@@ -26,7 +26,7 @@
 								<f:param name="id" value="#{tipologiaEsame.id}" />
 							</h:commandLink></td>
 						<td>${tipologiaEsame.descrizione}</td>
-						<td>${tipologiaEsame.costo}</td>
+						<td>${tipologiaEsame.prezzo}</td>
 					</tr>
 				</c:forEach>
 			</table>

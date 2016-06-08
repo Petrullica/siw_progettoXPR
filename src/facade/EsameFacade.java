@@ -1,5 +1,6 @@
 package facade;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -9,10 +10,13 @@ import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
 import model.Esame;
+import model.Medico;
+import model.Paziente;
+import model.TipologiaEsame;
 
 
 //Il costruttore tocca passargli solo codice e nome se
-//La creazione della data ï¿½ stata fatta bene...
+//La creazione della data è stata fatta bene...
 
 @Stateless
 public class EsameFacade {
@@ -21,8 +25,8 @@ public class EsameFacade {
     private EntityManager em;
  
 	
-	public Esame creaEsame(String codice) {
-		Esame esame = new Esame(codice);
+	public Esame creaEsame(String codice, Date dataSvolgimentoEsame, Paziente paziente, Medico medico, TipologiaEsame tipologiaEsame) {
+		Esame esame = new Esame(codice, dataSvolgimentoEsame, paziente,medico,tipologiaEsame);
 		em.persist(esame);
 		return esame;
 	}
@@ -40,6 +44,14 @@ public class EsameFacade {
 //			return esami;
 //	}
 	
+	public List<Esame> getAllEsami() {
+        CriteriaQuery<Esame> cq = em.getCriteriaBuilder().createQuery(Esame.class);
+        cq.select(cq.from(Esame.class));
+        List<Esame> esami = em.createQuery(cq).getResultList();
+        
+		return esami;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Esame> getEsamiByPazienteUsername(String username){
 
@@ -51,10 +63,12 @@ public class EsameFacade {
 		return esami;
 	}
 	
-	public List<Esame> getAllEsami() {
-        CriteriaQuery<Esame> cq = em.getCriteriaBuilder().createQuery(Esame.class);
-        cq.select(cq.from(Esame.class));
-        List<Esame> esami = em.createQuery(cq).getResultList();
+	@SuppressWarnings("unchecked")
+	public List<Esame> getEsamiByIDMedico(Long id){
+		Query q = em.createNativeQuery("select * from Esame where"
+				+ " medico_id = ?", Esame.class);
+		q.setParameter(1, id);
+		List<Esame> esami= q.getResultList();
 		return esami;
 	}
 

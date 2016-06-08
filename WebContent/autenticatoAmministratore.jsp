@@ -21,6 +21,7 @@
 <h1>${amministratoreController.amministratore.username}</h1>
 <h2>Logged!</h2>
 	<li><a href="inserisciNuovaTipologiaEsame.jsp">inserisciNuovaTipologia</a></li>
+	<li><a href="creaEsame.jsp">creaEsame</a>
 
 </f:view>
 	

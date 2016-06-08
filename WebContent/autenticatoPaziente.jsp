@@ -20,7 +20,8 @@
 <f:view>
 <h1>${pazienteController.paziente.username}</h1>
 <h2>Logged!</h2>
-	<li><a href="esami.jsp">Esami da sostenere</a></li>
+	<li><a href="esami.jsp">Esami</a></li>
+	<li><a href="home.jsp">Home</a><li>
 
 </f:view>
 	

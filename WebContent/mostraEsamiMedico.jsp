@@ -23,34 +23,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Inserisci Una Nuova Tipologia Esame</title>
+<title>Esami Medico Da Vedere</title>
 </head>
 <body>
 	<f:view>
 		<h:form>
 			<div>
 				Nome:
-				<h:inputText value="#{tipologiaEsameController.nome}"
+				<h:inputText value="#{medicoController.nome}"
 					required="true" requiredMessage="Nome is mandatory" id="nome" />
 				<h:message for="nome" />
 			</div>
 			<div>
-				Descrizione:
-				<h:inputText value="#{tipologiaEsameController.descrizione}"
-					required="true" requiredMessage="Descrizione is mandatory"
-					id="descrizione" />
-				<h:message for="descrizione" />
-			</div>
-			<div>
-				Prezzo:
-				<h:inputText value="#{tipologiaEsameController.prezzo}"
-					required="true" requiredMessage="Prezzo is mandatory"
-					converterMessage="Prezzo must be a number" id="prezzo" />
-				<h:message for="prezzo" />
+				Cognome:
+				<h:inputText value="#{medicoController.cognome}"
+					required="true" requiredMessage="Cognome is mandatory"
+					id="cognome" />
+				<h:message for="cognome" />
 			</div>
 			<div>
 				<h:commandButton value="Submit"
-					action="#{tipologiaEsameController.creaTipologiaEsame}" />
+					action="#{medicoController.findEsamiMedicoByNomeCognome}" />
 			</div>
 
 		</h:form>

@@ -34,13 +34,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<a class="navbar-brand" href="home.jsp">Clinica XPR</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="creaEsame.jsp">Crea Esame</a></li>
 				<li><a href="inserisciNuovaTipologiaEsame.jsp">CreaNuovaTipologiaEsame</a></li>
 				<li><a href="inserisciNuovoPaziente.jsp">InserisciNuovoPaziente</a></li>
 				<li><h:commandLink action="#{tipologiaEsameController.mostraTipologieEsame}"
 						value="Mostra Tipologie Esame" /></li>
-						<li> <h:commandLink action= "#{esameController.mostraEsamiPaziente}"
+				<li> <h:commandLink action= "#{esameController.mostraEsamiPaziente}"
 						     value="Mostra Esami Paziente"/></li>
+				<li><a href="mostraEsamiMedico.jsp">Mostra Esami Medico</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"

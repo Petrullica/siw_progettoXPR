@@ -5,18 +5,20 @@
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <%@ page import="model.Amministratore"%>
 
-<% Amministratore amministratore = (Amministratore)session.getAttribute("amministratore");
-   boolean autorizzato = true;
-   if (amministratore!=null)
-	   autorizzato &= true;
-   else 
-   	   autorizzato = false;
-   if (!autorizzato) {
-   	   out.clear();
-	   RequestDispatcher rd = application.getRequestDispatcher("/fallimento.jsp");
-   	   rd.forward(request, response);
-	   return;
-	}%>
+<%
+	Amministratore amministratore = (Amministratore) session.getAttribute("amministratore");
+	boolean autorizzato = true;
+	if (amministratore != null)
+		autorizzato &= true;
+	else
+		autorizzato = false;
+	if (!autorizzato) {
+		out.clear();
+		RequestDispatcher rd = application.getRequestDispatcher("/fallimento.jsp");
+		rd.forward(request, response);
+		return;
+	}
+%>
 
 <!DOCTYPE html>
 <html>
@@ -33,6 +35,38 @@
 					requiredMessage="Codice is mandatory" id="codice" />
 				<h:message for="codice" />
 			</div>
+
+			<div>
+				DataEsame:
+				<h:inputText value="#{esameController.dataSvolgimentoEsame}"
+					required="true" requiredMessage="dataSvolgimentoEsame is mandatory"
+					id="dataSvolgimentoEsame">
+					<h:message for="dataSvolgimentoEsame" />
+					<f:convertDateTime pattern="dd-mm-yyyy" />
+				</h:inputText>
+			</div>
+
+			<div>
+				TipologiaEsame:
+				<h:selectOneMenu value="#{tipologiaEsameController.tipologiaEsame}">
+					<f:selectItems value="#{tipologiaEsameController.tipologieEsame}" var="tipologiaEsame" itemValue="#{tipologiaEsame.nome}" />
+				</h:selectOneMenu>
+			</div>
+			
+			<div>
+				Paziente:
+				<h:selectOneMenu value="#{pazienteController.paziente}">
+					<f:selectItems value="#{pazienteController.pazienti}" var="paziente" itemValue="#{paziente.username}" />
+				</h:selectOneMenu>
+			</div>
+			
+			<div>
+				Medico:
+				<h:selectOneMenu value="#{medicoController.medico}">
+					<f:selectItems value="#{medicoController.medici}" var="medico" itemValue="#{medico.nome}" />
+				</h:selectOneMenu>
+			</div>
+
 			<div>
 				<h:commandButton value="Submit"
 					action="#{esameController.creaEsame}" />

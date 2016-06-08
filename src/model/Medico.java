@@ -2,6 +2,7 @@ package model;
 
 import java.util.LinkedList;
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +30,6 @@ public class Medico {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.specializzaione = specializzazione;
-		this.esami = new LinkedList<Esame>();
 	}
 
 	public String getNome() {

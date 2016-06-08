@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -23,6 +24,11 @@ public class PazienteController {
 	
 	@EJB
 	private PazienteFacade pazienteFacade;
+	
+	@PostConstruct
+	public void init(){
+		this.pazienti = pazienteFacade.getAllPazienti();
+	}
 	
 	public String loginPaziente(){
 		Paziente paziente = pazienteFacade.getPaziente(username);
@@ -49,7 +55,7 @@ public class PazienteController {
 		return "paziente";
 	}
 	
-	public String findTipologiaEsame(String username) {
+	public String findPaziente(String username) {
 		this.paziente = pazienteFacade.getPaziente(username);
 		return "paziente";
 	}

@@ -22,11 +22,11 @@ public class EsameController {
 	private Long id;
 	private String codice;
 	private Medico medico;
-	private Paziente paziente;
 	private TipologiaEsame tipologiaEsame;
 	private List<Risultato> risultati;
 	private Date dataPrenotazioneEsame;
 	private Date dataSvolgimentoEsame;
+	private Paziente paziente;
 	private Esame esame;
 	private List<Esame> esami;
 	
@@ -34,7 +34,7 @@ public class EsameController {
 	private EsameFacade esameFacade;
 	
 	public String creaEsame(){
-    	this.esame= esameFacade.creaEsame(codice);
+    	this.esame= esameFacade.creaEsame(codice,dataSvolgimentoEsame, paziente, medico, tipologiaEsame);
 		return "esame";
     	
     }
@@ -44,13 +44,26 @@ public class EsameController {
 		return "esami";
 	}
 	
+	
 	public String mostraEsamiPaziente(){
 		this.paziente= (Paziente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");
-
+		if(paziente!=null){
 		this.esami= esameFacade.getEsamiByPazienteUsername(paziente.getUsername());
 		return "esami";
-		
+		}
+		else return "fallimento";
 	}
+	
+	public String mostraEsamiMedico(){
+		this.medico= (Medico) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");
+		if(paziente!=null){
+		this.esami= esameFacade.getEsamiByPazienteUsername(paziente.getUsername());
+		return "esami";
+		}
+		else return "fallimento";
+	}
+	
+	
 	
 	public String findEsame() {
 		this.esame = esameFacade.getEsame(id);
@@ -88,6 +101,16 @@ public class EsameController {
 	public void setEsame(Esame esame) {
 		this.esame = esame;
 	}
+	
+	
+
+	public Paziente getPaziente() {
+		return paziente;
+	}
+
+	public void setPaziente(Paziente paziente) {
+		this.paziente = paziente;
+	}
 
 	public Date getDataPrenotazioneEsame() {
 		return dataPrenotazioneEsame;
@@ -96,13 +119,15 @@ public class EsameController {
 	public void setDataPrenotazioneEsame(Date dataPrenotazioneEsame) {
 		this.dataPrenotazioneEsame = dataPrenotazioneEsame;
 	}
+	
+	
 
-	public EsameFacade getEsameFacade() {
-		return esameFacade;
+	public Long getId() {
+		return id;
 	}
 
-	public void setEsameFacade(EsameFacade esameFacade) {
-		this.esameFacade = esameFacade;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Date getDataSvolgimentoEsame() {
@@ -128,4 +153,6 @@ public class EsameController {
 	public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
 		this.tipologiaEsame = tipologiaEsame;
 	}
+	
+	
 }
