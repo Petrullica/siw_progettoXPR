@@ -21,12 +21,10 @@ public class Esame {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Column(unique=true)
+	@Column
 	private String codice;
 	
-	private String nome;
-	
-	@Column(nullable = false)
+	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataPrenotazioneEsame;
 	
@@ -51,22 +49,11 @@ public class Esame {
 	
 	
 	
-	public Esame(String codice, String nome) {
+	public Esame(String codice) {
 		this.codice = codice;
-		this.nome = nome;
 		this.creaDataPrenotazione();
 	}
 
-
-
-	public Esame(String codice, Medico medico, Paziente paziente) {
-		this.codice = codice;
-		this.medico = medico;
-		this.creaDataPrenotazione();
-		this.paziente= paziente;
-		this.creaCodice();
-		this.risultati= new LinkedList<Risultato>();
-	}
 
 	public Long getId() {
 		return id;
@@ -119,23 +106,11 @@ public class Esame {
 	public void setDataSvolgimentoEsame(Date dataEsame) {
 		this.dataSvolgimentoEsame = dataEsame;
 	}
-	
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 
 	public List<Risultato> getRisultati() {
 		return risultati;
 	}
-	private void creaCodice() {
-		String cfPaziente= this.paziente.getCodiceFiscale();
-		String dataPrenotazione= this.getDataPrenotazioneEsame().toString();
-		this.setCodice(cfPaziente + dataPrenotazione);	
-	}
+	
 	private void creaDataPrenotazione() {
 		Date dataPrenotazione= new Date();
 		this.setDataPrenotazioneEsame(dataPrenotazione);	

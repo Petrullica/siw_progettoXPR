@@ -9,9 +9,9 @@ import javax.faces.bean.ManagedProperty;
 
 import facade.EsameFacade;
 import model.Esame;
-
-
-//DA SISTEMARE LA RISPETTIVA FACADE
+import model.Medico;
+import model.Risultato;
+import model.TipologiaEsame;
 
 @ManagedBean
 public class EsameController {
@@ -19,17 +19,19 @@ public class EsameController {
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String codice;
-	private String nome;
-	private Esame esame;
+	private Medico medico;
+	private TipologiaEsame tipologiaEsame;
+	private List<Risultato> risultati;
 	private Date dataPrenotazioneEsame;
 	private Date dataSvolgimentoEsame;
+	private Esame esame;
 	private List<Esame> esami;
 	
 	@EJB
 	private EsameFacade esameFacade;
 	
 	public String creaEsame(){
-    	this.esame= esameFacade.creaEsame(codice, nome);
+    	this.esame= esameFacade.creaEsame(codice);
 		return "esame";
     	
     }
@@ -51,13 +53,21 @@ public class EsameController {
 	public void setCodice(String codice) {
 		this.codice = codice;
 	}
-
-	public String getNome() {
-		return nome;
+	
+	public Medico getMedico() {
+		return medico;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setMedico(Medico medico) {
+		this.medico = medico;
+	}
+
+	public List<Risultato> getRisultati() {
+		return risultati;
+	}
+
+	public void setRisultati(List<Risultato> risultati) {
+		this.risultati = risultati;
 	}
 
 	public Esame getEsame() {
@@ -99,7 +109,12 @@ public class EsameController {
 	public void setEsami(List<Esame> esami) {
 		this.esami = esami;
 	}
-	
-	
 
+	public TipologiaEsame getTipologiaEsame() {
+		return tipologiaEsame;
+	}
+
+	public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
+		this.tipologiaEsame = tipologiaEsame;
+	}
 }

@@ -2,16 +2,13 @@ package model;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
 
 @Entity
 public class TipologiaEsame {
@@ -29,7 +26,7 @@ public class TipologiaEsame {
 	@Column(unique=true, nullable = false)
 	private String descrizione;
 	
-	private double costo;
+	private Double prezzo;
 	
 	@OneToMany
 	private List<Prerequisito> prerequisiti;
@@ -42,20 +39,25 @@ public class TipologiaEsame {
 		this.indicatoriRisultato= new LinkedList<IndicatoreRisultato>();
 	}
 	
-	public TipologiaEsame(String nome, String descrizione, double costo) {
+	public TipologiaEsame(String nome, String descrizione, double prezzo) {
 		this.nome = nome;
 		this.descrizione = descrizione;
-		this.costo = costo;
+		this.prezzo = prezzo;
 		this.prerequisiti= new LinkedList<Prerequisito>();
 		this.indicatoriRisultato= new LinkedList<IndicatoreRisultato>();
 	}
 
-	public double getCosto() {
-		return costo;
+
+	
+	
+	public Double getPrezzo() {
+		return prezzo;
 	}
-	public void setCosto(double costo) {
-		this.costo = costo;
+
+	public void setPrezzo(Double prezzo) {
+		this.prezzo = prezzo;
 	}
+
 	public Long getId() {
 		return id;
 	}

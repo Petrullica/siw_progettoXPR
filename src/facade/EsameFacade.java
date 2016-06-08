@@ -20,8 +20,8 @@ public class EsameFacade {
     private EntityManager em;
  
 	
-	public Esame creaEsame(String codice, String nome) {
-		Esame esame = new Esame(codice, nome);
+	public Esame creaEsame(String codice) {
+		Esame esame = new Esame(codice);
 		em.persist(esame);
 		return esame;
 	}
@@ -30,6 +30,14 @@ public class EsameFacade {
 		Esame esame = em.find(Esame.class, id);
 		return esame;
 	}
+	
+//	public TipologiaEsame getTipologia(){
+//		 CriteriaQuery<TipologiaEsame> cq = em.getCriteriaBuilder().createQuery(TipologiaEsame.class);
+//	        cq.select(cq.from(TipologiaEsame.class));
+//	        
+//	        List<Esame> esami = em.createQuery(cq).getResultList();
+//			return esami;
+//	}
 	
 	public List<Esame> getAllEsami() {
         CriteriaQuery<Esame> cq = em.getCriteriaBuilder().createQuery(Esame.class);
