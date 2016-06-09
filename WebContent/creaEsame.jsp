@@ -48,22 +48,22 @@
 
 			<div>
 				TipologiaEsame:
-				<h:selectOneMenu value="#{tipologiaEsameController.tipologiaEsame}">
-					<f:selectItems value="#{tipologiaEsameController.tipologieEsame}" var="tipologiaEsame" itemValue="#{tipologiaEsame.nome}" />
+				<h:selectOneMenu value="#{tipologiaEsameController.tipologiaEsame}" converter="#{tipologiaEsameConverter }">
+					<f:selectItems value="#{tipologiaEsameController.tipologieEsame}" var="tipologiaEsame" itemValue="#{tipologiaEsame}" itemLabel="#{tipologiaEsame.nome }"/>
 				</h:selectOneMenu>
 			</div>
 			
 			<div>
 				Paziente:
-				<h:selectOneMenu value="#{pazienteController.paziente}">
-					<f:selectItems value="#{pazienteController.pazienti}" var="paziente" itemValue="#{paziente.username}" />
+				<h:selectOneMenu value="#{pazienteController.paziente}" converter="#{pazienteConverter}">
+					<f:selectItems value="#{pazienteController.pazienti}" var="paziente" itemValue="#{paziente}" itemLabel="#{paziente.username}" />
 				</h:selectOneMenu>
 			</div>
 			
 			<div>
 				Medico:
-				<h:selectOneMenu value="#{medicoController.medico}">
-					<f:selectItems value="#{medicoController.medici}" var="medico" itemValue="#{medico.nome}" />
+				<h:selectOneMenu value="#{medicoController.medico}" converter="#{medicoConverter}">
+					<f:selectItems value="#{medicoController.medici}" var="medico" itemValue="#{medico}" itemLabel="#{medico.nome}"/>
 				</h:selectOneMenu>
 			</div>
 

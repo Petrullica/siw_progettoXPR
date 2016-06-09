@@ -22,8 +22,8 @@ public class EsameController {
 	private Long id;
 	private String codice;
 	private Medico medico;
-	private TipologiaEsame tipologiaEsame;
 	private List<Risultato> risultati;
+	private TipologiaEsame tipologiaEsame;
 	private Date dataPrenotazioneEsame;
 	private Date dataSvolgimentoEsame;
 	private Paziente paziente;

@@ -89,4 +89,55 @@ public class TipologiaEsame {
 	public List<IndicatoreRisultato> getIndicatoriRisultato() {
 		return indicatoriRisultato;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codice == null) ? 0 : codice.hashCode());
+		result = prime * result + ((descrizione == null) ? 0 : descrizione.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((prezzo == null) ? 0 : prezzo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TipologiaEsame other = (TipologiaEsame) obj;
+		if (codice == null) {
+			if (other.codice != null)
+				return false;
+		} else if (!codice.equals(other.codice))
+			return false;
+		if (descrizione == null) {
+			if (other.descrizione != null)
+				return false;
+		} else if (!descrizione.equals(other.descrizione))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (prezzo == null) {
+			if (other.prezzo != null)
+				return false;
+		} else if (!prezzo.equals(other.prezzo))
+			return false;
+		return true;
+	}
+	
+	
 }

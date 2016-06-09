@@ -2,13 +2,11 @@ package controller;
 
 import java.util.List;
 
-import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-
 import facade.MedicoFacade;
-import model.Esame;
 import model.Medico;
 
 @ManagedBean
@@ -19,22 +17,22 @@ public class MedicoController {
 	private String cognome;
 	private String specializzazione;
 	private Medico medico;
-	private List<Esame> esami;
 	private List<Medico> medici;
-	
+
 	@EJB
 	private MedicoFacade medicoFacade;
-	
+
 	@PostConstruct
 	public void init(){
 		this.medici = medicoFacade.getAllMedici();
 	}
 	
+	
 	public String creaMedico() {
 		this.medico = medicoFacade.creaMedico(nome, cognome, specializzazione);
 		return "medico"; 
 	}
-	
+
 	public String mostraMedici() {
 		this.medici = medicoFacade.getAllMedici();
 		return "medici"; 
@@ -44,23 +42,10 @@ public class MedicoController {
 		this.medico = medicoFacade.getMedico(id);
 		return "medico";
 	}
-	
+
 	public String findMedico(Long id) {
 		this.medico = medicoFacade.getMedico(id);
 		return "medico";
-	}
-	
-	public String findEsamiMedicoByNomeCognome(){
-		this.esami = medicoFacade.getEsamiMedicoByNomeCognome(nome, cognome);
-		return "esami";
-	}	
-
-	public List<Esame> getEsami() {
-		return esami;
-	}
-
-	public void setEsami(List<Esame> esami) {
-		this.esami = esami;
 	}
 
 	public Long getId() {
@@ -110,4 +95,6 @@ public class MedicoController {
 	public void setMedici(List<Medico> medici) {
 		this.medici = medici;
 	}
+	
+	
 }
