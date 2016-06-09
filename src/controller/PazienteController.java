@@ -37,7 +37,7 @@ public class PazienteController {
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("paziente", paziente);
 			return "autenticatoPaziente";
 		}
-		else return "fallimento";
+		else return "erroreLoginPaziente";
 	}
 
 	public String creaPaziente() {

@@ -17,9 +17,11 @@
 <body>
 	<f:view>
 		<h1>${amministratoreController.amministratore.username}</h1>
-		<h2>Loggato!</h2>
-		<li><a href="inserisciNuovaTipologiaEsame.jsp">inserisciNuovaTipologia</a></li>
-		<li><a href="creaEsame.jsp">creaEsame</a>
+		<h2>Login effettuato con successo!</h2>
+		<li><a href="inserisciNuovoEsame.jsp">Crea nuovo esame</a></li>
+		<li><a href="inserisciNuovoIndicatoreRisultato.jsp">Crea nuovo indicatore risultato</a></li>
+		<li><a href="inserisciNuovaTipologiaEsame.jsp">Crea nuova tipologia esame</a></li>
+		<li><a href="mostraEsamiMedico.jsp">Mostra esami medico</a></li>
 	</f:view>
 </body>
 </html>

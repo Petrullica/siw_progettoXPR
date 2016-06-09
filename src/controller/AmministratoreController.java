@@ -31,7 +31,7 @@ public class AmministratoreController {
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("amministratore", this.amministratore);
 			return "autenticatoAmministratore";
 		}
-		else return "fallimento";
+		else return "erroreLoginAmministratore";
 	}
 
 	public String creaAmministratore() {

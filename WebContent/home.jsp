@@ -36,24 +36,23 @@
 						<a class="navbar-brand" href="home.jsp">Clinica XPR</a>
 					</div>
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="creaEsame.jsp">Crea Esame</a></li>
-						<li><a href="inserisciNuovaTipologiaEsame.jsp">CreaNuovaTipologiaEsame</a></li>
-						<li><a href="inserisciNuovoPaziente.jsp">InserisciNuovoPaziente</a></li>
+						<li class="active"><a href="inserisciNuovoEsame.jsp">Crea esame</a></li>
+						<li><a href="inserisciNuovaTipologiaEsame.jsp">Crea nuova tipologia esame</a></li>
+						<li><a href="inserisciNuovoPaziente.jsp">Inserisci nuovo paziente</a></li>
 						<li><h:commandLink
 								action="#{tipologiaEsameController.mostraTipologieEsame}"
 								value="Mostra Tipologie Esame" /></li>
 						<li><h:commandLink
 								action="#{esameController.mostraEsamiPaziente}"
 								value="Mostra Esami Paziente" /></li>
-						<li><a href="mostraEsamiMedico.jsp">Mostra Esami Medico</a></li>
+						<li><a href="mostraEsamiMedico.jsp">Mostra esami medico</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" data-hover="dropdown">Login<span
 								class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="loginAmministratore.jsp">Area
-										Amministratori</a></li>
+								<li><a href="loginAmministratore.jsp">Area Amministratori</a></li>
 								<li><a href="loginPaziente.jsp">Area Pazienti</a></li>
 							</ul></li>
 					</ul>

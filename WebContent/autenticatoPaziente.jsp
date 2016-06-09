@@ -17,9 +17,9 @@
 <body>
 	<f:view>
 		<h1>${pazienteController.paziente.username}</h1>
-		<h2>Loggato!</h2>
-		<li><a href="esami.jsp">Esami</a></li>
-		<li><a href="home.jsp">Home</a>
+		<h2>Login effettuato con successo!</h2>
+		<li><a href="esami.jsp">Consulta esami</a></li>
+		<li><a href="home.jsp">Torna alla home</a>
 		<li>
 	</f:view>
 </body>

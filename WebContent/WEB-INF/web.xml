@@ -1,17 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		 					http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
+	
 	<display-name>ClinicaXPR</display-name>
 	<welcome-file-list>
 		<welcome-file>home.html</welcome-file>
 	</welcome-file-list>
+
+	<!-- definizione filtri -->
+	<filter>
+		<filter-name>FiltroAmministratore</filter-name>
+		<filter-class>filtri.FiltroAmministratore</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>FiltroPaziente</filter-name>
+		<filter-class>filtri.FiltroPaziente</filter-class>
+	</filter>
+
+	<!-- mapping filtri -->
+	<filter-mapping>
+		<filter-name>FiltroAmministratore</filter-name>
+		<url-pattern>/faces/inserisciNuovoEsame.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FiltroAmministratore</filter-name>
+		<url-pattern>/faces/inserisciNuovoIndicatoreRisultato.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FiltroAmministratore</filter-name>
+		<url-pattern>/faces/inserisciNuovaTipologiaEsame.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FiltroAmministratore</filter-name>
+		<url-pattern>/faces/mostraEsamiMedico.jsp</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>FiltroPaziente</filter-name>
+		<url-pattern>/faces/esami.jsp</url-pattern>
+	</filter-mapping>
+
+	<!-- definizione servlet -->
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	
+	<!-- mapping servlet -->
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>/faces/*</url-pattern>

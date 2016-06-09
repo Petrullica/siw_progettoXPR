@@ -26,5 +26,9 @@
 		<button type="button" class="btn btn-primary">Accedi Come
 			Amministratore</button>
 	</a>
+		<a class="container" href="loginPaziente.jsp">
+		<button type="button" class="btn btn-primary">Accedi Come
+			Paziente</button>
+	</a>
 </body>
 </html>
