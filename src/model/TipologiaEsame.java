@@ -12,33 +12,33 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class TipologiaEsame {
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column(unique=true)
 	private String codice;
-	
+
 	@Column(unique=true, nullable = false)
 	private String nome;
-	
+
 	@Column(unique=true, nullable = false)
 	private String descrizione;
-	
+
 	private Double prezzo;
-	
+
 	@OneToMany
 	private List<Prerequisito> prerequisiti;
-	
+
 	@OneToMany
 	private List<IndicatoreRisultato> indicatoriRisultato;
-	
+
 	public TipologiaEsame(){
 		this.prerequisiti= new LinkedList<Prerequisito>();
 		this.indicatoriRisultato= new LinkedList<IndicatoreRisultato>();
 	}
-	
+
 	public TipologiaEsame(String nome, String descrizione, double prezzo) {
 		this.nome = nome;
 		this.descrizione = descrizione;
@@ -47,9 +47,6 @@ public class TipologiaEsame {
 		this.indicatoriRisultato= new LinkedList<IndicatoreRisultato>();
 	}
 
-
-	
-	
 	public Double getPrezzo() {
 		return prezzo;
 	}
@@ -138,6 +135,4 @@ public class TipologiaEsame {
 			return false;
 		return true;
 	}
-	
-	
 }

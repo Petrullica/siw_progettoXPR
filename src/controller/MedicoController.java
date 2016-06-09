@@ -26,8 +26,7 @@ public class MedicoController {
 	public void init(){
 		this.medici = medicoFacade.getAllMedici();
 	}
-	
-	
+
 	public String creaMedico() {
 		this.medico = medicoFacade.creaMedico(nome, cognome, specializzazione);
 		return "medico"; 
@@ -95,6 +94,4 @@ public class MedicoController {
 	public void setMedici(List<Medico> medici) {
 		this.medici = medici;
 	}
-	
-	
 }

@@ -4,6 +4,7 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <%@ page import="model.Amministratore"%>
+
 <%
 	Amministratore amministratore = (Amministratore) session.getAttribute("amministratore");
 	boolean autorizzato = true;
@@ -50,7 +51,7 @@
 			</div>
 			<div>
 				Indicatori Risultato:
-				<h:selectManyMenu
+				<h:selectManyMenu id="indicatoriRisultato"
 					value="#{indicatoreRisultatoController.indicatoriRisultatoSelezionati}">
 					<f:selectItems
 						value="#{indicatoreRisultatoController.indicatoriRisultato}"

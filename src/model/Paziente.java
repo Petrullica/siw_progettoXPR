@@ -13,21 +13,20 @@ public class Paziente {
 
 	@Id
 	private String username;
-	
+
 	private String nome;
-	
+
 	private String cognome;
-	
-	
+
 	@Column(unique=true)
 	private String password;
-	
+
 	@Column(unique=true, nullable = false)
 	private String codiceFiscale;
-	
+
 	@OneToMany(mappedBy = "paziente")
 	private List<Esame> esami;
-	
+
 	public Paziente() {
 		this.esami= new LinkedList<Esame>();
 	}
@@ -41,8 +40,6 @@ public class Paziente {
 		this.codiceFiscale = nome.concat(cognome)+nome.hashCode();
 		this.esami= new LinkedList<Esame>();
 	}
-	
-	
 
 	public String getUsername() {
 		return username;
@@ -51,8 +48,6 @@ public class Paziente {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
-	
 
 	public String getPassword() {
 		return password;
@@ -77,7 +72,6 @@ public class Paziente {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-
 
 	public List<Esame> getEsami() {
 		return esami;
@@ -133,6 +127,4 @@ public class Paziente {
 			return false;
 		return true;
 	}
-	
-	
 }

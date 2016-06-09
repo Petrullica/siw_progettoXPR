@@ -3,18 +3,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="model.Paziente"%>
 
-<% Paziente paziente = (Paziente)session.getAttribute("paziente");
-   boolean autorizzato = true;
-   if (paziente!=null)
-	   autorizzato &= true;
-   else 
-   	   autorizzato = false;
-   if (!autorizzato) {
-   	   out.clear();
-	   RequestDispatcher rd = application.getRequestDispatcher("/fallimento.jsp");
-   	   rd.forward(request, response);
-	   return;
-	}%>
+<%
+	Paziente paziente = (Paziente) session.getAttribute("paziente");
+	boolean autorizzato = true;
+	if (paziente != null)
+		autorizzato &= true;
+	else
+		autorizzato = false;
+	if (!autorizzato) {
+		out.clear();
+		RequestDispatcher rd = application.getRequestDispatcher("/fallimento.jsp");
+		rd.forward(request, response);
+		return;
+	}
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -31,11 +33,9 @@
 					<th>Codice</th>
 					<th>Data prenotazione</th>
 				</tr>
-				<c:forEach var="esame"
-					items="#{esameController.esami}">
+				<c:forEach var="esame" items="#{esameController.esami}">
 					<tr>
-						<td><h:commandLink
-								action="#{esameController.findEsame}"
+						<td><h:commandLink action="#{esameController.findEsame}"
 								value="#{esame.codice}">
 								<f:param name="id" value="#{esame.id}" />
 							</h:commandLink></td>

@@ -13,7 +13,7 @@ import model.Paziente;
 
 @ManagedBean
 public class PazienteController {
-	
+
 	@ManagedProperty(value="#{param.username}")
 	private String username;
 	private String nome;
@@ -21,30 +21,30 @@ public class PazienteController {
 	private String cognome;
 	private Paziente paziente;
 	private List<Paziente> pazienti;
-	
+
 	@EJB
 	private PazienteFacade pazienteFacade;
-	
+
 	@PostConstruct
 	public void init(){
 		this.pazienti = pazienteFacade.getAllPazienti();
 	}
-	
+
 	public String loginPaziente(){
 		Paziente paziente = pazienteFacade.getPaziente(username);
 		if(paziente!=null && paziente.getPassword().equals(password)){
-				this.paziente = paziente;
-				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("paziente", paziente);
-				return "autenticatoPaziente";
+			this.paziente = paziente;
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("paziente", paziente);
+			return "autenticatoPaziente";
 		}
 		else return "fallimento";
 	}
-	
+
 	public String creaPaziente() {
 		this.paziente = pazienteFacade.creaPaziente(nome, cognome, username, password);
 		return "paziente"; 
 	}
-	
+
 	public String mostraPazienti() {
 		this.pazienti = pazienteFacade.getAllPazienti();
 		return "pazienti"; 
@@ -54,7 +54,7 @@ public class PazienteController {
 		this.paziente = pazienteFacade.getPaziente(username);
 		return "paziente";
 	}
-	
+
 	public String findPaziente(String username) {
 		this.paziente = pazienteFacade.getPaziente(username);
 		return "paziente";
@@ -107,6 +107,4 @@ public class PazienteController {
 	public void setPazienti(List<Paziente> pazienti) {
 		this.pazienti = pazienti;
 	}
-	
-	
 }

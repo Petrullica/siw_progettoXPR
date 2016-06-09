@@ -11,14 +11,14 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Medico {
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String nome;	
 	private String cognome;	
 	private String specializzaione;
-	
+
 	@OneToMany(mappedBy = "medico")
 	private List<Esame> esami;
 
@@ -35,12 +35,15 @@ public class Medico {
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getCognome() {
 		return cognome;
 	}
+
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
@@ -60,8 +63,6 @@ public class Medico {
 	public void setSpecializzaione(String specializzaione) {
 		this.specializzaione = specializzaione;
 	}
-	
-	
 
 	@Override
 	public int hashCode() {

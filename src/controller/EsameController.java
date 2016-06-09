@@ -17,7 +17,7 @@ import model.TipologiaEsame;
 
 @ManagedBean
 public class EsameController {
-	
+
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String codice;
@@ -29,55 +29,51 @@ public class EsameController {
 	private Paziente paziente;
 	private Esame esame;
 	private List<Esame> esami;
-	
+
 	@EJB
 	private EsameFacade esameFacade;
-	
+
 	public String creaEsame(){
-    	this.esame= esameFacade.creaEsame(codice,dataSvolgimentoEsame, paziente, medico, tipologiaEsame);
+		this.esame= esameFacade.creaEsame(codice,dataSvolgimentoEsame, paziente, medico, tipologiaEsame);
 		return "esame";
-    	
-    }
-	
+	}
+
 	public String mostraEsami(){
 		this.esami= esameFacade.getAllEsami();
 		return "esami";
 	}
-	
-	
+
 	public String mostraEsamiPaziente(){
 		this.paziente= (Paziente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");
 		if(paziente!=null){
-		this.esami= esameFacade.getEsamiByPazienteUsername(paziente.getUsername());
-		return "esami";
+			this.esami= esameFacade.getEsamiByPazienteUsername(paziente.getUsername());
+			return "esami";
 		}
 		else return "fallimento";
 	}
-	
+
 	public String mostraEsamiMedico(){
 		this.medico= (Medico) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");
 		if(paziente!=null){
-		this.esami= esameFacade.getEsamiByPazienteUsername(paziente.getUsername());
-		return "esami";
+			this.esami= esameFacade.getEsamiByPazienteUsername(paziente.getUsername());
+			return "esami";
 		}
 		else return "fallimento";
 	}
-	
-	
-	
+
 	public String findEsame() {
 		this.esame = esameFacade.getEsame(id);
 		return "esame";
 	}
-	
-    public String getCodice() {
+
+	public String getCodice() {
 		return codice;
 	}
 
 	public void setCodice(String codice) {
 		this.codice = codice;
 	}
-	
+
 	public Medico getMedico() {
 		return medico;
 	}
@@ -101,8 +97,6 @@ public class EsameController {
 	public void setEsame(Esame esame) {
 		this.esame = esame;
 	}
-	
-	
 
 	public Paziente getPaziente() {
 		return paziente;
@@ -119,8 +113,6 @@ public class EsameController {
 	public void setDataPrenotazioneEsame(Date dataPrenotazioneEsame) {
 		this.dataPrenotazioneEsame = dataPrenotazioneEsame;
 	}
-	
-	
 
 	public Long getId() {
 		return id;
@@ -153,6 +145,4 @@ public class EsameController {
 	public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
 		this.tipologiaEsame = tipologiaEsame;
 	}
-	
-	
 }

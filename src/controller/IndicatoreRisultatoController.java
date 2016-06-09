@@ -18,20 +18,20 @@ public class IndicatoreRisultatoController {
 	private IndicatoreRisultato indicatoreRisultato;
 	private List<IndicatoreRisultato> indicatoriRisultato;
 	private List<IndicatoreRisultato> indicatoriRisultatoSelezionati;
-	
+
 	@EJB
 	private IndicatoreRisultatoFacade indicatoreRisultatoFacade;
-	
+
 	@PostConstruct
 	public void init(){
 		this.indicatoriRisultato = indicatoreRisultatoFacade.getAllIndicatoriRisultato();
 	}
-	
+
 	public String creaIndicatoreRisultato() {
 		this.indicatoreRisultato = indicatoreRisultatoFacade.creaIndicatoreRisultato(nome);
 		return "indicatoreRisultato"; 
 	}
-	
+
 	public String mostraIndicatoriRisultato() {
 		this.indicatoriRisultato = indicatoreRisultatoFacade.getAllIndicatoriRisultato();
 		return "indicatoriRisultato"; 

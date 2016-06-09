@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
-<%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
-	<%@ page import="model.Paziente" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
+<%@ page import="model.Paziente"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,17 +34,16 @@
 			</div>
 			<div>
 				Password:
-				<h:inputSecret value="#{pazienteController.password}" required="true"
-					requiredMessage="Password is mandatory" id="password" />
+				<h:inputSecret value="#{pazienteController.password}"
+					required="true" requiredMessage="Password is mandatory"
+					id="password" />
 				<h:message for="password" />
 			</div>
 			<div>
 				<h:commandButton value="Submit"
 					action="#{pazienteController.creaPaziente}" />
 			</div>
-
 		</h:form>
 	</f:view>
-
 </body>
 </html>

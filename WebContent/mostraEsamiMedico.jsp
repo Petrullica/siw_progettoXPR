@@ -5,19 +5,20 @@
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <%@ page import="model.Amministratore"%>
 
-
-<% Amministratore amministratore = (Amministratore)session.getAttribute("amministratore");
-   boolean autorizzato = true;
-   if (amministratore!=null)
-	   autorizzato &= true;
-   else 
-   	   autorizzato = false;
-   if (!autorizzato) {
-   	   out.clear();
-	   RequestDispatcher rd = application.getRequestDispatcher("/fallimento.jsp");
-   	   rd.forward(request, response);
-	   return;
-	}%>
+<%
+	Amministratore amministratore = (Amministratore) session.getAttribute("amministratore");
+	boolean autorizzato = true;
+	if (amministratore != null)
+		autorizzato &= true;
+	else
+		autorizzato = false;
+	if (!autorizzato) {
+		out.clear();
+		RequestDispatcher rd = application.getRequestDispatcher("/fallimento.jsp");
+		rd.forward(request, response);
+		return;
+	}
+%>
 
 <!DOCTYPE html>
 <html>
@@ -30,22 +31,20 @@
 		<h:form>
 			<div>
 				Nome:
-				<h:inputText value="#{medicoController.nome}"
-					required="true" requiredMessage="Nome is mandatory" id="nome" />
+				<h:inputText value="#{medicoController.nome}" required="true"
+					requiredMessage="Nome is mandatory" id="nome" />
 				<h:message for="nome" />
 			</div>
 			<div>
 				Cognome:
-				<h:inputText value="#{medicoController.cognome}"
-					required="true" requiredMessage="Cognome is mandatory"
-					id="cognome" />
+				<h:inputText value="#{medicoController.cognome}" required="true"
+					requiredMessage="Cognome is mandatory" id="cognome" />
 				<h:message for="cognome" />
 			</div>
 			<div>
 				<h:commandButton value="Submit"
 					action="#{medicoController.findEsamiMedicoByNomeCognome}" />
 			</div>
-
 		</h:form>
 	</f:view>
 </body>

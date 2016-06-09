@@ -18,11 +18,13 @@
 	<div class="container">
 		<h2>AREA RISERVATA</h2>
 		<div class="alert alert-warning">
-			<strong>Attenzione!</strong> Per accedere a questa zona bisogna prima autenticarsi.
+			<strong>Attenzione!</strong> Per accedere a questa zona bisogna prima
+			autenticarsi.
 		</div>
 	</div>
 	<a class="container" href="loginAmministratore.jsp">
-  <button type="button" class="btn btn-primary">Accedi Come Amministratore</button>
+		<button type="button" class="btn btn-primary">Accedi Come
+			Amministratore</button>
 	</a>
 </body>
 </html>

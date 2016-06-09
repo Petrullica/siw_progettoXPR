@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@page import="model.Amministratore"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,16 +15,11 @@
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-
-	
-
-<f:view>
-<h1>${amministratoreController.amministratore.username}</h1>
-<h2>Logged!</h2>
-	<li><a href="inserisciNuovaTipologiaEsame.jsp">inserisciNuovaTipologia</a></li>
-	<li><a href="creaEsame.jsp">creaEsame</a>
-
-</f:view>
-	
+	<f:view>
+		<h1>${amministratoreController.amministratore.username}</h1>
+		<h2>Loggato!</h2>
+		<li><a href="inserisciNuovaTipologiaEsame.jsp">inserisciNuovaTipologia</a></li>
+		<li><a href="creaEsame.jsp">creaEsame</a>
+	</f:view>
 </body>
 </html>

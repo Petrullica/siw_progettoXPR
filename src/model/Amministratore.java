@@ -2,8 +2,6 @@ package model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -11,15 +9,14 @@ public class Amministratore {
 
 	@Id
 	private String username;
-	
+
 	private String nome;
-	
+
 	private String cognome;
-	
+
 	@Column(nullable = false)
 	private String password;
-	
-	
+
 	public Amministratore() {
 	}
 
@@ -27,8 +24,6 @@ public class Amministratore {
 		this.nome = nome;
 		this.cognome = cognome;
 	}
-	
-	
 
 	public Amministratore(String username, String nome, String cognome, String password) {
 		this.username = username;
@@ -52,7 +47,6 @@ public class Amministratore {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-
 
 	public String getPassword() {
 		return password;

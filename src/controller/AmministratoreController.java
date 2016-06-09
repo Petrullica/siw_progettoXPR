@@ -52,7 +52,6 @@ public class AmministratoreController {
 	public String findAmministratore(String username) {
 		this.amministratore = amministratoreFacade.getAmministratore(username);
 		return "amministratore";
-
 	}
 
 	public String getUsername() {
@@ -102,7 +101,4 @@ public class AmministratoreController {
 	public void setAmministratori(List<Amministratore> amministratori) {
 		this.amministratori = amministratori;
 	}
-	
-	
 }
-

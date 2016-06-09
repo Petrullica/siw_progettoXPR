@@ -5,9 +5,7 @@
 <title>error</title>
 </head>
 <body>
-<h1>error</h1>
-<div>
-${ex}
-</div>
+	<h1>error</h1>
+	<div>${ex}</div>
 </body>
 </html>

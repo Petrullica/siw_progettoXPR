@@ -14,101 +14,97 @@ import facade.TipologiaEsameFacade;
 
 @ManagedBean
 public class TipologiaEsameController {
-		
-		@ManagedProperty(value="#{param.id}")
-		private Long id;
-		private String nome;
-		private Double prezzo;
-		private String descrizione;
-		private TipologiaEsame tipologiaEsame;
-		private List<TipologiaEsame> tipologieEsame;
-		private IndicatoreRisultato indicatoreRisultato;
-		
-		@EJB
-		private TipologiaEsameFacade tipologiaEsameFacade;
-		
-		@PostConstruct
-		public void init(){
-			this.tipologieEsame = tipologiaEsameFacade.getAllTipologieEsami();
-		}
-		
-		public String creaTipologiaEsame() {
-			this.tipologiaEsame = tipologiaEsameFacade.creaTipologiaEsame(nome, descrizione, prezzo);
-			return "tipologiaEsame"; 
-		}
-		
-		public String mostraTipologieEsame() {
-			this.tipologieEsame = tipologiaEsameFacade.getAllTipologieEsami();
-			return "tipologieEsame"; 
-		}
 
-		public String findTipologiaEsame() {
-			this.tipologiaEsame = tipologiaEsameFacade.getTipologiaEsame(id);
-			return "tipologiaEsame";
-		}
-		
-		public String findTipologiaEsame(Long id) {
-			this.tipologiaEsame = tipologiaEsameFacade.getTipologiaEsame(id);
-			return "tipologiaEsame";
-		}
+	@ManagedProperty(value="#{param.id}")
+	private Long id;
+	private String nome;
+	private Double prezzo;
+	private String descrizione;
+	private TipologiaEsame tipologiaEsame;
+	private List<TipologiaEsame> tipologieEsame;
+	private IndicatoreRisultato indicatoreRisultato;
 
-		public Long getId() {
-			return id;
-		}
+	@EJB
+	private TipologiaEsameFacade tipologiaEsameFacade;
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+	@PostConstruct
+	public void init(){
+		this.tipologieEsame = tipologiaEsameFacade.getAllTipologieEsami();
+	}
 
-		public String getNome() {
-			return nome;
-		}
+	public String creaTipologiaEsame() {
+		this.tipologiaEsame = tipologiaEsameFacade.creaTipologiaEsame(nome, descrizione, prezzo);
+		return "tipologiaEsame"; 
+	}
 
-		public void setNome(String nome) {
-			this.nome = nome;
-		}
+	public String mostraTipologieEsame() {
+		this.tipologieEsame = tipologiaEsameFacade.getAllTipologieEsami();
+		return "tipologieEsame"; 
+	}
 
-		public Double getPrezzo() {
-			return prezzo;
-		}
+	public String findTipologiaEsame() {
+		this.tipologiaEsame = tipologiaEsameFacade.getTipologiaEsame(id);
+		return "tipologiaEsame";
+	}
 
-		public void setPrezzo(Double prezzo) {
-			this.prezzo = prezzo;
-		}
+	public String findTipologiaEsame(Long id) {
+		this.tipologiaEsame = tipologiaEsameFacade.getTipologiaEsame(id);
+		return "tipologiaEsame";
+	}
 
-		public String getDescrizione() {
-			return descrizione;
-		}
+	public Long getId() {
+		return id;
+	}
 
-		public void setDescrizione(String descrizione) {
-			this.descrizione = descrizione;
-		}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-		public TipologiaEsame getTipologiaEsame() {
-			return tipologiaEsame;
-		}
+	public String getNome() {
+		return nome;
+	}
 
-		public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
-			this.tipologiaEsame = tipologiaEsame;
-		}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-		public IndicatoreRisultato getIndicatoreRisultato() {
-			return indicatoreRisultato;
-		}
+	public Double getPrezzo() {
+		return prezzo;
+	}
 
-		public void setIndicatoreRisultato(IndicatoreRisultato indicatoreRisultato) {
-			this.indicatoreRisultato = indicatoreRisultato;
-		}
+	public void setPrezzo(Double prezzo) {
+		this.prezzo = prezzo;
+	}
 
-		public List<TipologiaEsame> getTipologieEsame() {
-			return tipologieEsame;
-		}
+	public String getDescrizione() {
+		return descrizione;
+	}
 
-		public void setTipologieEsame(List<TipologiaEsame> tipologieEsame) {
-			this.tipologieEsame = tipologieEsame;
-		}
-		
-		
-		
-		
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+
+	public TipologiaEsame getTipologiaEsame() {
+		return tipologiaEsame;
+	}
+
+	public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
+		this.tipologiaEsame = tipologiaEsame;
+	}
+
+	public IndicatoreRisultato getIndicatoreRisultato() {
+		return indicatoreRisultato;
+	}
+
+	public void setIndicatoreRisultato(IndicatoreRisultato indicatoreRisultato) {
+		this.indicatoreRisultato = indicatoreRisultato;
+	}
+
+	public List<TipologiaEsame> getTipologieEsame() {
+		return tipologieEsame;
+	}
+
+	public void setTipologieEsame(List<TipologiaEsame> tipologieEsame) {
+		this.tipologieEsame = tipologieEsame;
+	}
 }

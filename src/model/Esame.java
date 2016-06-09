@@ -16,47 +16,42 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Esame {
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column
 	private String codice;
-	
+
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataPrenotazioneEsame;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date dataSvolgimentoEsame;
 
 	@ManyToOne
 	private TipologiaEsame tipologiaEsame;
-	
+
 	@ManyToOne 
 	private Paziente paziente;
-	
+
 	@ManyToOne 
 	private Medico medico;
-	
+
 	@OneToMany(mappedBy = "esame")
 	private List<Risultato> risultati;
-	
+
 	public Esame(){
 		this.risultati= new LinkedList<Risultato>();
 	}
-	
-	
-	
+
 	public Esame(String codice, Date dataSvolgimentoEsame) {
 		this.codice = codice;
 		this.creaDataPrenotazione();
 		this.dataSvolgimentoEsame = dataSvolgimentoEsame;
 	}
-	
-	
-
 
 	public Esame(String codice, Date dataSvolgimentoEsame,Paziente paziente,Medico medico,TipologiaEsame tipologiaEsame) {
 		this.codice = codice;
@@ -66,8 +61,6 @@ public class Esame {
 		this.medico = medico;
 	}
 
-
-
 	public Long getId() {
 		return id;
 	}
@@ -75,11 +68,11 @@ public class Esame {
 	public String getCodice() {
 		return codice;
 	}
-	
+
 	public void setCodice(String codice) {
 		this.codice = codice;
 	}
-	
+
 	public TipologiaEsame getTipologia() {
 		return tipologiaEsame;
 	}
@@ -123,7 +116,7 @@ public class Esame {
 	public List<Risultato> getRisultati() {
 		return risultati;
 	}
-	
+
 	private void creaDataPrenotazione() {
 		Date dataPrenotazione= new Date();
 		this.setDataPrenotazioneEsame(dataPrenotazione);	
