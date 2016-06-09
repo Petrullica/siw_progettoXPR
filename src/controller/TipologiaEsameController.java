@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 
+import model.IndicatoreRisultato;
 import model.TipologiaEsame;
 
 import javax.annotation.PostConstruct;
@@ -21,6 +22,7 @@ public class TipologiaEsameController {
 		private String descrizione;
 		private TipologiaEsame tipologiaEsame;
 		private List<TipologiaEsame> tipologieEsame;
+		private IndicatoreRisultato indicatoreRisultato;
 		
 		@EJB
 		private TipologiaEsameFacade tipologiaEsameFacade;
@@ -88,6 +90,14 @@ public class TipologiaEsameController {
 
 		public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
 			this.tipologiaEsame = tipologiaEsame;
+		}
+
+		public IndicatoreRisultato getIndicatoreRisultato() {
+			return indicatoreRisultato;
+		}
+
+		public void setIndicatoreRisultato(IndicatoreRisultato indicatoreRisultato) {
+			this.indicatoreRisultato = indicatoreRisultato;
 		}
 
 		public List<TipologiaEsame> getTipologieEsame() {

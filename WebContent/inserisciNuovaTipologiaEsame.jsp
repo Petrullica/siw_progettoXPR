@@ -1,23 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <%@ page import="model.Amministratore"%>
-
-
-<% Amministratore amministratore = (Amministratore)session.getAttribute("amministratore");
-   boolean autorizzato = true;
-   if (amministratore!=null)
-	   autorizzato &= true;
-   else 
-   	   autorizzato = false;
-   if (!autorizzato) {
-   	   out.clear();
-	   RequestDispatcher rd = application.getRequestDispatcher("/fallimento.jsp");
-   	   rd.forward(request, response);
-	   return;
-	}%>
+<%
+	Amministratore amministratore = (Amministratore) session.getAttribute("amministratore");
+	boolean autorizzato = true;
+	if (amministratore != null)
+		autorizzato &= true;
+	else
+		autorizzato = false;
+	if (!autorizzato) {
+		out.clear();
+		RequestDispatcher rd = application.getRequestDispatcher("/fallimento.jsp");
+		rd.forward(request, response);
+		return;
+	}
+%>
 
 <!DOCTYPE html>
 <html>
@@ -49,10 +49,31 @@
 				<h:message for="prezzo" />
 			</div>
 			<div>
+				Indicatori Risultato:
+				<h:selectManyMenu
+					value="#{indicatoreRisultatoController.indicatoriRisultatoSelezionati}">
+					<f:selectItems
+						value="#{indicatoreRisultatoController.indicatoriRisultato}"
+						var="indicatoreRisultato" itemValue="#{indicatoreRisultato.nome}" />
+				</h:selectManyMenu>
+				<!--
+				<h:selectOneMenu
+					value="#{indicatoreRisultatoController.indicatoreRisultato}">
+					<f:selectItems
+						value="#{indicatoreRisultatoController.indicatoriRisultato}"
+						var="indicatoreRisultato" itemValue="#{indicatoreRisultato.nome}" />
+				</h:selectOneMenu>
+				-->
+			</div>
+			<li><a
+				href='<c:url value="/faces/inserisciNuovoIndicatoreRisultato.jsp" />'>
+					Crea nuovo indicatore risultato</a></li>
+			<div>
 				<h:commandButton value="Submit"
 					action="#{tipologiaEsameController.creaTipologiaEsame}" />
 			</div>
-
+			<li><a href='<c:url value="/faces/home.jsp" />'> Annulla e
+					torna alla pagina principale</a></li>
 		</h:form>
 	</f:view>
 </body>

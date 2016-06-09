@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -16,9 +17,15 @@ public class IndicatoreRisultatoController {
 	private String nome;
 	private IndicatoreRisultato indicatoreRisultato;
 	private List<IndicatoreRisultato> indicatoriRisultato;
+	private List<IndicatoreRisultato> indicatoriRisultatoSelezionati;
 	
 	@EJB
 	private IndicatoreRisultatoFacade indicatoreRisultatoFacade;
+	
+	@PostConstruct
+	public void init(){
+		this.indicatoriRisultato = indicatoreRisultatoFacade.getAllIndicatoriRisultato();
+	}
 	
 	public String creaIndicatoreRisultato() {
 		this.indicatoreRisultato = indicatoreRisultatoFacade.creaIndicatoreRisultato(nome);
@@ -57,5 +64,13 @@ public class IndicatoreRisultatoController {
 
 	public void setIndicatoriRisultato(List<IndicatoreRisultato> indicatoriRisultato) {
 		this.indicatoriRisultato = indicatoriRisultato;
+	}
+
+	public List<IndicatoreRisultato> getIndicatoriRisultatoSelezionati() {
+		return indicatoriRisultatoSelezionati;
+	}
+
+	public void setIndicatoriRisultatoSelezionati(List<IndicatoreRisultato> indicatoriRisultatoSelezionati) {
+		this.indicatoriRisultatoSelezionati = indicatoriRisultatoSelezionati;
 	}
 }

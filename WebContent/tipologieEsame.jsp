@@ -30,6 +30,9 @@
 					</tr>
 				</c:forEach>
 			</table>
+			<li><a
+				href='<c:url value="/faces/inserisciNuovoPaziente.jsp" />'>
+					Registrati</a></li>
 		</h:form>
 	</f:view>
 </body>
