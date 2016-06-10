@@ -16,7 +16,7 @@ import model.TipologiaEsame;
 
 
 //Il costruttore tocca passargli solo codice e nome se
-//La creazione della data è stata fatta bene...
+//La creazione della data ï¿½ stata fatta bene...
 
 @Stateless
 public class EsameFacade {
@@ -63,15 +63,15 @@ public class EsameFacade {
 		return esami;
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<Esame> getEsamiByIDMedico(Long id){
-		Query q = em.createNativeQuery("select * from Esame where"
-				+ " medico_id = ?", Esame.class);
-		q.setParameter(1, id);
-		List<Esame> esami= q.getResultList();
-		return esami;
-	}
+	
 
+	public Esame getEsameByCodice(String codice) {
+		Query q= em.createNativeQuery("select * from Esame where codice = ?", Esame.class);
+		q.setParameter(1,codice);
+		Esame esame= (Esame)q.getSingleResult();
+		return esame;
+	}
+	
 	public void updateEsame(Esame esame) {
         em.merge(esame);
 	}

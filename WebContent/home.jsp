@@ -46,6 +46,8 @@
 								action="#{esameController.mostraEsamiPaziente}"
 								value="Mostra Esami Paziente" /></li>
 						<li><a href="mostraEsamiMedico.jsp">Mostra esami medico</a></li>
+						<li><a href="inserisciCodiceEsame.jsp">Inserisci risultati Esame</a></li>
+					
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown"><a href="#" class="dropdown-toggle"

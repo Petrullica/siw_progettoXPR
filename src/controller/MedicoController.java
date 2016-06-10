@@ -7,6 +7,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import facade.MedicoFacade;
+import model.Esame;
 import model.Medico;
 
 @ManagedBean
@@ -18,6 +19,7 @@ public class MedicoController {
 	private String specializzazione;
 	private Medico medico;
 	private List<Medico> medici;
+	private List<Esame> esami;
 
 	@EJB
 	private MedicoFacade medicoFacade;
@@ -48,6 +50,12 @@ public class MedicoController {
 		return "medico";
 	}
 
+	public String findMedicoByNomeCognome(){
+		this.medico= medicoFacade.getMedicoByNomeCognome(nome,cognome);
+		this.esami= medicoFacade.getEsamiByIDMedico(this.medico.getId());
+		return "esami";
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -94,6 +102,16 @@ public class MedicoController {
 
 	public void setMedici(List<Medico> medici) {
 		this.medici = medici;
+	}
+
+
+	public List<Esame> getEsami() {
+		return esami;
+	}
+
+
+	public void setEsami(List<Esame> esami) {
+		this.esami = esami;
 	}
 	
 	
