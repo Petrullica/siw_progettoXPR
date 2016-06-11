@@ -15,20 +15,25 @@
 
 </head>
 <body>
-	<div class="container">
-		<h2>AREA RISERVATA</h2>
-		<div class="alert alert-warning">
+	<div class="container" align="center">
+		<h2>Area Riservata</h2>
+		<div class="item">
+			<img src="images/warning.png" alt="warning">
+			<div class="carousel-caption"></div>
+		</div>
+		<div>
 			<strong>Attenzione!</strong> Per accedere a questa zona bisogna prima
 			autenticarsi.
 		</div>
 	</div>
-	<a class="container" href="loginAmministratore.jsp">
-		<button type="button" class="btn btn-primary">Accedi Come
-			Amministratore</button>
-	</a>
-		<a class="container" href="loginPaziente.jsp">
-		<button type="button" class="btn btn-primary">Accedi Come
-			Paziente</button>
-	</a>
+	<div align="center">
+		<a class="container" href="loginAmministratore.jsp">
+			<button type="button" class="btn btn-primary">Accedi Come
+				Amministratore</button>
+		</a> <a class="container" href="loginPaziente.jsp">
+			<button type="button" class="btn btn-primary">Accedi Come
+				Paziente</button>
+		</a>
+	</div>
 </body>
 </html>

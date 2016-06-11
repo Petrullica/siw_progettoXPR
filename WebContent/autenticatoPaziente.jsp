@@ -12,55 +12,54 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="css/sfondo.css">
 <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 	<f:view>
-	<h:form>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<h:form>
+			<nav class="navbar navbar-inverse navbar-fixed-top">
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<a class="navbar-brand" href="home.jsp">Clinica XPR</a>
 					</div>
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="creaEsame.jsp">Crea esame</a></li>
-						<li><a href="inserisciNuovaTipologiaEsame.jsp">Crea nuova tipologia esame</a></li>
-						<li><a href="inserisciNuovoPaziente.jsp">Inserisci nuovo paziente</a></li>
 						<li><h:commandLink
 								action="#{tipologiaEsameController.mostraTipologieEsame}"
 								value="Mostra Tipologie Esame" /></li>
 						<li><h:commandLink
 								action="#{esameController.mostraEsamiPaziente}"
-								value="Mostra Esami Paziente" /></li>
-						<li><a href="mostraEsamiMedico.jsp">Mostra esami medico</a></li>
+								value="Mostra Esami Effettuati" /></li>
+
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" data-hover="dropdown">Login<span
+							data-toggle="dropdown" data-hover="dropdown">Logged!<span
 								class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="loginAmministratore.jsp">Area Amministratori</a></li>
-								<li><a href="loginPaziente.jsp">Area Pazienti</a></li>
-							</ul></li>
 					</ul>
 				</div>
 			</nav>
-		
-		<br>
-		<br>
-		<br>
 
-			<h1 align="center">${pazienteController.paziente.username}</h1>
-		<h2>Login effettuato con successo!</h2>
-		
-		<div class="jumbotron">
-		<div
-		><b>Operazioni</b></div>
-		<ul>
-		<li><a href="esami.jsp">Consulta Esami</a></li>
-		</ul>
-		</div>
+			<br>
+			<br>
+			<br>
+			<div align="center">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="panel panel-default">
+
+								<h1 align="center">Benvenuto
+									${pazienteController.paziente.username} !</h1>
+								<h2 align="center">Login effettuato con successo!</h2>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</h:form>
 	</f:view>
 </body>

@@ -11,6 +11,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/sfondo.css">
 <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </head>
@@ -36,13 +37,33 @@
 			</ul>
 		</div>
 	</nav>
-	<f:view>
-		<h1>${indicatoreRisultatoController.indicatoreRisultato.nome}</h1>
-		<h2>Details</h2>
-		<div>Nome:
-			${indicatoreRisultatoController.indicatoreRisultato.nome}</div>
-	</f:view>
-	<a href="<c:url value="inserisciNuovaTipologiaEsame.jsp" />">Inserisci
-		nuova tipologia esame</a>
+
+
+	<br>
+	<br>
+	<br>
+	<div align="center">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="panel panel-default">
+						<h4 style="font-size: 300%;">
+							<strong>Dettagli</strong>
+						</h4>
+						<br>
+						<h5 style="font-size: 180%;">
+							<strong>Nome: </strong>
+							${indicatoreRisultatoController.indicatoreRisultato.nome}
+						</h5>
+						<br> <a
+							href="<c:url value="inserisciNuovaTipologiaEsame.jsp" />">Torna
+							a crea nuova tipologia Esame</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 </body>
 </html>
