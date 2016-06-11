@@ -2,13 +2,13 @@ package controller;
 
 import java.util.List;
 
+import facade.IndicatoreRisultatoFacade;
+import model.IndicatoreRisultato;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-
-import facade.IndicatoreRisultatoFacade;
-import model.IndicatoreRisultato;
 
 @ManagedBean
 public class IndicatoreRisultatoController {

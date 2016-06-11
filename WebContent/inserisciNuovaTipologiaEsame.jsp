@@ -35,12 +35,12 @@
 			</div>
 			<div>
 				Indicatori Risultato:
-				<h:selectManyMenu id="indicatoriRisultato"
+				<h:selectManyListbox id="indicatoriRisultato"
 					value="#{indicatoreRisultatoController.indicatoriRisultatoSelezionati}">
 					<f:selectItems
 						value="#{indicatoreRisultatoController.indicatoriRisultato}"
 						var="indicatoreRisultato" itemValue="#{indicatoreRisultato.nome}" />
-				</h:selectManyMenu>
+				</h:selectManyListbox>
 				<!--
 				<h:selectOneMenu
 					value="#{indicatoreRisultatoController.indicatoreRisultato}">
