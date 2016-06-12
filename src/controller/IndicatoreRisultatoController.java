@@ -2,13 +2,13 @@ package controller;
 
 import java.util.List;
 
-import facade.IndicatoreRisultatoFacade;
-import model.IndicatoreRisultato;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+
+import facade.IndicatoreRisultatoFacade;
+import model.IndicatoreRisultato;
 
 @ManagedBean
 public class IndicatoreRisultatoController {
@@ -17,7 +17,6 @@ public class IndicatoreRisultatoController {
 	private String nome;
 	private IndicatoreRisultato indicatoreRisultato;
 	private List<IndicatoreRisultato> indicatoriRisultato;
-	private List<IndicatoreRisultato> indicatoriRisultatoSelezionati;
 
 	@EJB
 	private IndicatoreRisultatoFacade indicatoreRisultatoFacade;
@@ -64,13 +63,5 @@ public class IndicatoreRisultatoController {
 
 	public void setIndicatoriRisultato(List<IndicatoreRisultato> indicatoriRisultato) {
 		this.indicatoriRisultato = indicatoriRisultato;
-	}
-
-	public List<IndicatoreRisultato> getIndicatoriRisultatoSelezionati() {
-		return indicatoriRisultatoSelezionati;
-	}
-
-	public void setIndicatoriRisultatoSelezionati(List<IndicatoreRisultato> indicatoriRisultatoSelezionati) {
-		this.indicatoriRisultatoSelezionati = indicatoriRisultatoSelezionati;
 	}
 }

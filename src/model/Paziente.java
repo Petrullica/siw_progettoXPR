@@ -127,4 +127,12 @@ public class Paziente {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Paziente [username=" + username + ", nome=" + nome + ", cognome=" + cognome + ", password=" + password
+				+ ", codiceFiscale=" + codiceFiscale + ", esami=" + esami + "]";
+	}
+	
+	
 }

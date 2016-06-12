@@ -3,9 +3,9 @@ package facade;
 import java.util.List;
 
 import javax.ejb.Stateless;
-import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
 import model.Esame;
@@ -36,15 +36,16 @@ public class MedicoFacade {
 		}
 		
 		@SuppressWarnings("unchecked")
-		public List<Esame> getEsamiByIDMedico(Long id){
-			Query q = em.createNativeQuery("select * from Esame where"
-					+ " medico_id = ?", Esame.class);
-			q.setParameter(1, id);
+		public List<Esame> getEsamiMedicoByNomeCognome(String nome, String cognome){
+			Query q = em.createNativeQuery("select esame.id, esame.codice, esame.dataprenotazioneesame, esame.datasvolgimentoesame, esame.medico_id, esame.paziente_username, esame.tipologiaesame_id"
+					+ " from medico join esame on medico.id = medico_id"
+					+ " where medico.nome = ? and medico.cognome = ?", Esame.class);
+			q.setParameter(1, nome);
+			q.setParameter(2, cognome);
 			List<Esame> esami= q.getResultList();
 			return esami;
 		}
 
-		
 		public void updateMedico(Medico medico) {
 	        em.merge(medico);
 		}
@@ -56,14 +57,5 @@ public class MedicoFacade {
 		public void deleteMedico(Long id) {
 			Medico medico = em.find(Medico.class, id);
 	        deleteMedico(medico);
-		}
-
-		public Medico getMedicoByNomeCognome(String nome, String cognome) {
-			Query q= em.createNativeQuery("select * from Medico where nome = ? and cognome = ?", Medico.class);
-			q.setParameter(1, nome);
-			q.setParameter(2, cognome);
-			Medico medico= (Medico) q.getSingleResult();
-			return medico;
-			
 		}
 }

@@ -54,13 +54,22 @@ public class EsameFacade {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Esame> getEsamiPrenotatiByPazienteUsername(String username){
-
-		Query q = em.createNativeQuery("select * from Esame where"
-				+ " paziente_username = ? and ", Esame.class);
+	public List<Esame> getEsamiEffettuatiByPazienteUsername(String username){
+		Query q = em.createNativeQuery("select * from esame left join risultato on esame_id = esame.id"
+				+ " where risultato.id IS NOT NULL and"
+				+ " paziente_username = ?", Esame.class);
 		q.setParameter(1, username);
 		List<Esame> esami= q.getResultList();
-		
+		return esami;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Esame> getEsamiPrenotatiByPazienteUsername(String username){
+		Query q = em.createNativeQuery("select * from esame left join risultato on esame_id = esame.id"
+				+ " where risultato.id IS NULL and"
+				+ " paziente_username = ? ", Esame.class);
+		q.setParameter(1, username);
+		List<Esame> esami= q.getResultList();
 		return esami;
 	}
 	

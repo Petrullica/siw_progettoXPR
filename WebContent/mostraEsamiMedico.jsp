@@ -50,9 +50,9 @@
 								
 								<div class="form-group last">
 									<div class="col-sm-offset-3 col-sm-9">
-										<h:commandButton value="Aggiungi"
-											action="#{medicoController.findMedicoByNomeCognome}"
-											styleClass="btn btn-default btn-sm" />
+										<h:commandLink
+											action="#{medicoController.findEsamiMedicoByNomeCognome}"
+											value="Mostra Esami Medico"/>
 										<button type="reset" class="btn btn-default btn-sm">Reset</button>
 									</div>
 								</div>

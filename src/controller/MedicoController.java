@@ -17,9 +17,9 @@ public class MedicoController {
 	private String nome;
 	private String cognome;
 	private String specializzazione;
+	private List<Esame> esami;
 	private Medico medico;
 	private List<Medico> medici;
-	private List<Esame> esami;
 
 	@EJB
 	private MedicoFacade medicoFacade;
@@ -49,13 +49,12 @@ public class MedicoController {
 		this.medico = medicoFacade.getMedico(id);
 		return "medico";
 	}
-
-	public String findMedicoByNomeCognome(){
-		this.medico= medicoFacade.getMedicoByNomeCognome(nome,cognome);
-		this.esami= medicoFacade.getEsamiByIDMedico(this.medico.getId());
+	
+	public String findEsamiMedicoByNomeCognome(){
+		this.esami = medicoFacade.getEsamiMedicoByNomeCognome(nome,cognome);
 		return "esami";
 	}
-	
+
 	public Long getId() {
 		return id;
 	}

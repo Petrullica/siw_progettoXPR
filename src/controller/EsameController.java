@@ -65,19 +65,15 @@ public class EsameController {
 		}
 		else return "fallimento";
 	}
-	
-	
-	
-	public String mostraEsamiMedico(){
-		this.medico= (Medico) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");
-		if(paziente!=null){
-		this.esami= esameFacade.getEsamiByPazienteUsername(paziente.getUsername());
-		return "esami";
-		}
-		else return "fallimento";
-	}
-	
-	
+		
+	public String mostraEsamiEffettuatiPaziente(){
+			this.paziente= (Paziente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");
+			if(paziente!=null){
+			this.esami= esameFacade.getEsamiEffettuatiByPazienteUsername(paziente.getUsername());
+			return "esami";
+			}
+			else return "fallimento";
+	}	
 	
 	public String findEsame() {
 		this.esame = esameFacade.getEsame(id);

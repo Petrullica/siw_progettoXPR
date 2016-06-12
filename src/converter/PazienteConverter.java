@@ -19,15 +19,8 @@ public class PazienteConverter implements Converter{
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String submittedValue) {
-        if (submittedValue == null || submittedValue.isEmpty()) {
-            return null;
-        }
-
-        try {
-            return pazienteFacade.getPaziente(submittedValue);
-        } catch (NumberFormatException e) {
-            throw new ConverterException(new FacesMessage(String.format("%s is not a valid User ID", submittedValue)), e);
-        }
+        Paziente paziente = pazienteFacade.getPaziente(submittedValue);
+        return paziente;
     }
 
     @Override
