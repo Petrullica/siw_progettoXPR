@@ -3,6 +3,7 @@ package controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -33,6 +34,11 @@ public class EsameController {
 	@EJB
 	private EsameFacade esameFacade;
 	
+	@PostConstruct
+	public void init(){
+		this.esami = esameFacade.getAllEsami();
+	}
+	
 	public String creaEsame(){
 		if(paziente != null){
     	this.esame= esameFacade.creaEsame(codice,dataSvolgimentoEsame, paziente, medico, tipologiaEsame);
@@ -47,6 +53,10 @@ public class EsameController {
 		return "esami";
 	}
 	
+//	public String mostraEsameByCodice() {
+//		this.esame = esameFacade.getEsameByCodice(codice);
+//		return "esame";
+//	}
 	
 	public String mostraEsamiPaziente(){
 		this.paziente= (Paziente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");

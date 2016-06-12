@@ -23,7 +23,7 @@
 					<div class="col-md-4 col-md-offset-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<strong class="">Inserisci il codice dell'esame desiderato</strong>
+								<strong class="">Scegli  l'esame desiderato</strong>
 
 							</div>
 							<div class="panel-body">
@@ -31,17 +31,20 @@
 
 									<label for="inputText3" class="col-sm-3 control-label">Codice</label>
 									<div class="col-sm-9">
-										<h:inputText value="#{esameController.codice}"
-											required="true" requiredMessage="Codice is mandatory" id="codice"
-											styleClass="form-control" />
-										<h:message for="codice" />
+										<h:selectOneMenu styleClass="form-control"
+											value="#{esameController.esame}">
+											<f:selectItems 
+												value="#{esameController.esami}"
+												var="esame" itemValue="#{esame}"
+												itemLabel="#{esame.codice}" />
+										</h:selectOneMenu>
 									</div>
 								</div>
 
 								<div class="form-group last">
 									<div class="col-sm-offset-3 col-sm-9">
 										<h:commandButton value="Search"
-											action="#{esameController.findEsameByCodice}"
+											action="#{esameController.findEsame}"
 											styleClass="btn btn-default btn-sm" />
 										<button type="reset" class="btn btn-default btn-sm">Reset</button>
 									</div>
