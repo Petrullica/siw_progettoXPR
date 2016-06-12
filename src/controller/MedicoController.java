@@ -52,7 +52,7 @@ public class MedicoController {
 	
 	public String findEsamiMedicoByNomeCognome(){
 		this.esami = medicoFacade.getEsamiMedicoByNomeCognome(nome,cognome);
-		return "esami";
+		return "esamiMedico";
 	}
 
 	public Long getId() {
