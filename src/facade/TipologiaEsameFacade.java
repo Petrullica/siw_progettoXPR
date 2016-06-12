@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaQuery;
 
-import model.IndicatoreRisultato;
 import model.TipologiaEsame;
 
 @Stateless
@@ -16,8 +15,8 @@ public class TipologiaEsameFacade {
     @PersistenceContext(unitName="clinica-unit")
     private EntityManager em;
     
-	public TipologiaEsame creaTipologiaEsame(String nome, String descrizione, Double prezzo, List<IndicatoreRisultato> indicatoriRisultato) {
-		TipologiaEsame tipologiaEsame = new TipologiaEsame(nome, descrizione, prezzo, indicatoriRisultato);
+	public TipologiaEsame creaTipologiaEsame(String nome, String descrizione, Double prezzo) {
+		TipologiaEsame tipologiaEsame = new TipologiaEsame(nome, descrizione, prezzo);
 		em.persist(tipologiaEsame);
 		return tipologiaEsame;
 	}

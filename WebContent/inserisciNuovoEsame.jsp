@@ -60,7 +60,7 @@
 										Esame</label>
 									<div class="col-sm-9">
 										<h:selectOneMenu styleClass="form-control"
-											value="#{tipologiaEsameController.tipologiaEsame}"
+											value="#{esameController.tipologiaEsame}"
 											converter="#{tipologiaEsameConverter }">
 											<f:selectItems
 												value="#{tipologiaEsameController.tipologieEsame}"
@@ -74,7 +74,7 @@
 									<label for="inputText3" class="col-sm-3 control-label">Paziente</label>
 									<div class="col-sm-9">
 										<h:selectOneMenu styleClass="form-control"
-											value="#{pazienteController.paziente}"
+											value="#{esameController.paziente}"
 											converter="#{pazienteConverter}">
 											<f:selectItems value="#{pazienteController.pazienti}"
 												var="paziente" itemValue="#{paziente}"
@@ -87,7 +87,7 @@
 									<label for="inputText3" class="col-sm-3 control-label">Medico</label>
 									<div class="col-sm-9">
 										<h:selectOneMenu styleClass="form-control"
-											value="#{medicoController.medico}"
+											value="#{esameController.medico}"
 											converter="#{medicoConverter}">
 											<f:selectItems value="#{medicoController.medici}"
 												var="medico" itemValue="#{medico}"

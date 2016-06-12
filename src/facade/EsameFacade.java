@@ -15,9 +15,6 @@ import model.Paziente;
 import model.TipologiaEsame;
 
 
-//Il costruttore tocca passargli solo codice e nome se
-//La creazione della data � stata fatta bene...
-
 @Stateless
 public class EsameFacade {
 
@@ -36,13 +33,6 @@ public class EsameFacade {
 		return esame;
 	}
 	
-//	public TipologiaEsame getTipologia(){
-//		 CriteriaQuery<TipologiaEsame> cq = em.getCriteriaBuilder().createQuery(TipologiaEsame.class);
-//	        cq.select(cq.from(TipologiaEsame.class));
-//	        
-//	        List<Esame> esami = em.createQuery(cq).getResultList();
-//			return esami;
-//	}
 	
 	public List<Esame> getAllEsami() {
         CriteriaQuery<Esame> cq = em.getCriteriaBuilder().createQuery(Esame.class);
@@ -63,15 +53,26 @@ public class EsameFacade {
 		return esami;
 	}
 	
-	
+	@SuppressWarnings("unchecked")
+	public List<Esame> getEsamiPrenotatiByPazienteUsername(String username){
 
-	public Esame getEsameByCodice(String codice) {
-		Query q= em.createNativeQuery("select * from Esame where codice = ?", Esame.class);
-		q.setParameter(1,codice);
-		Esame esame= (Esame)q.getSingleResult();
-		return esame;
+		Query q = em.createNativeQuery("select * from Esame where"
+				+ " paziente_username = ? and ", Esame.class);
+		q.setParameter(1, username);
+		List<Esame> esami= q.getResultList();
+		
+		return esami;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Esame> getEsamiByIDMedico(Long id){
+		Query q = em.createNativeQuery("select * from Esame where"
+				+ " medico_id = ?", Esame.class);
+		q.setParameter(1, id);
+		List<Esame> esami= q.getResultList();
+		return esami;
+	}
+
 	public void updateEsame(Esame esame) {
         em.merge(esame);
 	}

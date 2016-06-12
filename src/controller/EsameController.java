@@ -34,8 +34,11 @@ public class EsameController {
 	private EsameFacade esameFacade;
 	
 	public String creaEsame(){
+		if(paziente != null){
     	this.esame= esameFacade.creaEsame(codice,dataSvolgimentoEsame, paziente, medico, tipologiaEsame);
 		return "esame";
+		}
+		else return "error";
     	
     }
 	
@@ -54,19 +57,27 @@ public class EsameController {
 		else return "fallimento";
 	}
 	
-//	public String mostraEsamiMedico(){
-//		
-//		if(medico!=null){
-//		this.esami= esameFacade.getEsamiByIDMedico(this.medico.getId());
-//		return "esami";
-//		}
-//		else return "fallimento";
-//	}
-	
-	public String findEsameByCodice(){
-		this.esame= esameFacade.getEsameByCodice(codice);
-		return "esame";
+	public String mostraEsamiPrenotatiPaziente(){
+		this.paziente= (Paziente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");
+		if(paziente!=null){
+		this.esami= esameFacade.getEsamiPrenotatiByPazienteUsername(paziente.getUsername());
+		return "esami";
+		}
+		else return "fallimento";
 	}
+	
+	
+	
+	public String mostraEsamiMedico(){
+		this.medico= (Medico) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");
+		if(paziente!=null){
+		this.esami= esameFacade.getEsamiByPazienteUsername(paziente.getUsername());
+		return "esami";
+		}
+		else return "fallimento";
+	}
+	
+	
 	
 	public String findEsame() {
 		this.esame = esameFacade.getEsame(id);

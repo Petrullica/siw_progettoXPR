@@ -20,10 +20,9 @@ public class TipologiaEsameController {
 		private String nome;
 		private Double prezzo;
 		private String descrizione;
-		private TipologiaEsame tipologiaEsame;
-		private IndicatoreRisultato indicatoreRisultato;
-		private List<TipologiaEsame> tipologieEsame;
 		private List<IndicatoreRisultato> indicatoriRisultato;
+		private TipologiaEsame tipologiaEsame;
+		private List<TipologiaEsame> tipologieEsame;
 		
 		@EJB
 		private TipologiaEsameFacade tipologiaEsameFacade;
@@ -34,7 +33,7 @@ public class TipologiaEsameController {
 		}
 		
 		public String creaTipologiaEsame() {
-			this.tipologiaEsame = tipologiaEsameFacade.creaTipologiaEsame(nome, descrizione, prezzo, indicatoriRisultato);
+			this.tipologiaEsame = tipologiaEsameFacade.creaTipologiaEsame(nome, descrizione, prezzo);
 			return "tipologiaEsame"; 
 		}
 		
@@ -108,12 +107,8 @@ public class TipologiaEsameController {
 		public void setIndicatoriRisultato(List<IndicatoreRisultato> indicatoriRisultato) {
 			this.indicatoriRisultato = indicatoriRisultato;
 		}
-
-		public IndicatoreRisultato getIndicatoreRisultato() {
-			return indicatoreRisultato;
-		}
-
-		public void setIndicatoreRisultato(IndicatoreRisultato indicatoreRisultato) {
-			this.indicatoreRisultato = indicatoreRisultato;
-		}
+		
+		
+		
+		
 }

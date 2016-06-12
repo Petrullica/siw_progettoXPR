@@ -55,6 +55,7 @@ public class Esame {
 
 	public Esame(String codice, Date dataSvolgimentoEsame,Paziente paziente,Medico medico,TipologiaEsame tipologiaEsame) {
 		this.codice = codice;
+		this.creaDataPrenotazione();
 		this.dataSvolgimentoEsame = dataSvolgimentoEsame;
 		this.tipologiaEsame = tipologiaEsame;
 		this.paziente = paziente;

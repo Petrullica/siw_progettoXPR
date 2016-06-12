@@ -1,28 +1,21 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
-@Table(name="tipologia")
 public class TipologiaEsame {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="tipologia_id")
 	private Long id;
 
 	@Column(unique=true)
@@ -37,22 +30,24 @@ public class TipologiaEsame {
 	private Double prezzo;
 
 	@OneToMany
-	private List<Prerequisito> prerequisiti = new LinkedList<Prerequisito>();
+	@JoinColumn(name = "tipologiaesame_id")
+	private List<Prerequisito> prerequisiti;
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name="tipologia_indicatore", 
-			joinColumns={ @JoinColumn(name="tipologia_id") },
-			inverseJoinColumns={ @JoinColumn(name="indicatore_nome") })
-	private List<IndicatoreRisultato> indicatoriRisultato = new ArrayList<IndicatoreRisultato>();
+	@OneToMany
+	@JoinColumn(name = "tipologiaesame_id")
+	private List<IndicatoreRisultato> indicatoriRisultato;
 
 	public TipologiaEsame(){
+		this.prerequisiti= new LinkedList<Prerequisito>();
+		this.indicatoriRisultato= new LinkedList<IndicatoreRisultato>();
 	}
 
-	public TipologiaEsame(String nome, String descrizione, Double prezzo, List<IndicatoreRisultato> indicatoriRisultato) {
+	public TipologiaEsame(String nome, String descrizione, double prezzo) {
 		this.nome = nome;
 		this.descrizione = descrizione;
 		this.prezzo = prezzo;
-		this.indicatoriRisultato.addAll(indicatoriRisultato);
+		this.prerequisiti= new LinkedList<Prerequisito>();
+		this.indicatoriRisultato= new LinkedList<IndicatoreRisultato>();
 	}
 
 	public Double getPrezzo() {

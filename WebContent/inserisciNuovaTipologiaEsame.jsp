@@ -59,11 +59,11 @@
 									</div>
 									<div class="form-group">
 
-										<label for="inputText3" class="col-sm-3 control-label">Nome</label>
+										<label for="inputText3" class="col-sm-3 control-label">Indicatore Risultato</label>
 										<div class="col-sm-9">
 											<h:selectManyListbox id="indicatoriRisultato"
 												styleClass="form-control"
-												value="#{indicatoreRisultatoController.indicatoriRisultatoSelezionati}">
+												value="#{tipologiaEsameController.indicatoriRisultato}">
 												<f:selectItems
 													value="#{indicatoreRisultatoController.indicatoriRisultato}"
 													var="indicatoreRisultato"
