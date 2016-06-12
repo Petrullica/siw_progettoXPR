@@ -89,9 +89,19 @@ public class EsameFacade {
 		List<Esame> esami= q.getResultList();
 		return esami;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Esame> getAllEsamiDaCompletare() {
+		Query q = em.createNativeQuery("select * from esame "
+				+ "left join risultato on esame_id = esame.id"
+				+ " where risultato.id IS NULL", Esame.class);
+		List<Esame> esamiDaCompletare= q.getResultList();
+		return esamiDaCompletare;
+	}
 
-	public void updateEsame(Esame esame) {
-        em.merge(esame);
+	public Esame updateEsame(Esame esame) {
+        Esame esameCompletato = em.merge(esame);
+        return esameCompletato;
 	}
 	
     private void deleteEsame(Esame esame) {

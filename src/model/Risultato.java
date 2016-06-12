@@ -18,7 +18,7 @@ public class Risultato {
 	private Long id;
 
 	@OneToOne
-	private IndicatoreRisultato indicatore;
+	private IndicatoreRisultato indicatoreRisultato;
 
 	@Column(nullable = false)
 	private String valore;
@@ -27,6 +27,12 @@ public class Risultato {
 	private Esame esame;
 
 	public Risultato() {
+	}
+	
+	public Risultato(IndicatoreRisultato indicatoreRisultato, String valore, Esame esame) {
+		this.indicatoreRisultato = indicatoreRisultato;
+		this.valore = valore;
+		this.esame = esame;
 	}
 
 	public String getValore() {

@@ -34,7 +34,7 @@
 										<h:selectOneMenu styleClass="form-control"
 											value="#{esameController.esame}">
 											<f:selectItems 
-												value="#{esameController.esami}"
+												value="#{esameController.esamiDaCompletare}"
 												var="esame" itemValue="#{esame}"
 												itemLabel="#{esame.codice}" />
 										</h:selectOneMenu>
@@ -44,7 +44,7 @@
 								<div class="form-group last">
 									<div class="col-sm-offset-3 col-sm-9">
 										<h:commandButton value="Search"
-											action="#{esameController.findEsame}"
+											action="#{esameController.findEsameDaCompletare}"
 											styleClass="btn btn-default btn-sm" />
 										<button type="reset" class="btn btn-default btn-sm">Reset</button>
 									</div>
