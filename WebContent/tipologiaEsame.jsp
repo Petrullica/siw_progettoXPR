@@ -57,7 +57,7 @@
 						Risultato</label>
 					<div class="col-sm-9">
 						<h:selectManyCheckbox id="grid" styleClass="form-control"
-							value="#{tipologiaEsameController.indicatoriRisultato}"
+							value="#{indicatoreRisultatoController.indicatoriSelezionati}"
 							layout="grid">
 							<f:selectItems
 								value="#{indicatoreRisultatoController.indicatoriRisultato}"
@@ -73,7 +73,7 @@
 
 				<div class="form-group last">
 					<h:commandButton value="Conferma"
-						action="/faces/confermaTipologiaEsame.jsp"
+						action="#{indicatoreRisultatoController.aggiornaChiave}"
 						styleClass="btn btn-default btn-sm" />
 
 				</div>

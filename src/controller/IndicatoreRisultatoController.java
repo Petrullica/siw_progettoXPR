@@ -18,8 +18,9 @@ public class IndicatoreRisultatoController {
 	@ManagedProperty(value="#{param.nome}")
 	private String nome;
 	private TipologiaEsame tipologiaEsame;
+	private IndicatoreRisultato indicatoreSelezionato;
 	private IndicatoreRisultato indicatoreRisultato;
-	private List<IndicatoreRisultato> indicatoriSelezionati;
+	private List<String> indicatoriSelezionati;
 	private List<IndicatoreRisultato> indicatoriRisultato;
 
 	@EJB
@@ -44,15 +45,17 @@ public class IndicatoreRisultatoController {
 		this.indicatoreRisultato = indicatoreRisultatoFacade.getIndicatoreRisultato(nome);
 		return "indicatoreRisultato";
 	}
-	
 	public String aggiornaChiave(){
 		this.tipologiaEsame = (TipologiaEsame)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("tipologiaEsame");
-		for (IndicatoreRisultato indicatoreRisultato : indicatoriSelezionati) {
-			IndicatoreRisultato indicatore = new IndicatoreRisultato(indicatoreRisultato.getNome(), tipologiaEsame);
-			indicatoreRisultatoFacade.updateIndicatoreRisultato(indicatore);
+		if(indicatoriSelezionati!=null){
+			for (String nome : indicatoriSelezionati) {
+				IndicatoreRisultato indicatore = new IndicatoreRisultato(nome);
+				indicatore.getTipologieEsame().add(tipologiaEsame);
+				this.indicatoreRisultatoFacade.updateIndicatoreRisultato(indicatore);	
+			}
+			return "confermatipologiaesame";
 		}
-		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("tipologiaEsame");
-		return "error";
+		else return "error";
 	}
 
 	public String getNome() {
@@ -87,13 +90,24 @@ public class IndicatoreRisultatoController {
 		this.tipologiaEsame = tipologiaEsame;
 	}
 
-	public List<IndicatoreRisultato> getIndicatoriSelezionati() {
+	public IndicatoreRisultato getIndicatoreSelezionato() {
+		return indicatoreSelezionato;
+	}
+
+	public void setIndicatoreSelezionato(IndicatoreRisultato indicatoreSelezionato) {
+		this.indicatoreSelezionato = indicatoreSelezionato;
+	}
+
+	public List<String> getIndicatoriSelezionati() {
 		return indicatoriSelezionati;
 	}
 
-	public void setIndicatoriSelezionati(List<IndicatoreRisultato> indicatoriSelezionati) {
+	public void setIndicatoriSelezionati(List<String> indicatoriSelezionati) {
 		this.indicatoriSelezionati = indicatoriSelezionati;
 	}
-	
-	
+
+
+
+
+
 }

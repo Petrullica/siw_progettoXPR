@@ -35,16 +35,11 @@ public class TipologiaEsame {
 
 	private Double prezzo;
 
-	@OneToMany
-	@JoinColumn(name = "tipologiaesame_id")
-	private List<Prerequisito> prerequisiti;
 
-	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
-	@JoinColumn(name = "tipologiaesame_id")
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<IndicatoreRisultato> indicatoriRisultato;
 
 	public TipologiaEsame(){
-		this.prerequisiti= new LinkedList<Prerequisito>();
 		this.indicatoriRisultato = new LinkedList<>();
 	}
 
@@ -52,7 +47,6 @@ public class TipologiaEsame {
 		this.nome = nome;
 		this.descrizione = descrizione;
 		this.prezzo = prezzo;
-		this.prerequisiti= new LinkedList<Prerequisito>();
 		this.indicatoriRisultato = new LinkedList<>();
 	}
 
@@ -79,11 +73,7 @@ public class TipologiaEsame {
 	public void setDescrizione(String descr) {
 		this.descrizione = descr;
 	}
-
-
-	public List<Prerequisito> getPrerequisiti() {
-		return prerequisiti;
-	}	
+	
 
 	public List<IndicatoreRisultato> getIndicatoriRisultato() {
 		return indicatoriRisultato;

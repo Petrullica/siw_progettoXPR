@@ -1,8 +1,11 @@
 package model;
 
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -21,8 +24,8 @@ public class IndicatoreRisultato {
 	@Id
 	private String nome;
 	
-	@ManyToOne
-	private TipologiaEsame tipologiaEsame;
+	@ManyToMany(mappedBy = "indicatoriRisultato", cascade = {CascadeType.REFRESH, CascadeType.MERGE})
+	private List<TipologiaEsame> tipologieEsame = new LinkedList<>();
 
 	public IndicatoreRisultato() {
 	}
@@ -30,21 +33,13 @@ public class IndicatoreRisultato {
 	public IndicatoreRisultato(String nome) {
 		this.nome = nome;
 	}
-	
-	
 
-	public IndicatoreRisultato(String nome, TipologiaEsame tipologiaEsame) {
-		super();
-		this.nome = nome;
-		this.tipologiaEsame = tipologiaEsame;
+	public List<TipologiaEsame> getTipologieEsame() {
+		return tipologieEsame;
 	}
 
-	public TipologiaEsame getTipologiaEsame() {
-		return tipologiaEsame;
-	}
-
-	public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
-		this.tipologiaEsame = tipologiaEsame;
+	public void setTipologieEsame(List<TipologiaEsame> tipologieEsame) {
+		this.tipologieEsame = tipologieEsame;
 	}
 
 	public String getNome() {
