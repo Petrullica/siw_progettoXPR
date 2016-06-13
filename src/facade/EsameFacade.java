@@ -42,13 +42,13 @@ public class EsameFacade {
 		return esami;
 	}
 	
-//	public Esame getEsameByCodice(String codice) {
-//		Query q = em.createNativeQuery("select * from Esame"
-//				+ "where esame.codice = ?", Esame.class);
-//		q.setParameter(1, codice);
-//		Esame esame = (Esame)q.getSingleResult();
-//		return esame;
-//	}
+	public Esame getEsameByCodice(String codice) {
+		Query q = em.createNativeQuery("select * from Esame "
+				+ "where esame.codice = ?", Esame.class);
+		q.setParameter(1, codice);
+		Esame esame = (Esame)q.getSingleResult();
+		return esame;
+	}
 	
 	@SuppressWarnings("unchecked")
 	public List<Esame> getEsamiByPazienteUsername(String username){

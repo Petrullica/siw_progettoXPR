@@ -93,7 +93,7 @@ public class EsameController {
 	}
 
 	public String findEsameDaCompletare() {
-		this.esame = esameFacade.getEsame(id);
+		this.esame = esameFacade.getEsameByCodice(codice);
 		return "esameDaCompletare";
 	}
 

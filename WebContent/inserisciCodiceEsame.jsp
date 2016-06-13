@@ -32,11 +32,11 @@
 									<label for="inputText3" class="col-sm-3 control-label">Codice</label>
 									<div class="col-sm-9">
 										<h:selectOneMenu styleClass="form-control"
-											value="#{esameController.esame}">
+											value="#{esameController.codice}">
 											<f:selectItems 
 												value="#{esameController.esamiDaCompletare}"
-												var="esame" itemValue="#{esame}"
-												itemLabel="#{esame.codice}" />
+												var="esame" itemValue="#{esame.codice}"
+												/>
 										</h:selectOneMenu>
 									</div>
 								</div>
