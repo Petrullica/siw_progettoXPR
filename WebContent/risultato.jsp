@@ -66,7 +66,7 @@
 		</div>
 		<div class="form-group last">
 			<h:commandButton value="Torna alla compilazione esame"
-				action="/faces/esameDaCompletare.jsp"
+				action="/faces/esameDaCompletareConRisultati.jsp"
 				styleClass="btn btn-default btn-sm" />
 		</div>
 	</div>

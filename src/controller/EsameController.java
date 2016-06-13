@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -39,6 +40,8 @@ public class EsameController {
 	public void init(){
 		this.esami = esameFacade.getAllEsami();
 		this.esamiDaCompletare = esameFacade.getAllEsamiDaCompletare();
+		this.risultati = new LinkedList<>();
+//		this.risultati = esameFacade.getAllRisultati();
 	}
 
 	public String creaEsame(){
@@ -53,6 +56,10 @@ public class EsameController {
 	public String mostraEsami(){
 		this.esami= esameFacade.getAllEsami();
 		return "esami";
+	}
+	
+	public void aggiungiAllRisultati() {
+		this.risultati = esameFacade.getAllRisultati();
 	}
 
 	//	public String mostraEsameByCodice() {

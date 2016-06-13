@@ -12,6 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import model.Esame;
 import model.Medico;
 import model.Paziente;
+import model.Risultato;
 import model.TipologiaEsame;
 
 
@@ -40,6 +41,15 @@ public class EsameFacade {
         List<Esame> esami = em.createQuery(cq).getResultList();
         
 		return esami;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Risultato> getAllRisultati() {
+		Query q = em.createNativeQuery("select esame.risultato_id from Esame "
+				+ "left join risultato on esame_id = esame.id ", Esame.class);
+		List<Risultato> risultati = q.getResultList();
+		if (risultati == null) return null;
+		else return risultati;	
 	}
 	
 	public Esame getEsameByCodice(String codice) {
