@@ -43,6 +43,16 @@
 									<strong>Prezzo:</strong>
 									${tipologiaEsameController.tipologiaEsame.prezzo}
 								</h5>
+								<div>
+									<label for="inputText3" class="col-sm-3 control-label">Indicatori
+										Risultato</label>
+									<c:forEach var="string"
+										items="#{indicatoreRisultatoController.indicatoriSelezionati}">
+										<tr>
+											<td>${string}</td>
+										</tr>
+									</c:forEach>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -50,28 +60,14 @@
 			</div>
 			<div class="container">
 				<div>
-					<label for="inputText3" class="col-sm-3 control-label">Indicatore
-						Risultato</label>
-					<div class="col-sm-9">
-						<h:selectManyCheckbox id="grid" styleClass="form-control"
-							value="#{indicatoreRisultatoController.indicatoriSelezionati}"
-							layout="grid">
-							<f:selectItems
-								value="#{indicatoreRisultatoController.indicatoriRisultato}"
-								var="indicatoreRisultato"
-								itemValue="#{indicatoreRisultato.nome}" />
-						</h:selectManyCheckbox>
-					</div>
-					<br> <a
-						href='<c:url value="/faces/inserisciNuovoIndicatoreRisultato.jsp" />'>
-						Aggiungi indicatore risultato</a> <br> <br> <br> <label
-						for="inputText3" class="col-sm-3 control-label">Prerequisito</label>
+					<br> <label for="inputText3" class="col-sm-3 control-label">Prerequisito</label>
 					<div class="col-sm-9">
 						<h:selectManyCheckbox id="grid" styleClass="form-control"
 							value="#{prerequisitoController.prerequisitiSelezionati}"
 							layout="grid">
 							<f:selectItems value="#{prerequisitoController.Prerequisiti}"
-								var="prerequisito" itemValue="#{prerequisito.nome}" />
+								var="prerequisito" itemValue="#{prerequisito}"
+								itemLabel="#{prerequisito.nome}" />
 						</h:selectManyCheckbox>
 					</div>
 				</div>
@@ -79,8 +75,8 @@
 					href='<c:url value="/faces/inserisciNuovoPrerequisito.jsp" />'>
 					Aggiungi prerequisito</a>
 				<div class="form-group last">
-					<h:commandButton value="Conferma e procedi"
-						action="#{indicatoreRisultatoController.aggiornaChiave}"
+					<h:commandButton value="Conferma"
+						action="#{prerequisitoController.aggiornaChiave}"
 						styleClass="btn btn-default btn-sm" />
 				</div>
 			</div>

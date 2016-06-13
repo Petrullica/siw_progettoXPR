@@ -3,6 +3,7 @@ package controller;
 import java.util.List;
 
 import model.IndicatoreRisultato;
+import model.Prerequisito;
 import model.TipologiaEsame;
 
 import javax.annotation.PostConstruct;
@@ -22,6 +23,7 @@ public class TipologiaEsameController {
 	private Double prezzo;
 	private String descrizione;
 	private List<IndicatoreRisultato> indicatoriRisultato;
+	private List<Prerequisito> prerequisiti;
 	private TipologiaEsame tipologiaEsame;
 	private List<TipologiaEsame> tipologieEsame;
 
@@ -58,6 +60,16 @@ public class TipologiaEsameController {
 		this.tipologiaEsame = (TipologiaEsame)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("tipologiaEsame");
 		for (IndicatoreRisultato indicatoreRisultato : indicatoriRisultato) {
 			tipologiaEsame.getIndicatoriRisultato().add(indicatoreRisultato);
+			tipologiaEsameFacade.updateTipologiaEsame(tipologiaEsame);
+		}
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("tipologiaEsame");
+		return "tipologiaEsame";
+	}
+	
+	public String aggiornaPrerequisito(){
+		this.tipologiaEsame = (TipologiaEsame)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("tipologiaEsame");
+		for (Prerequisito prerequisito : prerequisiti) {
+			tipologiaEsame.getPrerequisiti().add(prerequisito);
 			tipologiaEsameFacade.updateTipologiaEsame(tipologiaEsame);
 		}
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("tipologiaEsame");
@@ -118,5 +130,13 @@ public class TipologiaEsameController {
 
 	public void setIndicatoriRisultato(List<IndicatoreRisultato> indicatoriRisultato) {
 		this.indicatoriRisultato = indicatoriRisultato;
+	}
+
+	public List<Prerequisito> getPrerequisiti() {
+		return prerequisiti;
+	}
+
+	public void setPrerequisiti(List<Prerequisito> prerequisiti) {
+		this.prerequisiti = prerequisiti;
 	}
 }

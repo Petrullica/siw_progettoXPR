@@ -29,5 +29,22 @@ public class RisultatoFacade {
 		List<Risultato> risultati = em.createQuery(cq).getResultList();
 		return risultati;
 	}
-
+	
+	public Risultato getRisultato(Long id) {
+		Risultato risultato = em.find(Risultato.class, id);
+		return risultato;
+	}
+	
+	public void updateRisultato(Risultato risultato) {
+		em.merge(risultato);
+	}
+	
+	public void deleteRisultato(Risultato risultato) {
+		em.remove(risultato);
+	}
+	
+	public void deleteRisultato(Long id) {
+		Risultato risultato = em.find(Risultato.class, id);
+		em.remove(risultato);
+	}
 }

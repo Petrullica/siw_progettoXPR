@@ -23,11 +23,9 @@
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<strong class="">Inserisci Nuova Tipologia Esame</strong>
-
 							</div>
 							<div class="panel-body">
 								<div class="form-group">
-
 									<label for="inputText3" class="col-sm-3 control-label">Nome</label>
 									<div class="col-sm-9">
 										<h:inputText value="#{tipologiaEsameController.nome}"
@@ -35,8 +33,6 @@
 											styleClass="form-control" />
 										<h:message for="nome" />
 									</div>
-
-
 									<div class="form-group">
 										<label for="inputText3" class="col-sm-3 control-label">Descrizione</label>
 										<div class="col-sm-9">
@@ -47,7 +43,6 @@
 										</div>
 									</div>
 									<div class="form-group">
-
 										<label for="inputText3" class="col-sm-3 control-label">Prezzo</label>
 										<div class="col-sm-9">
 											<h:inputText value="#{tipologiaEsameController.prezzo}"
@@ -57,39 +52,26 @@
 											<h:message for="prezzo" />
 										</div>
 									</div>
-									
 									<br> <br> <br>
-								
-										<div class="form-group last">
-											<div class="col-sm-offset-3 col-sm-3">
-												<div>
-													<h:commandButton value="Avanti" styleClass="form-control"
-														action="#{tipologiaEsameController.creaTipologiaEsame}" />
-												</div>
-											</div>
-											<br>
-											<div class="form-group last">
-												<a href='<c:url value="/faces/home.jsp" />'> Annulla e
-													torna alla pagina principale</a>
+									<div class="form-group last">
+										<div class="col-sm-offset-3 col-sm-3">
+											<div>
+												<h:commandButton value="Avanti" styleClass="form-control"
+													action="#{tipologiaEsameController.creaTipologiaEsame}" />
 											</div>
 										</div>
-
+										<br>
+										<div class="form-group last">
+											<a href='<c:url value="/faces/home.jsp" />'> Annulla e
+												torna alla pagina principale</a>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-
-					<!--
-				<h:selectOneMenu
-					value="#{indicatoreRisultatoController.indicatoreRisultato}">
-					<f:selectItems
-						value="#{indicatoreRisultatoController.indicatoriRisultato}"
-						var="indicatoreRisultato" itemValue="#{indicatoreRisultato.nome}" />
-				</h:selectOneMenu>
-				-->
 				</div>
-			
+			</div>
 		</h:form>
 	</f:view>
 </body>

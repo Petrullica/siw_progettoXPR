@@ -38,6 +38,14 @@
 		<filter-name>FiltroAmministratore</filter-name>
 		<url-pattern>/faces/mostraEsamiMedico.jsp</url-pattern>
 	</filter-mapping>
+		<filter-mapping>
+		<filter-name>FiltroAmministratore</filter-name>
+		<url-pattern>/faces/inserisciCodiceEsame.jsp</url-pattern>
+	</filter-mapping>
+		<filter-mapping>
+		<filter-name>FiltroAmministratore</filter-name>
+		<url-pattern>/faces/inserisciNuovoPrerequisito.jsp</url-pattern>
+	</filter-mapping>
 
 	<filter-mapping>
 		<filter-name>FiltroPaziente</filter-name>
