@@ -6,16 +6,20 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
 
 import facade.IndicatoreRisultatoFacade;
 import model.IndicatoreRisultato;
+import model.TipologiaEsame;
 
 @ManagedBean
 public class IndicatoreRisultatoController {
 
 	@ManagedProperty(value="#{param.nome}")
 	private String nome;
+	private TipologiaEsame tipologiaEsame;
 	private IndicatoreRisultato indicatoreRisultato;
+	private List<IndicatoreRisultato> indicatoriSelezionati;
 	private List<IndicatoreRisultato> indicatoriRisultato;
 
 	@EJB
@@ -39,6 +43,16 @@ public class IndicatoreRisultatoController {
 	public String findIndicatoreRisultato(String nome) {
 		this.indicatoreRisultato = indicatoreRisultatoFacade.getIndicatoreRisultato(nome);
 		return "indicatoreRisultato";
+	}
+	
+	public String aggiornaChiave(){
+		this.tipologiaEsame = (TipologiaEsame)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("tipologiaEsame");
+		for (IndicatoreRisultato indicatoreRisultato : indicatoriSelezionati) {
+			IndicatoreRisultato indicatore = new IndicatoreRisultato(indicatoreRisultato.getNome(), tipologiaEsame);
+			indicatoreRisultatoFacade.updateIndicatoreRisultato(indicatore);
+		}
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("tipologiaEsame");
+		return "error";
 	}
 
 	public String getNome() {
@@ -64,4 +78,22 @@ public class IndicatoreRisultatoController {
 	public void setIndicatoriRisultato(List<IndicatoreRisultato> indicatoriRisultato) {
 		this.indicatoriRisultato = indicatoriRisultato;
 	}
+
+	public TipologiaEsame getTipologiaEsame() {
+		return tipologiaEsame;
+	}
+
+	public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
+		this.tipologiaEsame = tipologiaEsame;
+	}
+
+	public List<IndicatoreRisultato> getIndicatoriSelezionati() {
+		return indicatoriSelezionati;
+	}
+
+	public void setIndicatoriSelezionati(List<IndicatoreRisultato> indicatoriSelezionati) {
+		this.indicatoriSelezionati = indicatoriSelezionati;
+	}
+	
+	
 }
