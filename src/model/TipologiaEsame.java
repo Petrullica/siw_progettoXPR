@@ -36,6 +36,7 @@ public class TipologiaEsame {
 
 	public TipologiaEsame(){
 		this.indicatoriRisultato = new LinkedList<>();
+		this.prerequisiti = new LinkedList<>();
 	}
 
 	public TipologiaEsame(String nome, String descrizione, double prezzo) {
@@ -43,6 +44,7 @@ public class TipologiaEsame {
 		this.descrizione = descrizione;
 		this.prezzo = prezzo;
 		this.indicatoriRisultato = new LinkedList<>();
+		this.prerequisiti = new LinkedList<>();
 	}
 
 	public Double getPrezzo() {
@@ -68,7 +70,7 @@ public class TipologiaEsame {
 	public void setDescrizione(String descr) {
 		this.descrizione = descr;
 	}
-	
+
 
 	public List<IndicatoreRisultato> getIndicatoriRisultato() {
 		return indicatoriRisultato;
