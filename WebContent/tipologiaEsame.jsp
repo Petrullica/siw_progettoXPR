@@ -43,6 +43,11 @@
 									<strong>Prezzo:</strong>
 									${tipologiaEsameController.tipologiaEsame.prezzo}
 								</h5>
+								<br>
+								<h5 style="font-size: 180%;">
+									<strong>Prerequisito:</strong>
+									${tipologiaEsameController.tipologiaEsame.prerequisito}
+								</h5>
 							</div>
 						</div>
 					</div>

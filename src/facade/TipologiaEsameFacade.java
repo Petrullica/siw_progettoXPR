@@ -15,8 +15,8 @@ public class TipologiaEsameFacade {
     @PersistenceContext(unitName="clinica-unit")
     private EntityManager em;
     
-	public TipologiaEsame creaTipologiaEsame(String nome, String descrizione, Double prezzo) {
-		TipologiaEsame tipologiaEsame = new TipologiaEsame(nome, descrizione, prezzo);
+	public TipologiaEsame creaTipologiaEsame(String nome, String descrizione, Double prezzo, String prerequisito) {
+		TipologiaEsame tipologiaEsame = new TipologiaEsame(nome, descrizione, prezzo, prerequisito);
 		em.persist(tipologiaEsame);
 		return tipologiaEsame;
 	}

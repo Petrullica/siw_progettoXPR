@@ -29,6 +29,7 @@
 										<th>Nome </th>
 										<th>Descrizione </th>
 										<th>Prezzo</th>
+										<th>Prerequisito</th>
 									</tr>
 									<c:forEach var="tipologiaEsame"
 										items="#{tipologiaEsameController.tipologieEsame}">
@@ -40,6 +41,7 @@
 												</h:commandLink></td>
 											<td>${tipologiaEsame.descrizione}</td>
 											<td>${tipologiaEsame.prezzo}</td>
+											<td>${tipologiaEsame.prerequisito}</td>
 										</tr>
 									</c:forEach>
 								</table>

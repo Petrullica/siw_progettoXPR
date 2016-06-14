@@ -22,6 +22,7 @@ public class TipologiaEsameController {
 	private String nome;
 	private Double prezzo;
 	private String descrizione;
+	private String prerequisito;
 	private List<IndicatoreRisultato> indicatoriRisultato;
 	private TipologiaEsame tipologiaEsame;
 	private List<TipologiaEsame> tipologieEsame;
@@ -35,7 +36,7 @@ public class TipologiaEsameController {
 	}
 
 	public String creaTipologiaEsame() {
-		this.tipologiaEsame = tipologiaEsameFacade.creaTipologiaEsame(nome, descrizione, prezzo);
+		this.tipologiaEsame = tipologiaEsameFacade.creaTipologiaEsame(nome, descrizione, prezzo, prerequisito);
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("tipologiaEsame", this.tipologiaEsame);
 		return "tipologiaEsame"; 
 	}
@@ -91,6 +92,14 @@ public class TipologiaEsameController {
 
 	public String getDescrizione() {
 		return descrizione;
+	}
+
+	public String getPrerequisito() {
+		return prerequisito;
+	}
+
+	public void setPrerequisito(String prerequisito) {
+		this.prerequisito = prerequisito;
 	}
 
 	public void setDescrizione(String descrizione) {

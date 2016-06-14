@@ -26,6 +26,8 @@ public class TipologiaEsame {
 	private String descrizione;
 
 	private Double prezzo;
+	
+	private String prerequisito;
 
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<IndicatoreRisultato> indicatoriRisultato;
@@ -34,10 +36,11 @@ public class TipologiaEsame {
 		this.indicatoriRisultato = new LinkedList<>();
 	}
 
-	public TipologiaEsame(String nome, String descrizione, double prezzo) {
+	public TipologiaEsame(String nome, String descrizione, double prezzo, String prerequisito) {
 		this.nome = nome;
 		this.descrizione = descrizione;
 		this.prezzo = prezzo;
+		this.prerequisito = prerequisito;
 		this.indicatoriRisultato = new LinkedList<>();
 	}
 
@@ -74,6 +77,14 @@ public class TipologiaEsame {
 		this.indicatoriRisultato = indicatoriRisultato;
 	}
 
+	public String getPrerequisito() {
+		return prerequisito;
+	}
+
+	public void setPrerequisito(String prerequisito) {
+		this.prerequisito = prerequisito;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -82,6 +93,7 @@ public class TipologiaEsame {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((prezzo == null) ? 0 : prezzo.hashCode());
+		result = prime * result + ((prerequisito == null) ? 0 : prerequisito.hashCode());
 		return result;
 	}
 
@@ -113,6 +125,11 @@ public class TipologiaEsame {
 			if (other.prezzo != null)
 				return false;
 		} else if (!prezzo.equals(other.prezzo))
+			return false;
+		if (prerequisito == null) {
+			if (other.prerequisito != null)
+				return false;
+		}else if (!prerequisito.equals(other.prerequisito))
 			return false;
 		return true;
 	}

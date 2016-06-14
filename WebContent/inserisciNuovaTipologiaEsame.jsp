@@ -29,15 +29,16 @@
 									<label for="inputText3" class="col-sm-3 control-label">Nome</label>
 									<div class="col-sm-9">
 										<h:inputText value="#{tipologiaEsameController.nome}"
-											required="true" requiredMessage="Il nome è obbligatorio!" id="nome"
-											styleClass="form-control" />
+											required="true" requiredMessage="Il nome è obbligatorio!"
+											id="nome" styleClass="form-control" />
 										<h:message for="nome" />
 									</div>
 									<div class="form-group">
 										<label for="inputText3" class="col-sm-3 control-label">Descrizione</label>
 										<div class="col-sm-9">
 											<h:inputText value="#{tipologiaEsameController.descrizione}"
-												required="true" requiredMessage="La descrizione è obbligatoria!"
+												required="true"
+												requiredMessage="La descrizione è obbligatoria!"
 												id="descrizione" styleClass="form-control" />
 											<h:message for="descrizione" />
 										</div>
@@ -46,10 +47,19 @@
 										<label for="inputText3" class="col-sm-3 control-label">Prezzo</label>
 										<div class="col-sm-9">
 											<h:inputText value="#{tipologiaEsameController.prezzo}"
-												required="true" requiredMessage="Prezzo is mandatory"
-												converterMessage="Il prezzo deve essere un numero!" id="prezzo"
-												styleClass="form-control" />
+												required="true" requiredMessage="Il prezzo è obbligatorio!"
+												converterMessage="Il prezzo deve essere un numero!"
+												id="prezzo" styleClass="form-control" />
 											<h:message for="prezzo" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputText3" class="col-sm-3 control-label">Prerequisito</label>
+										<div class="col-sm-9">
+											<h:inputText value="#{tipologiaEsameController.prerequisito}"
+												required="true" requiredMessage="Il prerequisito è obbligatorio!"
+												id="prerequisito" styleClass="form-control" />
+											<h:message for="prerequisito" />
 										</div>
 									</div>
 									<br> <br> <br>
