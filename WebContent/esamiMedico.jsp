@@ -24,27 +24,34 @@
 					<div class="col-md-6 col-md-offset-3">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h1>Esami Presenti</h1>
-								<table>
-									<tr>
-										<th>Codice</th>
-										<th>Data prenotazione</th>
-									</tr>
+								<div align="center">
+										<h2>Esami Presenti</h2>
+										<table class="table">
+											<thead>
+												<tr>
+													<th>Codice</th>
+													<th>Data prenotazione</th>
+												
+												</tr>
+											</thead>
+											<tbody>
 									<c:forEach var="esame" items="#{medicoController.esami}">
 										<tr>
-											<td><h:commandLink action="#{medicoController.findEsame}"
+											<td><h:commandLink action="#{esameController.findEsame}"
 													value="#{esame.codice}">
 													<f:param name="id" value="#{esame.id}" />
 												</h:commandLink></td>
-											<td>${esame.codice}</td>
+											
 											<td>${esame.dataPrenotazioneEsame}</td>
 										</tr>
 									</c:forEach>
+									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 		</h:form>
 	</f:view>

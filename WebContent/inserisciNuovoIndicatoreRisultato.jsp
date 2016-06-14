@@ -43,7 +43,9 @@
 										<h:commandButton value="Sign in"
 											action="#{indicatoreRisultatoController.creaIndicatoreRisultato}"
 											styleClass="btn btn-default btn-sm" />
-										<button type="reset" class="btn btn-default btn-sm">Reset</button>
+										<button type="reset" id="bottone" class="btn btn-default btn-sm">Reset</button>
+										<script>document.getElementById("bottone").addEventListener("click", resetta);
+												function resetta(){window.alert("In questo modo resetterai tutti i campi!")};</script>
 									</div>
 								</div>
 							</div>

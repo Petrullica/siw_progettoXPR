@@ -25,37 +25,37 @@
 					<div class="col-md-6 col-md-offset-3">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<strong class="">Tipologie Esame Presenti</strong>
-								<br>
-								<table>
-									<tr>
-										<th>Nome </th>
-										<th>Descrizione </th>
-										<th>Prezzo</th>
-										<th>Prerequisito</th>
-									</tr>
-									<c:forEach var="tipologiaEsame"
-										items="#{tipologiaEsameController.tipologieEsame}">
-										<tr>
-											<td><h:commandLink
-													action="#{tipologiaEsameController.findTipologiaEsame}"
-													value="#{tipologiaEsame.nome}">
-													<f:param name="id" value="#{tipologiaEsame.id}" />
-												</h:commandLink></td>
-											<td>${tipologiaEsame.descrizione}</td>
-											<td>${tipologiaEsame.prezzo}</td>
-											<td>${tipologiaEsame.prerequisito}</td>
-										</tr>
-									</c:forEach>
-								</table>
-								<br> <a
-									href='<c:url value="/faces/inserisciNuovoPaziente.jsp" />'>
-									Registrati</a>
+								<div align="center">
+										<h2>Tipologie Esami</h2>
+										<table class="table">
+											<thead>
+												<tr>
+													<th>Nome</th>
+													<th>Descrizione</th>
+													<th>Prezzo</th>
+												</tr>
+											</thead>
+											<tbody>
+											<c:forEach var="tipologiaEsame"
+												items="#{tipologiaEsameController.tipologieEsame}">
+												<tr>
+													<td><h:commandLink
+															action="#{tipologiaEsameController.findTipologiaEsame}"
+															value="#{tipologiaEsame.nome}">
+															<f:param name="id" value="#{tipologiaEsame.id}" />
+														</h:commandLink></td>
+													<td>${tipologiaEsame.descrizione}</td>
+													<td>${tipologiaEsame.prezzo}</td>
+												</tr>
+											</c:forEach>
+											</tbody>
+										</table>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+					</div>
 		</h:form>
 	</f:view>
 </body>

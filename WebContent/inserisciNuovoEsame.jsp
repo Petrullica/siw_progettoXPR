@@ -13,6 +13,15 @@
 	content="width=device-width, initial-scale=1, charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/sfondo.css">
+
+
+<script>
+	function reset() {
+		window.alert("In questo modo resetterai tutti i campi!");
+	}
+</script>
+
+
 <title>CreaNuovoEsame</title>
 </head>
 <body>
@@ -46,7 +55,7 @@
 									<div class="col-sm-9">
 										<h:inputText value="#{esameController.dataSvolgimentoEsame}"
 											required="true"
-											requiredMessage="La data di svolgimento dell'esame è obbligatoria!"
+											requiredMessage="dataSvolgimentoEsame is mandatory"
 											id="dataSvolgimentoEsame" styleClass="form-control">
 											<h:message for="dataSvolgimentoEsame" />
 											<f:convertDateTime pattern="dd-mm-yyyy" />
@@ -100,7 +109,18 @@
 									<div class="col-sm-offset-0 col-sm-9">
 										<h:commandButton styleClass="btn btn-default btn-sm"
 											value="Inserisci" action="#{esameController.creaEsame}" />
-										<button type="reset" class="btn btn-default btn-sm">Reset</button>
+										<button type="reset" id="bottone"
+											class="btn btn-default btn-sm">Reset</button>
+										<script>
+											document.getElementById("bottone")
+													.addEventListener("click",
+															resetta);
+											function resetta() {
+												window.alert("In questo modo resetterai tutti i campi!")
+											};
+										</script>
+
+
 									</div>
 								</div>
 							</div>

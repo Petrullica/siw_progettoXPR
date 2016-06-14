@@ -12,6 +12,8 @@
 	content="width=device-width, initial-scale=1, charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/sfondoRegistrazione.css">
+<link rel="stylesheet" type="text/css" href="css/suggerimento.css">
+<script src="js/suggerimento.js"></script>
 <title>Inserisci Nuovo Paziente</title>
 
 </head>
@@ -20,7 +22,7 @@
 		<h:form>
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
+					<div class="col-md-8 col-md-offset-3">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<strong class="">Registrati!</strong>
@@ -48,30 +50,53 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="inputText3" class="col-sm-3 control-label">Username</label>
+									<label for="inputText3" class="col-sm-3 control-label">Username <a href="#" class="hintanchor" 
+									onMouseover="showhint('Inserisci uno username per il tuo account compreso tra 6 e 10 caratteri alfanumerici', this, event, '150px')">[?]</a></label>
+									
 									<div class="col-sm-9">
 										<h:inputText value="#{pazienteController.username}"
 											required="true" requiredMessage="Lo username è obbligatorio!"
-											id="username" styleClass="form-control" />
+											validatorMessage="Lo username può essere compreso tra 6 e 10 caratteri!"
+											id="username" styleClass="form-control">
 										<h:message for="username" />
+										<f:validateLength minimum="6" maximum="10"/>
+										</h:inputText>
+										
+									     
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+									<label for="inputPassword3" class="col-sm-3 control-label">Password <a href="#" class="hintanchor" 
+									onMouseover="showhint('Inserisci una password segreta per il tuo account compresa tra 6 e 10 caratteri alfanumerici', this, event, '150px')">[?]</a></label>
+									
 									<div class="col-sm-9">
 										<h:inputSecret value="#{pazienteController.password}"
-											required="true" requiredMessage="La password è obbligatoria!"
-											id="password" styleClass="form-control" />
-									</div>
+											required="true" requiredMessage="La password è obbilgatoria!"
+											validatorMessage="Lo password può essere compresa tra 6 e 10 caratteri!"
+											id="password" styleClass="form-control">
+											<f:validateLength minimum="6" maximum="10"/>
+											</h:inputSecret>
+											
+								            									</div>
 								</div>
 
 
 								<div class="form-group last">
 									<div class="col-sm-offset-3 col-sm-9">
-										<h:commandButton value="Sign in"
+										<h:commandButton value="Sign in" 
 											action="#{pazienteController.creaPaziente}"
 											styleClass="btn btn-default btn-sm" />
-										<button type="reset" class="btn btn-default btn-sm">Reset</button>
+											<button type="reset" id="bottone"
+											class="btn btn-default btn-sm">Reset</button>
+										<script>
+											document.getElementById("bottone")
+													.addEventListener("click",
+															resetta);
+											function resetta() {
+												window.alert("In questo modo resetterai tutti i campi!")
+											};
+										</script>
+										
 									</div>
 								</div>
 							</div>

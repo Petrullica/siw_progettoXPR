@@ -12,6 +12,8 @@
 	content="width=device-width, initial-scale=1, charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/sfondo.css">
+
+
 <title>Inserisci Una Nuova Tipologia Esame</title>
 </head>
 <body>
@@ -29,16 +31,17 @@
 									<label for="inputText3" class="col-sm-3 control-label">Nome</label>
 									<div class="col-sm-9">
 										<h:inputText value="#{tipologiaEsameController.nome}"
-											required="true" requiredMessage="Il nome è obbligatorio!"
-											id="nome" styleClass="form-control" />
+											required="true" requiredMessage="Il nome è obbligatorio!" id="nome"
+											styleClass="form-control" />
 										<h:message for="nome" />
+										
+										 
 									</div>
 									<div class="form-group">
 										<label for="inputText3" class="col-sm-3 control-label">Descrizione</label>
 										<div class="col-sm-9">
 											<h:inputText value="#{tipologiaEsameController.descrizione}"
-												required="true"
-												requiredMessage="La descrizione è obbligatoria!"
+												required="true" requiredMessage="La descrizione è obbigatoria!"
 												id="descrizione" styleClass="form-control" />
 											<h:message for="descrizione" />
 										</div>
@@ -47,27 +50,19 @@
 										<label for="inputText3" class="col-sm-3 control-label">Prezzo</label>
 										<div class="col-sm-9">
 											<h:inputText value="#{tipologiaEsameController.prezzo}"
-												required="true" requiredMessage="Il prezzo è obbligatorio!"
-												converterMessage="Il prezzo deve essere un numero!"
-												id="prezzo" styleClass="form-control" />
+												required="true" requiredMessage="Il prezzo è obbiligatorio!"
+												converterMessage="Prezzo must be a number" id="prezzo"
+												styleClass="form-control" />
 											<h:message for="prezzo" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="inputText3" class="col-sm-3 control-label">Prerequisito</label>
-										<div class="col-sm-9">
-											<h:inputText value="#{tipologiaEsameController.prerequisito}"
-												required="true" requiredMessage="Il prerequisito è obbligatorio!"
-												id="prerequisito" styleClass="form-control" />
-											<h:message for="prerequisito" />
 										</div>
 									</div>
 									<br> <br> <br>
 									<div class="form-group last">
-										<div class="col-sm-offset-3 col-sm-3">
+										<div class="col-sm-offset-0 col-sm-3">
 											<div>
 												<h:commandButton value="Avanti" styleClass="form-control"
 													action="#{tipologiaEsameController.creaTipologiaEsame}" />
+													
 											</div>
 										</div>
 										<br>
