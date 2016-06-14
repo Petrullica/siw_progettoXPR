@@ -24,7 +24,7 @@ public class Prerequisito {
 	@Column(unique=true, nullable = false)
 	private String valore;
 	
-	@ManyToMany(mappedBy = "indicatoriRisultato", cascade = {CascadeType.REFRESH, CascadeType.MERGE})
+	@ManyToMany(mappedBy = "prerequisiti", cascade = {CascadeType.REFRESH, CascadeType.MERGE})
 	private List<TipologiaEsame> tipologieEsame = new LinkedList<>();
 
 	public Prerequisito() {
