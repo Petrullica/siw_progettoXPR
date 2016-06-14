@@ -31,21 +31,22 @@
 									<label for="inputText3" class="col-sm-3 control-label">Nome</label>
 									<div class="col-sm-9">
 										<h:inputText value="#{tipologiaEsameController.nome}"
-											required="true" requiredMessage="Il nome è obbligatorio!" id="nome"
-											styleClass="form-control" />
+											required="true" requiredMessage="Il nome è obbligatorio!"
+											id="nome" styleClass="form-control" />
 										<h:message for="nome" />
-										
-										 
+									<br>
 									</div>
 									<div class="form-group">
 										<label for="inputText3" class="col-sm-3 control-label">Descrizione</label>
 										<div class="col-sm-9">
 											<h:inputText value="#{tipologiaEsameController.descrizione}"
-												required="true" requiredMessage="La descrizione è obbigatoria!"
+												required="true"
+												requiredMessage="La descrizione è obbigatoria!"
 												id="descrizione" styleClass="form-control" />
 											<h:message for="descrizione" />
 										</div>
 									</div>
+									<br>
 									<div class="form-group">
 										<label for="inputText3" class="col-sm-3 control-label">Prezzo</label>
 										<div class="col-sm-9">
@@ -56,13 +57,24 @@
 											<h:message for="prezzo" />
 										</div>
 									</div>
+									<br>
+									<div class="form-group">
+										<label for="inputText3" class="col-sm-3 control-label">Prerequisito</label>
+										<div class="col-sm-9">
+											<h:inputText value="#{tipologiaEsameController.prerequisito}"
+												required="true"
+												requiredMessage="Il prerequisito è obbligatorio!"
+												id="prerequisito" styleClass="form-control" />
+											<h:message for="prerequisito" />
+										</div>
+									</div>
 									<br> <br> <br>
 									<div class="form-group last">
 										<div class="col-sm-offset-0 col-sm-3">
 											<div>
 												<h:commandButton value="Avanti" styleClass="form-control"
 													action="#{tipologiaEsameController.creaTipologiaEsame}" />
-													
+
 											</div>
 										</div>
 										<br>

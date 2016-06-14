@@ -33,6 +33,7 @@
 													<th>Nome</th>
 													<th>Descrizione</th>
 													<th>Prezzo</th>
+													<th>Prerequisito</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -46,6 +47,7 @@
 														</h:commandLink></td>
 													<td>${tipologiaEsame.descrizione}</td>
 													<td>${tipologiaEsame.prezzo}</td>
+													<td>${tipologiaEsame.prerequisito}</td>
 												</tr>
 											</c:forEach>
 											</tbody>
