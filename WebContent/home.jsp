@@ -5,17 +5,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="Scroller">
 <head>
 <title>Home Prova 1</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+<link rel="stylesheet" href="css/wrapper.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script>
 	function initialize() {
+
 		var mapProp = {
 			center : new google.maps.LatLng(41.862141, 12.479580),
 			zoom : 17,
@@ -23,11 +28,37 @@
 		};
 		var map = new google.maps.Map(document.getElementById("googleMap"),
 				mapProp);
+
+		var marker = new google.maps.Marker({
+			position : new google.maps.LatLng(41.862141, 12.479580),
+			map : map,
+		});
 	}
+
 	google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+
+<script>
+	var Scroller = angular.module("Scroller", []).controller("Controller",
+			function($scope, $location, $anchorScroll) {
+				$scope.scrollTo = function(scrollLocation) {
+					$location.hash(scrollLocation);
+					$anchorScroll();
+				}
+			})
+</script>
+
 </head>
-<body>
+<body data-ng-controller="Controller">
+	<script>
+		$('.hover').mouseover(function() {
+			$('.text').css("visibility", "visible");
+		});
+
+		$('.hover').mouseout(function() {
+			$('.text').css("visibility", "hidden");
+		});
+	</script>
 	<f:view>
 		<h:form>
 			<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -36,28 +67,19 @@
 						<a class="navbar-brand" href="home.jsp">Clinica XPR</a>
 					</div>
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="inserisciNuovoEsame.jsp">Crea esame</a></li>
-						<li><a href="inserisciNuovaTipologiaEsame.jsp">Crea nuova tipologia esame</a></li>
-						<li><a href="inserisciNuovoPaziente.jsp">Inserisci nuovo paziente</a></li>
-						<li><h:commandLink
-								action="#{tipologiaEsameController.mostraTipologieEsame}"
-								value="Mostra Tipologie Esame" /></li>
-						<li><h:commandLink
-								action="#{esameController.mostraEsamiEffettuatiPaziente}"
-								value="Mostra Esami Effettuati Paziente" /></li>
-						<li><h:commandLink
-								action="#{esameController.mostraEsamiPrenotatiPaziente}"
-								value="Mostra Esami Prenotati Paziente"/></li>
-						<li><a href="mostraEsamiMedico.jsp">Mostra esami medico</a></li>
-						<li><a href="inserisciCodiceEsame.jsp">Inserisci risultati Esame</a></li>
-					
+						<li><a href="" data-ng-click="scrollTo('tipologie')">I tipi di esame</a></li>
+						<li><a href="" data-ng-click="scrollTo('contatti')">Contatti</a></li>
+						<li><a href="" data-ng-click="scrollTo('googleMap')">Dove Siamo</a></li>
+						<li><a href="" data-ng-click="scrollTo('Registrati')">Registrati</a></li>
+						
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" data-hover="dropdown">Login<span
 								class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="loginAmministratore.jsp">Area Amministratori</a></li>
+								<li><a href="loginAmministratore.jsp">Area
+										Amministratori</a></li>
 								<li><a href="loginPaziente.jsp">Area Pazienti</a></li>
 							</ul></li>
 					</ul>
@@ -75,7 +97,7 @@
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox">
-					<div class="item active">
+					<div class="item active" align="center">
 						<img src="images/RomaTre.jpg" alt="RomaTre">
 						<div class="carousel-caption">
 							<h3>Edifici Innovativi</h3>
@@ -83,7 +105,7 @@
 						</div>
 					</div>
 
-					<div class="item">
+					<div class="item" align="center">
 						<img src="images/Medico.jpg" alt="Medico">
 						<div class="carousel-caption">
 							<h3>Non Avere Paura</h3>
@@ -91,7 +113,7 @@
 						</div>
 					</div>
 
-					<div class="item">
+					<div class="item" align="center">
 						<img src="images/TeamDottori.jpg" alt="TeamDottori">
 						<div class="carousel-caption">
 							<h3>Team Professionale</h3>
@@ -99,7 +121,7 @@
 						</div>
 					</div>
 
-					<div class="item">
+					<div class="item" align="center">
 						<img src="images/infermiera.jpg" alt="Infermiera">
 						<div class="carousel-caption">
 							<h3>La prima puntura è gratis</h3>
@@ -120,7 +142,117 @@
 				</a>
 			</div>
 
+
+			<!-- Immagini con Link -->
+
+			<br>
+			<br>
+			<br>
+
 			<div class="container">
+
+				<div id="posts" class="row">
+
+					<div id="tipologie" class="jumbotron">
+						<font size="8"><strong><h:commandLink
+									action="#{tipologiaEsameController.mostraTipologieEsame}"
+									value="Le Nostre Tipologie D'esame" /></strong></font>
+
+						<div class="row">
+							<div id="wrapper" class="col-md-4" class="thumbnail"
+								class="hover">
+								<h:commandLink
+									action="#{tipologiaEsameController.mostraTipologieEsame}">
+									<h:graphicImage value="images/clipboard.jpg" alt="clipboard"
+										style="width: 300px; height: 300px" />
+								</h:commandLink>
+								<p class="text">
+									<strong><b>Siamo i Boss del Settore</b></strong>
+								</p>
+							</div>
+
+							<div id="wrapper" class="col-md-4" class="thumbnail"
+								class="hover">
+								<h:commandLink
+									action="#{tipologiaEsameController.mostraTipologieEsame}">
+									<h:graphicImage value="images/analisiDelSangue.jpg"
+										alt="analisi" style="width: 300px; height: 300px" />
+								</h:commandLink>
+								<p class="text">
+									<strong><b>La puntura non fà male</b></strong>
+								</p>
+							</div>
+
+							<div id="wrapper" class="col-md-4" class="thumbnail"
+								class="hover">
+								<h:commandLink
+									action="#{tipologiaEsameController.mostraTipologieEsame}">
+									<h:graphicImage value="images/dentista.jpg" alt="dentista"
+										style="width: 300px; height: 300px" />
+								</h:commandLink>
+								>
+								<p class="text">
+									<strong><b>Riderai Come un Malato</b></strong>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div id="Registrati" class="jumbotron">
+						<font size="8"><strong><a
+								href="inserisciNuovoPaziente.jsp">Registrati Come Nostro
+									Paziente</a></strong></font>
+						<div class="row">
+							<div id="wrapper" class="col-md-4" class="thumbnail"
+								class="hover">
+								<a href="inserisciNuovoPaziente.jsp"> <img
+									src="images/pazienti.jpeg" alt="pazienti"
+									style="width: 1000px; height: 300px" />
+								</a>
+								<p class="text">
+									<strong><b>Non ne uscirai Vivo</b></strong>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div id="posts" class="row">
+
+						<div class="jumbotron">
+
+							<div class="row">
+
+
+								<div id="wrapper" class="col-md-4" class="hover">
+									<font size="5"><strong><a
+											href="loginPaziente.jsp">Sei già Nostro Paziente?</a></strong></font> <a
+										href="loginPaziente.jsp"> <img src="images/paziente.jpg"
+										alt="pazienti" style="width: 400px; height: 400px" />
+									</a>
+									<p class="text">
+										<strong><b>Accedi!</b></strong>
+									</p>
+								</div>
+
+								<div id="wrapper" class="col-md-4 col-md-offset-3" class="hover">
+									<font size="5"><strong><a
+											href="loginAmministratore.jsp">Sei un Boss?</a></strong></font> <a
+										href="loginAmministratore.jsp"> <img
+										src="images/admin.jpg" alt="admin"
+										style="width: 400px; height: 400px" />
+									</a>
+									<p class="text">
+										<strong><b>Accedi!</b></strong>
+									</p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="contatti" class="container">
 				<h2>Admins</h2>
 				<table class="table">
 					<thead>
@@ -150,7 +282,19 @@
 				</table>
 			</div>
 
+			<br>
+			<br>
+
+			<p align="center">
+				<font size="5"><strong><b>Dove ci Troviamo</b></strong></font>
+			</p>
 			<div class="container" id="googleMap" style="height: 450px;" /></div>
+
+			<br>
+			<br>
+			<footer class="text-center">
+				<a href="" data-ng-click="scrollTo('myCarousel')">Clinica XPR 2016</a>
+			</footer>
 		</h:form>
 	</f:view>
 </body>

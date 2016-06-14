@@ -32,7 +32,12 @@
 						<li><h:commandLink
 								action="#{esameController.mostraEsamiPaziente}"
 								value="Mostra Esami Effettuati" /></li>
-
+						<li><h:commandLink
+								action="#{esameController.mostraEsamiEffettuatiPaziente}"
+								value="Mostra Esami Effettuati Paziente" /></li>
+						<li><h:commandLink
+								action="#{esameController.mostraEsamiPrenotatiPaziente}"
+								value="Mostra Esami Prenotati Paziente" /></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown"><a href="#" class="dropdown-toggle"

@@ -25,7 +25,8 @@
 						<a class="navbar-brand" href="home.jsp">Clinica XPR</a>
 					</div>
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="inserisciNuovoEsame.jsp">Crea esame</a></li>
+						<li class="active"><a href="inserisciNuovoEsame.jsp">Crea
+								esame</a></li>
 						<li><a href="inserisciNuovaTipologiaEsame.jsp">Crea nuova
 								tipologia esame</a></li>
 
@@ -37,6 +38,8 @@
 								value="Mostra Esami Paziente" /></li>
 						<li><a href="mostraEsamiMedico.jsp">Mostra esami medico</a></li>
 						<li><a href="inserisciCodiceEsame.jsp">Inserimento
+								risultati Esame</a></li>
+						<li><a href="inserisciCodiceEsame.jsp">Inserisci
 								risultati Esame</a></li>
 					</ul>
 
