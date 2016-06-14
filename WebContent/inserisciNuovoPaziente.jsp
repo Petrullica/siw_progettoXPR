@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII"
 	content="width=device-width, initial-scale=1, charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/sfondo.css">
+<link rel="stylesheet" type="text/css" href="css/sfondoRegistrazione.css">
 <title>Inserisci Nuovo Paziente</title>
 
 </head>
@@ -32,7 +32,7 @@
 									<label for="inputText3" class="col-sm-3 control-label">Nome</label>
 									<div class="col-sm-9">
 										<h:inputText value="#{pazienteController.nome}"
-											required="true" requiredMessage="Nome is mandatory" id="nome"
+											required="true" requiredMessage="Il nome è obbligatorio!" id="nome"
 											styleClass="form-control" />
 										<h:message for="nome" />
 									</div>
@@ -42,7 +42,7 @@
 									<label for="inputText3" class="col-sm-3 control-label">Cognome</label>
 									<div class="col-sm-9">
 										<h:inputText value="#{pazienteController.cognome}"
-											required="true" requiredMessage="Cognome is mandatory"
+											required="true" requiredMessage="Il cognome è obbligatorio!"
 											id="cognome" styleClass="form-control" />
 										<h:message for="cognome" />
 									</div>
@@ -51,7 +51,7 @@
 									<label for="inputText3" class="col-sm-3 control-label">Username</label>
 									<div class="col-sm-9">
 										<h:inputText value="#{pazienteController.username}"
-											required="true" requiredMessage="Username is mandatory"
+											required="true" requiredMessage="Lo username è obbligatorio!"
 											id="username" styleClass="form-control" />
 										<h:message for="username" />
 									</div>
@@ -60,7 +60,7 @@
 									<label for="inputPassword3" class="col-sm-3 control-label">Password</label>
 									<div class="col-sm-9">
 										<h:inputSecret value="#{pazienteController.password}"
-											required="true" requiredMessage="Password is mandatory"
+											required="true" requiredMessage="La password è obbligatoria!"
 											id="password" styleClass="form-control" />
 									</div>
 								</div>

@@ -29,7 +29,7 @@
 									<label for="inputText3" class="col-sm-3 control-label">Nome</label>
 									<div class="col-sm-9">
 										<h:inputText value="#{tipologiaEsameController.nome}"
-											required="true" requiredMessage="Nome is mandatory" id="nome"
+											required="true" requiredMessage="Il nome è obbligatorio!" id="nome"
 											styleClass="form-control" />
 										<h:message for="nome" />
 									</div>
@@ -37,7 +37,7 @@
 										<label for="inputText3" class="col-sm-3 control-label">Descrizione</label>
 										<div class="col-sm-9">
 											<h:inputText value="#{tipologiaEsameController.descrizione}"
-												required="true" requiredMessage="Descrizione is mandatory"
+												required="true" requiredMessage="La descrizione è obbligatoria!"
 												id="descrizione" styleClass="form-control" />
 											<h:message for="descrizione" />
 										</div>
@@ -47,7 +47,7 @@
 										<div class="col-sm-9">
 											<h:inputText value="#{tipologiaEsameController.prezzo}"
 												required="true" requiredMessage="Prezzo is mandatory"
-												converterMessage="Prezzo must be a number" id="prezzo"
+												converterMessage="Il prezzo deve essere un numero!" id="prezzo"
 												styleClass="form-control" />
 											<h:message for="prezzo" />
 										</div>

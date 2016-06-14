@@ -30,7 +30,7 @@
 									<label for="inputText3" class="col-sm-3 control-label">Nome</label>
 									<div class="col-sm-9">
 										<h:inputText value="#{prerequisitoController.nome}"
-											required="true" requiredMessage="Nome is mandatory" id="nome"
+											required="true" requiredMessage="Il nome è obbligatorio!" id="nome"
 											styleClass="form-control" />
 										<h:message for="nome" />
 									</div>
@@ -38,7 +38,7 @@
 										class="col-sm-3 control-label">Nome</label>
 									<div class="col-sm-9">
 										<h:inputText value="#{prerequisitoController.valore}"
-											required="true" requiredMessage="Valore is mandatory"
+											required="true" requiredMessage="Il valore è obbligatorio!"
 											id="valore" styleClass="form-control" />
 										<h:message for="valore" />
 									</div>

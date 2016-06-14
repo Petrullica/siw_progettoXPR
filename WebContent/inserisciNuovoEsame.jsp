@@ -34,7 +34,7 @@
 									<div class="col-sm-9">
 
 										<h:inputText value="#{esameController.codice}" required="true"
-											requiredMessage="Codice is mandatory" id="codice"
+											requiredMessage="Il codice è obbligatorio!" id="codice"
 											styleClass="form-control" />
 										<h:message for="codice" />
 									</div>
@@ -46,7 +46,7 @@
 									<div class="col-sm-9">
 										<h:inputText value="#{esameController.dataSvolgimentoEsame}"
 											required="true"
-											requiredMessage="dataSvolgimentoEsame is mandatory"
+											requiredMessage="La data di svolgimento dell'esame è obbligatoria!"
 											id="dataSvolgimentoEsame" styleClass="form-control">
 											<h:message for="dataSvolgimentoEsame" />
 											<f:convertDateTime pattern="dd-mm-yyyy" />

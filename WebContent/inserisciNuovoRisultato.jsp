@@ -42,7 +42,7 @@
 										class="col-sm-3 control-label">Valore</label>
 									<div class="col-sm-9">
 										<h:inputText value="#{risultatoController.valore}"
-											required="true" requiredMessage="Valore is mandatory"
+											required="true" requiredMessage="Il valore è obbligatorio!"
 											id="valore" styleClass="form-control" />
 										<h:message for="valore" />
 									</div>
