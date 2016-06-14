@@ -66,18 +66,7 @@
 						href='<c:url value="/faces/inserisciNuovoIndicatoreRisultato.jsp" />'>
 						Aggiungi indicatore risultato</a> <br> <br> <br> <label
 						for="inputText3" class="col-sm-3 control-label">Prerequisito</label>
-					<div class="col-sm-9">
-						<h:selectManyCheckbox id="grid" styleClass="form-control"
-							value="#{prerequisitoController.prerequisitiSelezionati}"
-							layout="grid">
-							<f:selectItems value="#{prerequisitoController.prerequisiti}"
-								var="prerequisito" itemValue="#{prerequisito.nome}" />
-						</h:selectManyCheckbox>
-					</div>
 				</div>
-				<br> <br> <br> <a
-					href='<c:url value="/faces/inserisciNuovoPrerequisito.jsp" />'>
-					Aggiungi prerequisito</a>
 				<div class="form-group last">
 					<h:commandButton value="Conferma e procedi"
 						action="#{indicatoreRisultatoController.aggiornaChiave}"
