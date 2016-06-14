@@ -38,7 +38,6 @@
 		</div>
 	</nav>
 
-
 	<br>
 	<br>
 	<br>
@@ -55,9 +54,8 @@
 							<strong>Nome: </strong>
 							${indicatoreRisultatoController.indicatoreRisultato.nome}
 						</h5>
-						<br> <a
-							href="<c:url value="tipologiaEsame.jsp" />">Torna
-							a crea nuova tipologia Esame</a>
+						<br> <a href="<c:url value="selezionaTipologiaEsame.jsp" />">Conferma
+							e prosegui</a>
 					</div>
 				</div>
 			</div>

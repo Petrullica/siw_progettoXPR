@@ -54,9 +54,8 @@
 							<strong>Nome: </strong>
 							${prerequisitoController.prerequisito.nome}
 						</h5>
-						<br> <a
-							href="<c:url value="inserisciNuovaTipologiaEsame.jsp" />">Torna
-							a crea nuova tipologia Esame</a>
+						<br> <a href="<c:url value="selezionaTipologiaEsame.jsp" />">Conferma
+							e prosegui</a>
 					</div>
 				</div>
 			</div>

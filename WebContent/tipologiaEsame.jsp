@@ -64,8 +64,7 @@
 					</div>
 					<br> <a
 						href='<c:url value="/faces/inserisciNuovoIndicatoreRisultato.jsp" />'>
-						Aggiungi indicatore risultato</a> <br> <br> <br> <label
-						for="inputText3" class="col-sm-3 control-label">Prerequisito</label>
+						Aggiungi indicatore risultato</a> <br> <br> <br>
 				</div>
 				<div class="form-group last">
 					<h:commandButton value="Conferma e procedi"
