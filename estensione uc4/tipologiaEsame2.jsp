@@ -5,7 +5,7 @@
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <%@page import="model.TipologiaEsame"%>
 <%@page import="model.IndicatoreRisultato"%>
-<%@page import="model.Prerequisito"%>
+<%/* @page import="model.Prerequisito" */%>
 
 <!DOCTYPE html>
 <html>
@@ -76,7 +76,7 @@
 					Aggiungi prerequisito</a>
 				<div class="form-group last">
 					<h:commandButton value="Conferma"
-						action="#{prerequisitoController.aggiornaChiave}"
+						action="#{prerequisitoController.aggiornaChiave2}"
 						styleClass="btn btn-default btn-sm" />
 				</div>
 			</div>

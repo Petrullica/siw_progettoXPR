@@ -1,4 +1,4 @@
-package controller;
+
 
 import java.util.List;
 
@@ -23,6 +23,7 @@ public class TipologiaEsameController {
 	private Double prezzo;
 	private String descrizione;
 	private List<IndicatoreRisultato> indicatoriRisultato;
+//	private List<Prerequisito> prerequisiti;
 	private TipologiaEsame tipologiaEsame;
 	private List<TipologiaEsame> tipologieEsame;
 
@@ -49,6 +50,11 @@ public class TipologiaEsameController {
 		this.tipologiaEsame = tipologiaEsameFacade.getTipologiaEsame(id);
 		return "tipologiaEsame";
 	}
+	
+	public String trovaTipologiaEsame() {
+		this.tipologiaEsame = tipologiaEsameFacade.getTipologiaEsame(id);
+		return "tipologiaEsame2";
+	}
 
 	public String findTipologiaEsame(Long id) {
 		this.tipologiaEsame = tipologiaEsameFacade.getTipologiaEsame(id);
@@ -64,6 +70,16 @@ public class TipologiaEsameController {
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("tipologiaEsame");
 		return "tipologiaEsame";
 	}
+	
+//	public String aggiornaPrerequisito(){
+//		this.tipologiaEsame = (TipologiaEsame)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("tipologiaEsame");
+//		for (Prerequisito prerequisito : prerequisiti) {
+//			tipologiaEsame.getPrerequisiti().add(prerequisito);
+//			tipologiaEsameFacade.updateTipologiaEsame(tipologiaEsame);
+//		}
+//		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("tipologiaEsame");
+//		return "tipologiaEsame";
+//	}
 
 	public Long getId() {
 		return id;
@@ -104,6 +120,14 @@ public class TipologiaEsameController {
 	public void setIndicatoriRisultato(List<IndicatoreRisultato> indicatoriRisultato) {
 		this.indicatoriRisultato = indicatoriRisultato;
 	}
+
+//	public List<Prerequisito> getPrerequisiti() {
+//		return prerequisiti;
+//	}
+//
+//	public void setPrerequisiti(List<Prerequisito> prerequisiti) {
+//		this.prerequisiti = prerequisiti;
+//	}
 
 	public TipologiaEsame getTipologiaEsame() {
 		return tipologiaEsame;

@@ -1,4 +1,4 @@
-package model;
+
 
 import java.util.LinkedList;
 import java.util.List;
@@ -27,11 +27,15 @@ public class TipologiaEsame {
 
 	private Double prezzo;
 
+//	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+//	private List<Prerequisito> prerequisiti;
+
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<IndicatoreRisultato> indicatoriRisultato;
 
 	public TipologiaEsame(){
 		this.indicatoriRisultato = new LinkedList<>();
+//		this.prerequisiti = new LinkedList<>();
 	}
 
 	public TipologiaEsame(String nome, String descrizione, double prezzo) {
@@ -39,6 +43,7 @@ public class TipologiaEsame {
 		this.descrizione = descrizione;
 		this.prezzo = prezzo;
 		this.indicatoriRisultato = new LinkedList<>();
+//		this.prerequisiti = new LinkedList<>();
 	}
 
 	public Double getPrezzo() {
@@ -73,6 +78,14 @@ public class TipologiaEsame {
 	public void setIndicatoriRisultato(List<IndicatoreRisultato> indicatoriRisultato) {
 		this.indicatoriRisultato = indicatoriRisultato;
 	}
+
+//	public List<Prerequisito> getPrerequisiti() {
+//		return prerequisiti;
+//	}
+//
+//	public void setPrerequisiti(List<Prerequisito> prerequisiti) {
+//		this.prerequisiti = prerequisiti;
+//	}
 
 	@Override
 	public int hashCode() {

@@ -1,4 +1,4 @@
-package controller;
+
 
 import java.util.List;
 
@@ -53,17 +53,17 @@ public class PrerequisitoController {
 		return "prerequisito";
 	}
 
-	public String aggiornaChiave(){
-		this.tipologiaEsame = (TipologiaEsame)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("tipologiaEsame");
-		if(prerequisitiSelezionati!=null){
-			for (Prerequisito prerequisito : prerequisitiSelezionati) {
-				prerequisito.getTipologieEsame().add(tipologiaEsame);
-				this.prerequisitoFacade.updatePrerequisito(prerequisito);	
-			}
-			return "confermaTipologiaEsame";
-		}
-		else return "error";
-	}
+//	public String aggiornaChiave(){
+//		this.tipologiaEsame = (TipologiaEsame)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("tipologiaEsame");
+//		if(prerequisitiSelezionati!=null){
+//			for (Prerequisito prerequisito : prerequisitiSelezionati) {
+//				prerequisito.getTipologieEsame().add(tipologiaEsame);
+//				this.prerequisitoFacade.updatePrerequisito(prerequisito);	
+//			}
+//			return "confermaTipologiaEsame";
+//		}
+//		else return "error";
+//	}
 
 	public Long getId() {
 		return id;

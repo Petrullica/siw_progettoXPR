@@ -1,4 +1,3 @@
-package controller;
 
 import java.util.List;
 
@@ -54,8 +53,22 @@ public class IndicatoreRisultatoController {
 				this.indicatoreRisultatoFacade.updateIndicatoreRisultato(indicatore);	
 			}
 			return "confermaTipologiaEsame";
+//			return "selezionaTipologiaEsame2";
 		}
 		else return "error";
+	}
+
+	public void aggiornaChiave2(){
+		this.tipologiaEsame = (TipologiaEsame)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("tipologiaEsame");
+		if(indicatoriSelezionati!=null){
+			for (String nome : indicatoriSelezionati) {
+				IndicatoreRisultato indicatore = new IndicatoreRisultato(nome);
+				indicatore.getTipologieEsame().add(tipologiaEsame);
+				this.indicatoreRisultatoFacade.updateIndicatoreRisultato(indicatore);
+				TipologiaEsameController tipologiaEsameController = new TipologiaEsameController();
+				tipologiaEsameController.trovaTipologiaEsame();
+			}
+		}else this.erroreAggiornamentoChiave();
 	}
 
 	public String erroreAggiornamentoChiave() {
