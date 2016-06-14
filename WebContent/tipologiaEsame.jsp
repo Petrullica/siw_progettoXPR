@@ -70,7 +70,7 @@
 						<h:selectManyCheckbox id="grid" styleClass="form-control"
 							value="#{prerequisitoController.prerequisitiSelezionati}"
 							layout="grid">
-							<f:selectItems value="#{prerequisitoController.Prerequisiti}"
+							<f:selectItems value="#{prerequisitoController.prerequisiti}"
 								var="prerequisito" itemValue="#{prerequisito.nome}" />
 						</h:selectManyCheckbox>
 					</div>
