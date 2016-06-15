@@ -69,7 +69,7 @@
 				</div>
 				<br> <br> <br> <a
 					href='<c:url value="/faces/inserisciNuovoIndicatoreRisultato.jsp" />'>
-					Aggiungi Tipologia</a>
+					Aggiungi Indicatore</a>
 
 				<div class="form-group last">
 					<h:commandButton value="Conferma"
