@@ -38,12 +38,6 @@ public class TipologiaEsameController {
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("tipologiaEsame", this.tipologiaEsame);
 		return "tipologiaEsame"; 
 	}
-	
-	public String creaTipologiaEsamePrerequisiti(){
-		this.tipologiaEsame = tipologiaEsameFacade.creaTipologiaEsame(nome, descrizione, prezzo);
-		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("tipologiaEsame", this.tipologiaEsame);
-		return "tipologiaEsamePrerequisito"; 
-	}
 
 	public String mostraTipologieEsame() {
 		this.tipologieEsame = tipologiaEsameFacade.getAllTipologieEsami();

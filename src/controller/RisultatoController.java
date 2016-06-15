@@ -21,15 +21,9 @@ public class RisultatoController {
 	private Esame esame;
 	private Risultato risultato;
 	private List<Risultato> risultati;
-	private List<Risultato> risultatiSelezionati;
 	
 	@EJB
 	private RisultatoFacade risultatoFacade;
-	
-//	@PostConstruct
-//	public void init(){
-//		this.risultati = risultatoFacade.getAllRisultati();
-//	}
 	
 	public String creaRisultato(){
     	this.risultato= risultatoFacade.creaRisultato(indicatoreRisultato, valore, esame);
@@ -82,14 +76,6 @@ public class RisultatoController {
 
 	public void setRisultati(List<Risultato> risultati) {
 		this.risultati = risultati;
-	}
-
-	public List<Risultato> getRisultatiSelezionati() {
-		return risultatiSelezionati;
-	}
-
-	public void setRisultatiSelezionati(List<Risultato> risultatiSelezionati) {
-		this.risultatiSelezionati = risultatiSelezionati;
 	}
 	
 	

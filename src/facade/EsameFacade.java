@@ -12,7 +12,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import model.Esame;
 import model.Medico;
 import model.Paziente;
-import model.Risultato;
 import model.TipologiaEsame;
 
 
@@ -44,23 +43,6 @@ public class EsameFacade {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Risultato> getAllRisultati() {
-		Query q = em.createNativeQuery("select esame.risultato_id from Esame "
-				+ "left join risultato on esame_id = esame.id ", Esame.class);
-		List<Risultato> risultati = q.getResultList();
-		if (risultati == null) return null;
-		else return risultati;	
-	}
-	
-	public Esame getEsameByCodice(String codice) {
-		Query q = em.createNativeQuery("select * from Esame "
-				+ "where esame.codice = ?", Esame.class);
-		q.setParameter(1, codice);
-		Esame esame = (Esame)q.getSingleResult();
-		return esame;
-	}
-	
-	@SuppressWarnings("unchecked")
 	public List<Esame> getEsamiByPazienteUsername(String username){
 
 		Query q = em.createNativeQuery("select * from Esame where"
@@ -69,6 +51,14 @@ public class EsameFacade {
 		List<Esame> esami= q.getResultList();
 		
 		return esami;
+	}
+	
+	public Esame getEsameByCodice(String codice){
+		Query q = em.createNativeQuery("select * from esame"
+				+ " where codice = ?", Esame.class);
+		q.setParameter(1, codice);
+		Esame esame=(Esame) q.getSingleResult();
+		return esame;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -99,19 +89,9 @@ public class EsameFacade {
 		List<Esame> esami= q.getResultList();
 		return esami;
 	}
-	
-	@SuppressWarnings("unchecked")
-	public List<Esame> getAllEsamiDaCompletare() {
-		Query q = em.createNativeQuery("select * from esame "
-				+ "left join risultato on esame_id = esame.id"
-				+ " where risultato.id IS NULL", Esame.class);
-		List<Esame> esamiDaCompletare= q.getResultList();
-		return esamiDaCompletare;
-	}
 
-	public Esame updateEsame(Esame esame) {
-        Esame esameCompletato = em.merge(esame);
-        return esameCompletato;
+	public void updateEsame(Esame esame) {
+        em.merge(esame);
 	}
 	
     private void deleteEsame(Esame esame) {

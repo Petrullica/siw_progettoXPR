@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -19,7 +18,7 @@ import model.TipologiaEsame;
 
 @ManagedBean
 public class EsameController {
-
+	
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String codice;
@@ -31,92 +30,68 @@ public class EsameController {
 	private Paziente paziente;
 	private Esame esame;
 	private List<Esame> esami;
-	private List<Esame> esamiDaCompletare;
-
+	
 	@EJB
 	private EsameFacade esameFacade;
-
+	
 	@PostConstruct
 	public void init(){
 		this.esami = esameFacade.getAllEsami();
-		this.esamiDaCompletare = esameFacade.getAllEsamiDaCompletare();
-		this.risultati = new LinkedList<>();
-//		this.risultati = esameFacade.getAllRisultati();
 	}
-
+	
 	public String creaEsame(){
-		if(paziente != null){
-			this.esame= esameFacade.creaEsame(codice,dataSvolgimentoEsame, paziente, medico, tipologiaEsame);
-			return "esame";
-		}
-		else return "error";
-
-	}
-
+    	this.esame= esameFacade.creaEsame(codice,dataSvolgimentoEsame, paziente, medico, tipologiaEsame);
+		return "esame";    	
+    }
+	
 	public String mostraEsami(){
 		this.esami= esameFacade.getAllEsami();
 		return "esami";
 	}
 	
-	public void aggiungiAllRisultati() {
-		this.risultati = esameFacade.getAllRisultati();
-	}
-
-	//	public String mostraEsameByCodice() {
-	//		this.esame = esameFacade.getEsameByCodice(codice);
-	//		return "esame";
-	//	}
-
+	
 	public String mostraEsamiPaziente(){
 		this.paziente= (Paziente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");
 		if(paziente!=null){
-			this.esami= esameFacade.getEsamiByPazienteUsername(paziente.getUsername());
-			return "esami";
+		this.esami= esameFacade.getEsamiByPazienteUsername(paziente.getUsername());
+		return "esami";
 		}
 		else return "fallimento";
 	}
-
+	
 	public String mostraEsamiPrenotatiPaziente(){
 		this.paziente= (Paziente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");
 		if(paziente!=null){
-			this.esami= esameFacade.getEsamiPrenotatiByPazienteUsername(paziente.getUsername());
-			return "esami";
+		this.esami= esameFacade.getEsamiPrenotatiByPazienteUsername(paziente.getUsername());
+		return "esami";
 		}
 		else return "fallimento";
 	}
-
+		
 	public String mostraEsamiEffettuatiPaziente(){
-		this.paziente= (Paziente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");
-		if(paziente!=null){
+			this.paziente= (Paziente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paziente");
+			if(paziente!=null){
 			this.esami= esameFacade.getEsamiEffettuatiByPazienteUsername(paziente.getUsername());
 			return "esami";
-		}
-		else return "fallimento";
+			}
+			else return "fallimento";
 	}	
-
-	public String findEsame() {
-		this.esame = esameFacade.getEsame(id);
-		return "esame";
+	
+	public String findEsame(){
+		if(this.esame!=null){
+			return "esameDaCompletare";
+		}
+		return "error";
 	}
-
-	public String findEsameDaCompletare() {
-		this.esame = esameFacade.getEsameByCodice(codice);
-		return "esameDaCompletare";
-	}
-
-	public String aggiornaEsame() {
-		this.esame = esameFacade.updateEsame(esame);
-		return "esameCompletato";
-	}
-
-	public String getCodice() {
+	
+    public String getCodice() {
 		return codice;
 	}
 
 	public void setCodice(String codice) {
 		this.codice = codice;
 	}
-
+	
 	public Medico getMedico() {
 		return medico;
 	}
@@ -140,8 +115,8 @@ public class EsameController {
 	public void setEsame(Esame esame) {
 		this.esame = esame;
 	}
-
-
+	
+	
 
 	public Paziente getPaziente() {
 		return paziente;
@@ -158,8 +133,8 @@ public class EsameController {
 	public void setDataPrenotazioneEsame(Date dataPrenotazioneEsame) {
 		this.dataPrenotazioneEsame = dataPrenotazioneEsame;
 	}
-
-
+	
+	
 
 	public Long getId() {
 		return id;
@@ -192,12 +167,6 @@ public class EsameController {
 	public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
 		this.tipologiaEsame = tipologiaEsame;
 	}
-
-	public List<Esame> getEsamiDaCompletare() {
-		return esamiDaCompletare;
-	}
-
-	public void setEsamiDaCompletare(List<Esame> esamiDaCompletare) {
-		this.esamiDaCompletare = esamiDaCompletare;
-	}
+	
+	
 }
