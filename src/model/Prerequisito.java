@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Prerequisito {
@@ -19,6 +20,7 @@ public class Prerequisito {
 	@Column(unique=true, nullable = false)
 	private String valore;
 	
+	@ManyToOne
 	private TipologiaEsame tipologia;
 	
 	
