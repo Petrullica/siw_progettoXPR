@@ -15,7 +15,7 @@
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-	
+
 	<br>
 	<br>
 	<br>
@@ -24,15 +24,13 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-3">
 				<div class="panel panel-default">
-				       <h3 style="font-size:500%;">Codice: ${esameController.esame.codice}</h3>
+				       <h3 style="font-size:500%;">Codice: ${medicoController.nome}</h3>
 				       
 						<h4 style="font-size:300%;"><strong >Dettagli</strong></h4>
 						    <br>
-							<h5 style="font-size:180%;"><strong>Data prenotazione: </strong> ${esameController.esame.dataPrenotazioneEsame}</h5><br>
-							<h5 style="font-size:180%;"><strong>Data svolgimento: </strong> ${esameController.esame.dataSvolgimentoEsame}</h5><br>
+							<h5 style="font-size:180%;"><strong>Cognome: </strong> ${medicoController.cognome}</h5><br>
+							<h5 style="font-size:180%;"><strong>Specializzazzione: </strong> ${medicoController.specializzazione}</h5><br>
 							<h5 style="font-size:180%;"><strong>Tipologia esame: </strong> ${esameController.tipologiaEsame.nome}</h5><br>
-							<h5 style="font-size:180%;"><strong>Medico: </strong> ${esameController.medico.nome}</h5><br>
-							<h5 style="font-size:180%;"><strong>Paziente: </strong> ${esameController.paziente.nome}</h5><br>
 						
 					</div>
 				</div>

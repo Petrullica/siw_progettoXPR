@@ -31,17 +31,18 @@
 									<label for="inputText3" class="col-sm-3 control-label">Nome</label>
 									<div class="col-sm-9">
 										<h:inputText value="#{tipologiaEsameController.nome}"
-											required="true" requiredMessage="Il nome è obbligatorio!" id="nome"
-											styleClass="form-control" />
+											required="true" requiredMessage="Il nome è obbligatorio!"
+											id="nome" styleClass="form-control" />
 										<h:message for="nome" />
-										
-										 
+
+
 									</div>
 									<div class="form-group">
 										<label for="inputText3" class="col-sm-3 control-label">Descrizione</label>
 										<div class="col-sm-9">
 											<h:inputText value="#{tipologiaEsameController.descrizione}"
-												required="true" requiredMessage="La descrizione è obbigatoria!"
+												required="true"
+												requiredMessage="La descrizione è obbigatoria!"
 												id="descrizione" styleClass="form-control" />
 											<h:message for="descrizione" />
 										</div>
@@ -64,6 +65,13 @@
 													action="#{tipologiaEsameController.creaTipologiaEsame}" />
 											</div>
 										</div>
+
+										<div class="form-group last">
+											<h:commandButton value="AggiungiPrerequisito"
+												action="#{tipologiaEsameController.creaTipologiaEsamePrerequisito}"
+												styleClass="btn btn-default btn-sm" />
+										</div>
+
 										<br>
 										<div class="form-group last">
 											<a href='<c:url value="/faces/home.jsp" />'> Annulla e
@@ -76,6 +84,9 @@
 					</div>
 				</div>
 			</div>
+			<footer class="text-center">
+				<a href="home.jsp">Clinica XPR 2016</a>
+			</footer>
 		</h:form>
 	</f:view>
 </body>

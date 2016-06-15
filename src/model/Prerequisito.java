@@ -14,10 +14,10 @@ public class Prerequisito {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long Id;
 
-	@Column(unique=true, nullable = false)
+	@Column(nullable = false)
 	private String nome;
 
-	@Column(unique=true, nullable = false)
+	@Column(nullable = false)
 	private String valore;
 	
 	@ManyToOne

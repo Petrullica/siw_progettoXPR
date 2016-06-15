@@ -75,13 +75,14 @@
 					<h:commandButton value="Conferma"
 						action="#{indicatoreRisultatoController.aggiornaChiave}"
 						styleClass="btn btn-default btn-sm" />
-
 				</div>
+
 			</div>
+
 		</h:form>
 		<footer class="text-center">
-				<a href="home.jsp">Clinica XPR 2016</a>
-			</footer>
+			<a href="home.jsp">Clinica XPR 2016</a>
+		</footer>
 	</f:view>
 </body>
 </html>

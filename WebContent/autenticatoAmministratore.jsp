@@ -52,9 +52,7 @@
 				<li><h:commandLink
 						action="#{tipologiaEsameController.mostraTipologieEsame}"
 						value="Mostra Tipologie Esame" /></li>
-				<li><h:commandLink
-						action="#{esameController.mostraEsamiPaziente}"
-						value="Mostra Esami Paziente" /></li>
+				<li><a href="creaMedico.jsp">Inserisci Un Nuovo Medico</a></li>
 				<li><a href="mostraEsamiMedico.jsp">Mostra esami medico</a></li>
 				<li><a href="inserisciCodiceEsame.jsp">Inserimento
 						risultati Esame</a></li>
