@@ -54,10 +54,7 @@
 						value="Mostra Tipologie Esame" /></li>
 				<li><a href="creaMedico.jsp">Inserisci Un Nuovo Medico</a></li>
 				<li><a href="mostraEsamiMedico.jsp">Mostra esami medico</a></li>
-				<li><a href="inserisciCodiceEsame.jsp">Inserimento
-						risultati Esame</a></li>
-				<li><a href="inserisciCodiceEsame.jsp">Inserisci risultati
-						Esame</a></li>
+				
 			</ul>
 			</div>
 </div>
