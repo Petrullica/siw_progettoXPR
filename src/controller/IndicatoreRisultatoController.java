@@ -53,13 +53,9 @@ public class IndicatoreRisultatoController {
 				indicatore.getTipologieEsame().add(tipologiaEsame);
 				this.indicatoreRisultatoFacade.updateIndicatoreRisultato(indicatore);	
 			}
-			return "confermaTipologiaEsame";
+			return "confermatipologiaesame";
 		}
 		else return "error";
-	}
-
-	public String erroreAggiornamentoChiave() {
-		return "error";
 	}
 
 	public String getNome() {

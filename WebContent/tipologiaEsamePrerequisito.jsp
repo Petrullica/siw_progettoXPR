@@ -51,32 +51,36 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- Inserimento Prerequisito -->
+
 			<div class="container">
-				<div>
-					<label for="inputText3" class="col-sm-3 control-label">Indicatore
-						Risultato</label>
-					<div class="col-sm-9">
-						<h:selectManyCheckbox id="grid" styleClass="form-control"
-							value="#{indicatoreRisultatoController.indicatoriSelezionati}"
-							layout="grid">
-							<f:selectItems
-								value="#{indicatoreRisultatoController.indicatoriRisultato}"
-								var="indicatoreRisultato"
-								itemValue="#{indicatoreRisultato.nome}" />
-						</h:selectManyCheckbox>
-					</div>
-
+				<div class="col-sm-9">
+					Nome<h:inputText value="#{prerequisitoController.nome}" required="true"
+						requiredMessage="Il nome è obbligatorio!" id="nome"
+						styleClass="form-control" />
+					<h:message for="nome" />
 				</div>
-				<br> <br> <br> <a
-					href='<c:url value="/faces/inserisciNuovoIndicatoreRisultato.jsp" />'>
-					Aggiungi Indicatore Risultato</a>
 
-				<div class="form-group last">
-					<h:commandButton value="Conferma"
-						action="#{indicatoreRisultatoController.aggiornaChiave}"
+				<div class="col-sm-9">
+					Valore<h:inputText value="#{prerequisitoController.valore}"
+						required="true" requiredMessage="Il valore è obbligatorio!"
+						id="valore" styleClass="form-control" />
+					<h:message for="valore" />
+				</div>
+			</div>
+			<div class="form-group last">
+				<div class="col-sm-offset-3 col-sm-9">
+					<h:commandButton value="Aggiungi e Continua"
+						action="#{prerequisitoController.creaPrerequisito}"
 						styleClass="btn btn-default btn-sm" />
 				</div>
-				
+
+				<div class="col-sm-offset-3 col-sm-9">
+					<h:commandButton value="Completato"
+						action="#{prerequisitoController.creaPrerequisitoStop}"
+						styleClass="btn btn-default btn-sm" />
+				</div>
 			</div>
 		</h:form>
 	</f:view>

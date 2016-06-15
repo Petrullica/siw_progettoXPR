@@ -9,8 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-
+import javax.persistence.OneToMany;
 
 @Entity
 public class TipologiaEsame {
@@ -26,21 +27,24 @@ public class TipologiaEsame {
 	private String descrizione;
 
 	private Double prezzo;
-	
-	private String prerequisito;
+
 
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<IndicatoreRisultato> indicatoriRisultato;
+	
+	@OneToMany(cascade = {CascadeType.REMOVE, CascadeType.REFRESH})
+	@JoinColumn(name = "tipologiaesame_id")
+	private List<Prerequisito> prerequisiti;
+	
 
 	public TipologiaEsame(){
 		this.indicatoriRisultato = new LinkedList<>();
 	}
 
-	public TipologiaEsame(String nome, String descrizione, double prezzo, String prerequisito) {
+	public TipologiaEsame(String nome, String descrizione, double prezzo) {
 		this.nome = nome;
 		this.descrizione = descrizione;
 		this.prezzo = prezzo;
-		this.prerequisito = prerequisito;
 		this.indicatoriRisultato = new LinkedList<>();
 	}
 
@@ -67,7 +71,7 @@ public class TipologiaEsame {
 	public void setDescrizione(String descr) {
 		this.descrizione = descr;
 	}
-
+	
 
 	public List<IndicatoreRisultato> getIndicatoriRisultato() {
 		return indicatoriRisultato;
@@ -75,14 +79,6 @@ public class TipologiaEsame {
 
 	public void setIndicatoriRisultato(List<IndicatoreRisultato> indicatoriRisultato) {
 		this.indicatoriRisultato = indicatoriRisultato;
-	}
-
-	public String getPrerequisito() {
-		return prerequisito;
-	}
-
-	public void setPrerequisito(String prerequisito) {
-		this.prerequisito = prerequisito;
 	}
 
 	@Override
@@ -93,7 +89,6 @@ public class TipologiaEsame {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((prezzo == null) ? 0 : prezzo.hashCode());
-		result = prime * result + ((prerequisito == null) ? 0 : prerequisito.hashCode());
 		return result;
 	}
 
@@ -125,11 +120,6 @@ public class TipologiaEsame {
 			if (other.prezzo != null)
 				return false;
 		} else if (!prezzo.equals(other.prezzo))
-			return false;
-		if (prerequisito == null) {
-			if (other.prerequisito != null)
-				return false;
-		}else if (!prerequisito.equals(other.prerequisito))
 			return false;
 		return true;
 	}

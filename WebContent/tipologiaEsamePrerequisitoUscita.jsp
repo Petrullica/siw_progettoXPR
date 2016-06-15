@@ -29,7 +29,7 @@
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
 							<div class="panel panel-default">
-								<h3 style="font-size: 400%;">${tipologiaEsameController.tipologiaEsame.nome}</h3>
+								<h3 style="font-size: 400%;">${prerequisitoController.tipologiaEsame.nome}</h3>
 
 								<h4 style="font-size: 300%;">
 									<strong>Dettagli</strong>
@@ -37,12 +37,12 @@
 								<br>
 								<h5 style="font-size: 180%;">
 									<strong>Descrizione: </strong>
-									${tipologiaEsameController.tipologiaEsame.descrizione}
+									${prerequisitoController.tipologiaEsame.descrizione}
 								</h5>
 								<br>
 								<h5 style="font-size: 180%;">
 									<strong>Prezzo:</strong>
-									${tipologiaEsameController.tipologiaEsame.prezzo}
+									${prerequisitoController.tipologiaEsame.prezzo}
 								</h5>
 
 

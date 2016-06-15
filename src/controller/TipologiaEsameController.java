@@ -3,7 +3,6 @@ package controller;
 import java.util.List;
 
 import model.IndicatoreRisultato;
-//import model.Prerequisito;
 import model.TipologiaEsame;
 
 import javax.annotation.PostConstruct;
@@ -22,7 +21,6 @@ public class TipologiaEsameController {
 	private String nome;
 	private Double prezzo;
 	private String descrizione;
-	private String prerequisito;
 	private List<IndicatoreRisultato> indicatoriRisultato;
 	private TipologiaEsame tipologiaEsame;
 	private List<TipologiaEsame> tipologieEsame;
@@ -36,9 +34,15 @@ public class TipologiaEsameController {
 	}
 
 	public String creaTipologiaEsame() {
-		this.tipologiaEsame = tipologiaEsameFacade.creaTipologiaEsame(nome, descrizione, prezzo, prerequisito);
+		this.tipologiaEsame = tipologiaEsameFacade.creaTipologiaEsame(nome, descrizione, prezzo);
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("tipologiaEsame", this.tipologiaEsame);
 		return "tipologiaEsame"; 
+	}
+	
+	public String creaTipologiaEsamePrerequisiti(){
+		this.tipologiaEsame = tipologiaEsameFacade.creaTipologiaEsame(nome, descrizione, prezzo);
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("tipologiaEsame", this.tipologiaEsame);
+		return "tipologiaEsamePrerequisito"; 
 	}
 
 	public String mostraTipologieEsame() {
@@ -94,24 +98,8 @@ public class TipologiaEsameController {
 		return descrizione;
 	}
 
-	public String getPrerequisito() {
-		return prerequisito;
-	}
-
-	public void setPrerequisito(String prerequisito) {
-		this.prerequisito = prerequisito;
-	}
-
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
-	}
-
-	public List<IndicatoreRisultato> getIndicatoriRisultato() {
-		return indicatoriRisultato;
-	}
-
-	public void setIndicatoriRisultato(List<IndicatoreRisultato> indicatoriRisultato) {
-		this.indicatoriRisultato = indicatoriRisultato;
 	}
 
 	public TipologiaEsame getTipologiaEsame() {
@@ -128,5 +116,13 @@ public class TipologiaEsameController {
 
 	public void setTipologieEsame(List<TipologiaEsame> tipologieEsame) {
 		this.tipologieEsame = tipologieEsame;
+	}
+
+	public List<IndicatoreRisultato> getIndicatoriRisultato() {
+		return indicatoriRisultato;
+	}
+
+	public void setIndicatoriRisultato(List<IndicatoreRisultato> indicatoriRisultato) {
+		this.indicatoriRisultato = indicatoriRisultato;
 	}
 }

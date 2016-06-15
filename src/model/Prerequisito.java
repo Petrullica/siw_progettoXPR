@@ -18,13 +18,18 @@ public class Prerequisito {
 
 	@Column(unique=true, nullable = false)
 	private String valore;
+	
+	private TipologiaEsame tipologia;
+	
+	
 
 	public Prerequisito() {
 	}
 	
-	public Prerequisito(String nome, String valore) {
+	public Prerequisito(String nome, String valore, TipologiaEsame tipologia) {
 		this.nome = nome;
 		this.valore = valore;
+		this.tipologia = tipologia;
 	}
 
 	public String getNome() {
@@ -46,4 +51,14 @@ public class Prerequisito {
 	public Long getId() {
 		return Id;
 	}
+
+	public TipologiaEsame getTipologia() {
+		return tipologia;
+	}
+
+	public void setTipologia(TipologiaEsame tipologia) {
+		this.tipologia = tipologia;
+	}
+	
+	
 }
