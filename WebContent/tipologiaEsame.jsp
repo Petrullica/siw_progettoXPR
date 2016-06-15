@@ -69,16 +69,19 @@
 				</div>
 				<br> <br> <br> <a
 					href='<c:url value="/faces/inserisciNuovoIndicatoreRisultato.jsp" />'>
-					Aggiungi Indicatore Risultato</a>
+					Aggiungi Tipologia</a>
 
 				<div class="form-group last">
 					<h:commandButton value="Conferma"
 						action="#{indicatoreRisultatoController.aggiornaChiave}"
 						styleClass="btn btn-default btn-sm" />
+
 				</div>
-				
 			</div>
 		</h:form>
+		<footer class="text-center">
+				<a href="home.jsp">Clinica XPR 2016</a>
+			</footer>
 	</f:view>
 </body>
 </html>

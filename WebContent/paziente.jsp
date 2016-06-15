@@ -65,5 +65,8 @@
 			</div>
 		</div>
 	</div>
+	<footer class="text-center">
+				<a href="home.jsp">Clinica XPR 2016</a>
+			</footer>
 </body>
 </html>

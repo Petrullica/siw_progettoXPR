@@ -33,7 +33,6 @@
 													<th>Nome</th>
 													<th>Descrizione</th>
 													<th>Prezzo</th>
-													<th>Prerequisito</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -47,7 +46,6 @@
 														</h:commandLink></td>
 													<td>${tipologiaEsame.descrizione}</td>
 													<td>${tipologiaEsame.prezzo}</td>
-													<td>${tipologiaEsame.prerequisito}</td>
 												</tr>
 											</c:forEach>
 											</tbody>
@@ -58,6 +56,9 @@
 						</div>
 					</div>
 					</div>
+					<footer class="text-center">
+				<a href="home.jsp">Clinica XPR 2016</a>
+			</footer>
 		</h:form>
 	</f:view>
 </body>

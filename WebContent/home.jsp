@@ -47,7 +47,6 @@
 				}
 			})
 </script>
-
 </head>
 <body data-ng-controller="Controller">
 	<script>
@@ -71,6 +70,7 @@
 						<li><a href="" data-ng-click="scrollTo('contatti')">Contatti</a></li>
 						<li><a href="" data-ng-click="scrollTo('googleMap')">Dove Siamo</a></li>
 						<li><a href="" data-ng-click="scrollTo('Registrati')">Registrati</a></li>
+						<li><a href="" data-ng-click="scrollTo('riservato')">Area Riservata</a></li>
 						
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
@@ -78,9 +78,9 @@
 							data-toggle="dropdown" data-hover="dropdown">Login<span
 								class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="loginAmministratore.jsp">Area
+								<li><a href="loginAmministratore.jsp">Login
 										Amministratori</a></li>
-								<li><a href="loginPaziente.jsp">Area Pazienti</a></li>
+								<li><a href="loginPaziente.jsp">Login Pazienti</a></li>
 							</ul></li>
 					</ul>
 				</div>
@@ -218,15 +218,15 @@
 
 					<div id="posts" class="row">
 
-						<div class="jumbotron">
+						<div id="riservato" class="jumbotron">
 
 							<div class="row">
 
 
 								<div id="wrapper" class="col-md-4" class="hover">
 									<font size="5"><strong><a
-											href="loginPaziente.jsp">Sei già Nostro Paziente?</a></strong></font> <a
-										href="loginPaziente.jsp"> <img src="images/paziente.jpg"
+											href="autenticatoPaziente.jsp">Sei già Nostro Paziente?</a></strong></font> <a
+										href="autenticatoPaziente.jsp"> <img src="images/paziente.jpg"
 										alt="pazienti" style="width: 400px; height: 400px" />
 									</a>
 									<p class="text">
@@ -236,8 +236,8 @@
 
 								<div id="wrapper" class="col-md-4 col-md-offset-3" class="hover">
 									<font size="5"><strong><a
-											href="loginAmministratore.jsp">Sei un Boss?</a></strong></font> <a
-										href="loginAmministratore.jsp"> <img
+											href="autenticatoAmministratore.jsp">Sei un Boss?</a></strong></font> <a
+										href="autenticatoAmministratore.jsp"> <img
 										src="images/admin.jpg" alt="admin"
 										style="width: 400px; height: 400px" />
 									</a>

@@ -82,6 +82,9 @@
 						styleClass="btn btn-default btn-sm" />
 				</div>
 			</div>
+			<footer class="text-center">
+				<a href="home.jsp">Clinica XPR 2016</a>
+			</footer>
 		</h:form>
 	</f:view>
 </body>

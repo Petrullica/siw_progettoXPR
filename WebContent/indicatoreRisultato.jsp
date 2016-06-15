@@ -38,6 +38,7 @@
 		</div>
 	</nav>
 
+
 	<br>
 	<br>
 	<br>
@@ -54,14 +55,17 @@
 							<strong>Nome: </strong>
 							${indicatoreRisultatoController.indicatoreRisultato.nome}
 						</h5>
-						<br> <a href="<c:url value="selezionaTipologiaEsame.jsp" />">Conferma
-							e prosegui</a>
+						<br> <a
+							href="<c:url value="inserisciNuovaTipologiaEsame.jsp" />">Torna
+							a crea nuova tipologia Esame</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+<footer class="text-center">
+				<a href="home.jsp">Clinica XPR 2016</a>
+			</footer>
 
 </body>
 </html>

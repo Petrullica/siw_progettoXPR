@@ -44,11 +44,8 @@
          <strong>Prezzo:</strong>
          ${indicatoreRisultatoController.tipologiaEsame.prezzo}
         </h5>
-        <br>
-        <h5 style="font-size: 180%;">
-         <strong>Prerequisito:</strong>
-         ${indicatoreRisultatoController.tipologiaEsame.prerequisito}
-        </h5>
+
+
        </div>
       </div>
      </div>

@@ -20,32 +20,6 @@
 <body>
 	<f:view>
 		<h:form>
-			<nav class="navbar navbar-inverse navbar-fixed-top">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<a class="navbar-brand" href="home.jsp">Clinica XPR</a>
-					</div>
-					<ul class="nav navbar-nav">
-						<li><h:commandLink
-								action="#{tipologiaEsameController.mostraTipologieEsame}"
-								value="Mostra Tipologie Esame" /></li>
-						<li><h:commandLink
-								action="#{esameController.mostraEsamiPaziente}"
-								value="Mostra Esami Effettuati" /></li>
-						<li><h:commandLink
-								action="#{esameController.mostraEsamiEffettuatiPaziente}"
-								value="Mostra Esami Effettuati Paziente" /></li>
-						<li><h:commandLink
-								action="#{esameController.mostraEsamiPrenotatiPaziente}"
-								value="Mostra Esami Prenotati Paziente" /></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" data-hover="dropdown">Logged!<span
-								class="caret"></span></a>
-					</ul>
-				</div>
-			</nav>
 
 			<br>
 			<br>
@@ -65,6 +39,29 @@
 					</div>
 				</div>
 			</div>
+			<div align="center">
+				<font size="5"><strong>Operazioni</strong></font> <br> <br>
+				<div class="panel panel-default">
+					<ul>
+						<li><h:commandLink
+								action="#{tipologiaEsameController.mostraTipologieEsame}"
+								value="Mostra Tipologie Esame" /></li>
+						<li><h:commandLink
+								action="#{esameController.mostraEsamiPaziente}"
+								value="Mostra Esami Effettuati" /></li>
+						<li><h:commandLink
+								action="#{esameController.mostraEsamiEffettuatiPaziente}"
+								value="Mostra Esami Effettuati Paziente" /></li>
+						<li><h:commandLink
+								action="#{esameController.mostraEsamiPrenotatiPaziente}"
+								value="Mostra Esami Prenotati Paziente" /></li>
+					</ul>
+				</div>
+			</div>
+<footer class="text-center">
+				<a href="home.jsp">Clinica XPR 2016</a>
+			</footer>
+
 		</h:form>
 	</f:view>
 </body>
