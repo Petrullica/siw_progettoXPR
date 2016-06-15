@@ -35,7 +35,7 @@
 							${indicatoreRisultatoController.indicatoreRisultato.nome}
 						</h5>
 						<br> <a
-							href="<c:url value="inserisciNuovaTipologiaEsame.jsp" />">Torna
+							href="<c:url value="selezionaTipologiaEsame.jsp" />">Torna
 							a crea nuova tipologia Esame</a>
 					</div>
 				</div>

@@ -39,27 +39,26 @@
 					</div>
 				</div>
 			</div>
-			
-			<div align="center">
-			<font size="5"><strong>Operazioni</strong></font>
-			<br> <br>
-			<div class="panel panel-default">
-			<ul>
-				<li><a href="inserisciNuovoEsame.jsp">Crea
-						esame</a></li>
-				<li><a href="inserisciNuovaTipologiaEsame.jsp">Crea nuova
-						tipologia esame</a></li>
-				<li><h:commandLink
-						action="#{tipologiaEsameController.mostraTipologieEsame}"
-						value="Mostra Tipologie Esame" /></li>
-				<li><a href="creaMedico.jsp">Inserisci Un Nuovo Medico</a></li>
-				<li><a href="mostraEsamiMedico.jsp">Mostra esami medico</a></li>
-				
-			</ul>
-			</div>
-</div>
 
-<footer class="text-center">
+			<div align="center">
+				<font size="5"><strong>Operazioni</strong></font> <br> <br>
+				<div class="panel panel-default">
+					<ul>
+						<li><a href="inserisciNuovoEsame.jsp">Crea esame</a></li>
+						<li><a href="inserisciNuovaTipologiaEsame.jsp">Crea nuova
+								tipologia esame</a></li>
+						<li><h:commandLink
+								action="#{tipologiaEsameController.mostraTipologieEsame}"
+								value="Mostra Tipologie Esame" /></li>
+						<li><a href="selezionaTipologiaEsame.jsp">Aggiorna una tipologia esame</a></li>
+						<li><a href="creaMedico.jsp">Inserisci Un Nuovo Medico</a></li>
+						<li><a href="mostraEsamiMedico.jsp">Mostra esami medico</a></li>
+
+					</ul>
+				</div>
+			</div>
+
+			<footer class="text-center">
 				<a href="home.jsp">Clinica XPR 2016</a>
 			</footer>
 

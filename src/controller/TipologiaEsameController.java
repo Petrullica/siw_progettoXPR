@@ -54,6 +54,12 @@ public class TipologiaEsameController {
 		this.tipologiaEsame = tipologiaEsameFacade.getTipologiaEsame(id);
 		return "tipologiaEsame";
 	}
+	
+	public String findTipologiaEsame2() {
+		this.tipologiaEsame = tipologiaEsameFacade.getTipologiaEsame(id);
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("tipologiaEsame", this.tipologiaEsame);
+		return "tipologiaEsamePrerequisito";
+	}
 
 	public String findTipologiaEsame(Long id) {
 		this.tipologiaEsame = tipologiaEsameFacade.getTipologiaEsame(id);
